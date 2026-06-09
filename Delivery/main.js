@@ -191,14 +191,7 @@ const products = [
    descUnit:'Pistola lança confete 30cm — unidade',      priceUnit:16.00,
    descBox:'Caixa com 6 unidades',                       priceBox:76.80, qtyBox:6},
 
-  // Forminhas e caixinhas
-  {id:40, name:'Forminha Redonda Lisa',   emoji:'🫙', cat:'festas',
-   descUnit:'Forminha 4cm lisa — pacote 100un',          priceUnit:4.80,
-   descBox:'Caixa com 10 pacotes (1000un)',               priceBox:38.40, qtyBox:10},
 
-  {id:41, name:'Forminha Estampada Festa',emoji:'🌸', cat:'festas',
-   descUnit:'Forminha estampada — pacote 100un',         priceUnit:6.40,
-   descBox:'Caixa com 10 pacotes (1000un)',               priceBox:51.20, qtyBox:10},
 
 
   // Toalhas
@@ -793,8 +786,6 @@ const IMG = {
   37:  'images/produtos/37.jpg',  // Confete Colorido
   38:  'images/produtos/38.jpg',  // Serpentina Colorida
   39:  'images/produtos/39.jpg',  // Pistola de Confete
-  40:  'images/produtos/40.jpg',  // Forminha Redonda Lisa
-  41:  'images/produtos/41.jpg',  // Forminha Estampada Festa
   44:  'images/produtos/44.jpg',  // Toalha Plastica Lisa
   45:  'images/produtos/45.jpg',  // Toalha Plastica Estampada
   46:  'images/produtos/46.jpg',  // Toalha TNT Lisa
