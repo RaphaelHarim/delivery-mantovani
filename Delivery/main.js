@@ -247,14 +247,6 @@ const products = [
    descUnit:'Guardanapo festivo — pacote 20un',          priceUnit:4.00,
    descBox:'Caixa com 10 pacotes (200un)',                priceBox:32.00, qtyBox:10},
 
-  {id:59, name:'Baleiro Plástico',        emoji:'🍬', cat:'festas',
-   descUnit:'Baleiro porta-doces plástico — unidade',    priceUnit:9.60,
-   descBox:'Pacote com 6 unidades',                      priceBox:46.08, qtyBox:6},
-
-  {id:60, name:'Lembrancinha Caixinha',   emoji:'🎁', cat:'festas', badge:'Personalizado',
-   descUnit:'Caixinha lembrancinha decorada — unidade',  priceUnit:3.20,
-   descBox:'Pacote com 10 unidades',                     priceBox:25.60, qtyBox:10},
-
   // ══════════════════════════════════════════════════════════════
   // SALGADINHOS
   // ══════════════════════════════════════════════════════════════
@@ -786,8 +778,6 @@ const IMG = {
   56:  'images/produtos/56.jpg',  // Faixa Feliz Aniversario
   57:  'images/produtos/57.jpg',  // Chapeu de Festa Conical
   58:  'images/produtos/58.jpg',  // Guardanapo Estampado
-  59:  'images/produtos/59.jpg',  // Baleiro Plastico
-  60:  'images/produtos/60.jpg',  // Lembrancinha Caixinha
 
   // SALGADINHOS
   61:  'images/produtos/61.jpg',  // Elma Chips Onda Original
