@@ -70,9 +70,6 @@ const products = [
    descUnit:'Mentos tutti-frutti 37,5g — rolo',          priceUnit:3.20,
    descBox:'Caixa com 16 rolos',                         priceBox:41.60, qtyBox:16},
 
-  {id:12, name:'Mentos Limão',            emoji:'🍋', cat:'doces',
-   descUnit:'Mentos sabor limão 37,5g — rolo',           priceUnit:3.20,
-   descBox:'Caixa com 16 rolos',                         priceBox:41.60, qtyBox:16},
 
   {id:13, name:'Mentos Watermelon',       emoji:'🍉', cat:'doces',
    descUnit:'Mentos melancia 37,5g — rolo',              priceUnit:3.20,
@@ -144,9 +141,6 @@ const products = [
    descUnit:'Caixa bombom Kopenhagen 200g — caixa',      priceUnit:64.00,
    descBox:'Caixa com 3 unidades',                       priceBox:153.60, qtyBox:3},
 
-  {id:29, name:'Caixa Brasil Cacau',      emoji:'🎁', cat:'doces',
-   descUnit:'Caixa bombom Brasil Cacau 200g — caixa',    priceUnit:48.00,
-   descBox:'Caixa com 3 unidades',                       priceBox:115.20, qtyBox:3},
 
   // — Outros Doces (item especial com nota)
   {id:30, name:'Outros Doces — Especificar', emoji:'📝', cat:'doces', badge:'Personalizado',
@@ -206,13 +200,6 @@ const products = [
    descUnit:'Forminha estampada — pacote 100un',         priceUnit:6.40,
    descBox:'Caixa com 10 pacotes (1000un)',               priceBox:51.20, qtyBox:10},
 
-  {id:42, name:'Caixinha Kraft P (doces)',emoji:'📦', cat:'festas',
-   descUnit:'Caixinha kraft 7×7cm — unidade',            priceUnit:1.60,
-   descBox:'Caixa com 50 unidades',                      priceBox:64.00, qtyBox:50},
-
-  {id:43, name:'Caixinha Kraft M (lembranças)',emoji:'📦',cat:'festas',
-   descUnit:'Caixinha kraft 10×10cm — unidade',          priceUnit:2.40,
-   descBox:'Caixa com 30 unidades',                      priceBox:57.60, qtyBox:30},
 
   // Toalhas
   {id:44, name:'Toalha Plástica Lisa',    emoji:'🎉', cat:'festas',
@@ -778,7 +765,6 @@ const IMG = {
   9:   'images/produtos/9.jpg',   // Mentos Menta
   10:  'images/produtos/10.jpg',  // Mentos Morango
   11:  'images/produtos/11.jpg',  // Mentos Tutti-Frutti
-  12:  'images/produtos/12.jpg',  // Mentos Limao
   13:  'images/produtos/13.jpg',  // Mentos Watermelon
   14:  'images/produtos/14.jpg',  // Bala Florestal
   15:  'images/produtos/15.jpg',  // Butter Toffees Original
@@ -795,7 +781,6 @@ const IMG = {
   26:  'images/produtos/26.jpg',  // Caixa Garoto Sortida
   27:  'images/produtos/27.jpg',  // Caixa Nestle Sortida
   28:  'images/produtos/28.jpg',  // Caixa Kopenhagen
-  29:  'images/produtos/29.jpg',  // Caixa Brasil Cacau
   30:  'images/produtos/30.jpg',  // Outros Doces
 
   // FESTAS
@@ -810,8 +795,6 @@ const IMG = {
   39:  'images/produtos/39.jpg',  // Pistola de Confete
   40:  'images/produtos/40.jpg',  // Forminha Redonda Lisa
   41:  'images/produtos/41.jpg',  // Forminha Estampada Festa
-  42:  'images/produtos/42.jpg',  // Caixinha Kraft P
-  43:  'images/produtos/43.jpg',  // Caixinha Kraft M
   44:  'images/produtos/44.jpg',  // Toalha Plastica Lisa
   45:  'images/produtos/45.jpg',  // Toalha Plastica Estampada
   46:  'images/produtos/46.jpg',  // Toalha TNT Lisa
