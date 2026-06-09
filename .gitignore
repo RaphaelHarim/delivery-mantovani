@@ -1,0 +1,8 @@
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Scripts temporários de migração
+*.fix.js
+fix_*.js

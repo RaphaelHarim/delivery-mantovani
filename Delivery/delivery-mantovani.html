@@ -1,0 +1,1788 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delivery Mantovani</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red:      #D72B2B;
+  --red-d:    #A81F1F;
+  --red-l:    #E84040;
+  --blue:     #0E1F4D;
+  --blue-m:   #162E6E;
+  --blue-l:   #1E40AF;
+  --white:    #FFFFFF;
+  --off:      #F5F6FA;
+  --border:   #E2E4EE;
+  --text:     #0A0C16;
+  --sub:      #52566E;
+  --card:     #FFFFFF;
+  --black:    #0A0C16;
+  --radius:   16px;
+  --shadow:   0 2px 16px rgba(10,12,22,0.08);
+  --shadow-h: 0 10px 36px rgba(10,12,22,0.14);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--off);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--red);color:#fff;text-align:center;padding:8px 20px;font-size:.75rem;font-weight:600;letter-spacing:.06em}
+.topbar strong{font-weight:800}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:70px;gap:20px}
+.logo-wrap{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-mark{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--red),var(--red-d));display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 4px 14px rgba(232,35,42,.35);flex-shrink:0}
+.logo-name{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:900;color:var(--blue);letter-spacing:-.01em;line-height:1}
+.logo-tag{font-size:.6rem;font-weight:700;color:var(--sub);letter-spacing:.1em;text-transform:uppercase}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--sub);font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:10px;transition:all .2s}
+.nav-links a:hover{color:var(--text);background:var(--off)}
+.nav-cart{display:flex;align-items:center;gap:8px;background:var(--red);color:#fff;border:none;border-radius:50px;padding:10px 20px;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 4px 14px rgba(232,35,42,.3)}
+.nav-cart:hover{background:var(--red-l);transform:translateY(-1px);box-shadow:0 6px 20px rgba(232,35,42,.4)}
+.cart-badge{background:#fff;color:var(--red);font-size:.72rem;font-weight:800;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,var(--blue) 0%,var(--blue-m) 60%,#1e4fd8 100%);padding:80px 5% 90px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-blob{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(232,35,42,.2) 0%,transparent 70%);top:-200px;right:-100px;pointer-events:none}
+.hero-blob2{position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.06) 0%,transparent 70%);bottom:-100px;left:5%;pointer-events:none}
+.hero-inner{max-width:1280px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(232,35,42,.18);border:1px solid rgba(232,35,42,.4);color:#FF8B8E;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:50px;margin-bottom:22px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,4.5vw,3.8rem);color:#fff;line-height:1.05;letter-spacing:-.02em;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:#FF8B8E;display:block}
+.hero p{color:rgba(255,255,255,.65);font-size:1rem;line-height:1.75;max-width:400px;margin-bottom:32px;font-weight:400}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-hero-p{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;font-weight:700;font-size:.9rem;padding:14px 26px;border-radius:50px;text-decoration:none;border:none;cursor:pointer;box-shadow:0 8px 24px rgba(232,35,42,.45);transition:all .2s}
+.btn-hero-p:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(232,35,42,.6)}
+.btn-hero-s{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);color:#fff;font-weight:600;font-size:.9rem;padding:14px 26px;border-radius:50px;text-decoration:none;border:1px solid rgba(255,255,255,.25);transition:all .2s;cursor:pointer}
+.btn-hero-s:hover{background:rgba(255,255,255,.18)}
+.hero-stats{display:flex;gap:32px;margin-top:40px;padding-top:32px;border-top:1px solid rgba(255,255,255,.12)}
+.hstat-n{font-family:'Playfair Display',serif;font-size:2rem;color:#fff;font-weight:700;line-height:1}
+.hstat-l{font-size:.68rem;font-weight:600;color:rgba(255,255,255,.45);letter-spacing:.08em;text-transform:uppercase;margin-top:2px}
+/* Hero visual */
+.hero-visual{display:flex;justify-content:center;align-items:center}
+.hero-phone{width:260px;height:460px;background:rgba(255,255,255,.08);border-radius:36px;border:1.5px solid rgba(255,255,255,.15);backdrop-filter:blur(12px);padding:20px 16px;display:flex;flex-direction:column;gap:10px;box-shadow:0 32px 80px rgba(0,0,0,.35)}
+.hp-bar{height:6px;background:rgba(255,255,255,.15);border-radius:4px;width:60%;margin:0 auto 6px}
+.hp-card{background:rgba(255,255,255,.12);border-radius:14px;padding:12px;display:flex;align-items:center;gap:10px}
+.hp-card-big{background:linear-gradient(135deg,var(--red),var(--red-d));border-radius:14px;padding:14px;margin-bottom:4px}
+.hp-emoji{font-size:1.8rem}
+.hp-title{font-size:.72rem;font-weight:700;color:#fff;margin-bottom:2px}
+.hp-price{font-size:.8rem;font-weight:800;color:rgba(255,255,255,.75)}
+.hp-tag{background:rgba(255,255,255,.2);border-radius:6px;padding:3px 8px;font-size:.6rem;font-weight:700;color:#fff;display:inline-block;margin-top:4px}
+.hp-plus{width:26px;height:26px;border-radius:8px;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:1rem;color:#fff;font-weight:900;margin-left:auto;flex-shrink:0}
+.hp-row{display:flex;gap:8px}
+.hp-row .hp-card{flex:1}
+.hp-notify{background:rgba(255,255,255,.95);border-radius:12px;padding:10px 12px;display:flex;align-items:center;gap:8px;margin-top:4px}
+.hp-notify-dot{width:8px;height:8px;border-radius:50%;background:#22C55E;flex-shrink:0}
+.hp-notify-text{font-size:.65rem;font-weight:700;color:#0D0F1A;line-height:1.3}
+
+/* ── SEARCH ── */
+.search-bar{background:#fff;border-bottom:1px solid var(--border);padding:20px 5%;position:sticky;top:70px;z-index:100;box-shadow:0 4px 20px rgba(0,0,0,.04)}
+.search-inner{max-width:680px;margin:0 auto;position:relative}
+.search-inner input{width:100%;padding:14px 20px 14px 50px;border:1.5px solid var(--border);border-radius:50px;font-family:'Inter',sans-serif;font-size:.95rem;font-weight:500;color:var(--text);background:var(--off);outline:none;transition:all .2s}
+.search-inner input:focus{border-color:var(--blue-l);box-shadow:0 0 0 4px rgba(40,86,204,.1);background:#fff}
+.search-icon{position:absolute;left:18px;top:50%;transform:translateY(-50%);font-size:1.1rem;pointer-events:none}
+
+/* ── LAYOUT PRINCIPAL ── */
+.main-wrap{max-width:1280px;margin:0 auto;padding:0 5% 60px}
+
+/* ── CATEGORY PILLS (horizontal) ── */
+.cat-bar-wrap{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:70px;z-index:99;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.cat-bar{max-width:1280px;margin:0 auto;padding:14px 5%;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.cat-bar::-webkit-scrollbar{display:none}
+.cat-pill{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:50px;border:1.5px solid var(--border);background:#fff;cursor:pointer;transition:all .2s;white-space:nowrap;font-family:'Inter',sans-serif;font-size:.83rem;font-weight:600;color:var(--sub);flex-shrink:0}
+.cat-pill:hover{border-color:rgba(40,86,204,.3);color:var(--text);background:var(--off)}
+.cat-pill.active{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 4px 14px rgba(15,42,107,.25)}
+.cat-pill-emoji{font-size:1.05rem}
+.cat-pill-count{background:rgba(255,255,255,.25);font-size:.68rem;font-weight:700;padding:1px 7px;border-radius:20px;margin-left:2px}
+.cat-pill:not(.active) .cat-pill-count{background:var(--off);color:var(--sub)}
+
+/* ── CATÁLOGO ── */
+.catalog-area{padding-top:36px}
+.catalog-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:10px}
+.catalog-title{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--text);letter-spacing:-.02em}
+.catalog-sub{font-size:.82rem;color:var(--sub);font-weight:500;margin-top:2px}
+.sort-wrap select{border:1.5px solid var(--border);border-radius:10px;padding:8px 14px;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;color:var(--text);background:#fff;cursor:pointer;outline:none}
+
+/* ── GRID PRODUTOS ── */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+
+.pcard{background:var(--card);border-radius:20px;overflow:hidden;border:1.5px solid var(--border);transition:all .25s;cursor:default}
+.pcard:hover{border-color:rgba(40,86,204,.25);box-shadow:var(--shadow-h);transform:translateY(-4px)}
+.pcard-img{height:140px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative}
+.pcard-badge{position:absolute;top:10px;left:10px;background:var(--red);color:#fff;font-size:.6rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:50px}
+.pcard-body{padding:14px}
+.pcard-name{font-size:.9rem;font-weight:700;margin-bottom:6px;line-height:1.3;color:var(--text)}
+
+/* Toggle unidade/caixa */
+.toggle-wrap{display:flex;background:var(--off);border-radius:10px;padding:3px;margin-bottom:10px;gap:2px}
+.toggle-wrap button{flex:1;border:none;background:transparent;border-radius:8px;padding:5px 0;font-family:'Inter',sans-serif;font-size:.7rem;font-weight:700;color:var(--sub);cursor:pointer;transition:all .18s}
+.toggle-wrap button.on{background:#fff;color:var(--blue-m);box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.pcard-desc{font-size:.72rem;color:var(--sub);margin-bottom:10px;line-height:1.5;min-height:2.2em}
+.pcard-foot{display:flex;align-items:flex-end;justify-content:space-between}
+.price-main{font-size:1.2rem;font-weight:800;color:var(--text);line-height:1}
+.price-tag{font-size:.62rem;font-weight:600;color:var(--sub);margin-top:1px}
+.price-save{font-size:.62rem;font-weight:700;color:#059669;background:#D1FAE5;padding:2px 6px;border-radius:6px;margin-top:3px;display:inline-block}
+.add-btn{width:36px;height:36px;border-radius:12px;background:var(--blue);color:#fff;border:none;font-size:1.4rem;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:900;transition:all .2s;box-shadow:0 4px 12px rgba(15,42,107,.25);flex-shrink:0}
+.add-btn:hover{background:var(--blue-l);transform:scale(1.08)}
+.add-btn:active{transform:scale(.95)}
+.add-btn.ok{background:#22C55E}
+
+/* bgs produto */
+.pb-doces   {background:linear-gradient(145deg,#FFF0F5,#FFE4EE)}
+.pb-bebidas {background:linear-gradient(145deg,#EBF8FF,#DBEAFE)}
+.pb-mercado {background:linear-gradient(145deg,#F0FFF4,#DCFCE7)}
+.pb-festas  {background:linear-gradient(145deg,#FFFBEB,#FEF9C3)}
+.pb-salgados{background:linear-gradient(145deg,#FFF5F0,#FFE4D6)}
+.pb-limpeza {background:linear-gradient(145deg,#F5F3FF,#EDE9FE)}
+
+/* ── PROMO BANNER ── */
+.promo-wrap{margin:40px 0}
+.promo-card{background:linear-gradient(120deg,var(--red-d),var(--red),#FF6B6B);border-radius:24px;padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;position:relative;overflow:hidden}
+.promo-card::before{content:'🎁';position:absolute;font-size:10rem;right:220px;opacity:.08;transform:rotate(-15deg)}
+.promo-h{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#fff;margin-bottom:6px}
+.promo-p{color:rgba(255,255,255,.75);font-size:.88rem;font-weight:500}
+.promo-code-box{background:rgba(255,255,255,.15);border:2px dashed rgba(255,255,255,.45);border-radius:14px;padding:16px 24px;text-align:center;flex-shrink:0;backdrop-filter:blur(8px)}
+.promo-code-l{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:4px}
+.promo-code-v{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#fff;letter-spacing:.08em}
+
+/* ── COMO FUNCIONA ── */
+.how-section{background:var(--blue);padding:70px 5%;margin-top:0}
+.how-inner{max-width:1280px;margin:0 auto}
+.section-eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:8px}
+.section-title-light{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#fff;letter-spacing:-.02em;margin-bottom:40px}
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
+.step{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:28px 24px;transition:all .2s}
+.step:hover{background:rgba(255,255,255,.1);transform:translateY(-4px)}
+.step-n{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:rgba(232,35,42,.4);line-height:1;margin-bottom:12px}
+.step-ico{font-size:1.8rem;margin-bottom:10px;display:block}
+.step-t{font-weight:700;color:#fff;font-size:.95rem;margin-bottom:6px}
+.step-d{color:rgba(255,255,255,.55);font-size:.82rem;line-height:1.65}
+
+/* ── CARRINHO FAB ── */
+.cart-fab{position:fixed;bottom:28px;right:28px;z-index:300;background:var(--red);color:#fff;border:none;border-radius:50px;padding:14px 24px;display:flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;cursor:pointer;box-shadow:0 8px 28px rgba(232,35,42,.5);transition:all .2s}
+.cart-fab:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(232,35,42,.65)}
+.cart-fab-badge{background:#fff;color:var(--red);font-size:.72rem;font-weight:800;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.wpp-fab{position:fixed;bottom:28px;left:28px;z-index:300;background:#25D366;color:#fff;border:none;border-radius:50%;width:54px;height:54px;font-size:1.5rem;cursor:pointer;box-shadow:0 6px 20px rgba(37,211,102,.5);display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.wpp-fab:hover{transform:scale(1.1)}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:92px;right:28px;background:var(--blue);color:#fff;padding:12px 18px;border-radius:12px;font-weight:600;font-size:.85rem;z-index:500;transform:translateX(130%);transition:transform .3s cubic-bezier(.34,1.56,.64,1);box-shadow:0 8px 24px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;white-space:nowrap}
+.toast.show{transform:translateX(0)}
+
+/* ── MODAL ── */
+.overlay{position:fixed;inset:0;background:rgba(10,15,40,.5);z-index:400;display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(6px)}
+.overlay.open{display:flex}
+.sheet{background:#fff;width:100%;max-width:520px;border-radius:28px 28px 0 0;padding:24px;max-height:90vh;overflow-y:auto;animation:slideUp .32s cubic-bezier(.34,1.2,.64,1)}
+@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.sheet-handle{width:36px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 20px}
+.sheet-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:18px}
+.close-sheet{position:absolute;top:18px;right:18px;background:var(--off);border:none;border-radius:50%;width:34px;height:34px;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--sub)}
+
+/* Cart items */
+.cart-item{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--border)}
+.ci-em{font-size:1.9rem;width:46px;text-align:center}
+.ci-inf{flex:1}
+.ci-n{font-weight:700;font-size:.9rem;margin-bottom:2px}
+.ci-p{font-size:.78rem;color:var(--sub)}
+.ci-ctrl{display:flex;align-items:center;gap:8px}
+.q-btn{width:28px;height:28px;border-radius:8px;border:1.5px solid var(--border);background:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:800;transition:all .15s;color:var(--text)}
+.q-btn:hover{border-color:var(--blue-l);color:var(--blue-l)}
+.q-num{font-weight:800;font-size:.9rem;min-width:22px;text-align:center}
+.cart-total-box{background:var(--off);border-radius:16px;padding:16px;margin-top:18px}
+.t-row{display:flex;justify-content:space-between;font-size:.85rem;color:var(--sub);margin-bottom:7px;font-weight:500}
+.t-final{display:flex;justify-content:space-between;font-weight:800;font-size:1.05rem;color:var(--text);padding-top:10px;border-top:1.5px solid var(--border);margin-top:6px}
+.btn-finalizar{width:100%;margin-top:16px;padding:15px;background:var(--red);color:#fff;border:none;border-radius:50px;font-family:'Inter',sans-serif;font-weight:700;font-size:.95rem;cursor:pointer;transition:background .2s;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn-finalizar:hover{background:var(--red-l)}
+.btn-voltar{width:100%;margin-top:8px;padding:12px;background:transparent;color:var(--sub);border:1.5px solid var(--border);border-radius:50px;font-family:'Inter',sans-serif;font-weight:600;font-size:.88rem;cursor:pointer}
+.empty-cart{text-align:center;padding:40px 0;color:var(--sub)}
+.empty-cart-icon{font-size:3rem;margin-bottom:12px;display:block}
+
+/* Form */
+.form-wrap{display:none;flex-direction:column;gap:12px;margin-top:6px}
+.form-wrap.vis{display:flex}
+.fg label{display:block;font-size:.72rem;font-weight:700;color:var(--sub);letter-spacing:.05em;text-transform:uppercase;margin-bottom:5px}
+.fg input,.fg textarea,.fg select{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:12px;font-family:'Inter',sans-serif;font-size:.9rem;font-weight:500;color:var(--text);outline:none;transition:border-color .2s;background:#fff}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--blue-l)}
+.fg textarea{min-height:72px;resize:vertical}
+.pay-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px}
+.pay-opt{border:1.5px solid var(--border);border-radius:12px;padding:10px 12px;display:flex;align-items:center;gap:8px;cursor:pointer;transition:all .2s;font-size:.8rem;font-weight:600;color:var(--sub);background:#fff}
+.pay-opt.on{border-color:var(--blue-l);background:#EFF6FF;color:var(--blue-m)}
+.summary-box{background:var(--off);border-radius:14px;padding:14px;font-size:.82rem}
+
+/* Success */
+.success-wrap{display:none;text-align:center;padding:20px 0}
+.success-wrap.vis{display:block}
+.suc-icon{font-size:4rem;margin-bottom:14px;display:block}
+.suc-title{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;margin-bottom:10px}
+.suc-text{color:var(--sub);font-size:.88rem;line-height:1.7;margin-bottom:24px}
+.suc-info{background:var(--off);border-radius:14px;padding:14px;margin-bottom:20px;font-size:.82rem;font-weight:600;display:flex;flex-direction:column;gap:6px}
+
+/* ── FOOTER ── */
+footer{background:var(--blue);padding:52px 5% 28px;margin-top:0}
+.foot-inner{max-width:1280px;margin:0 auto}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.foot-brand .logo-name{color:#fff}
+.foot-brand .logo-tag{color:rgba(255,255,255,.4)}
+.foot-brand p{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.75;margin-top:14px;max-width:260px}
+.foot-brand .owner{color:rgba(255,255,255,.7);font-weight:600;margin-top:10px;font-size:.82rem}
+.foot-col h4{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:14px}
+.foot-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.foot-links a{text-decoration:none;color:rgba(255,255,255,.55);font-size:.85rem;font-weight:500;transition:color .2s}
+.foot-links a:hover{color:#fff}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.foot-bottom p{font-size:.75rem;color:rgba(255,255,255,.3)}
+
+/* ── MASCOTE ── */
+.mascote-wrap{position:relative;display:flex;flex-direction:column;align-items:center}
+.mascote-svg{width:280px;height:auto;filter:drop-shadow(0 16px 40px rgba(0,0,0,0.35));animation:mascote-float 3.2s ease-in-out infinite}
+@keyframes mascote-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.mascote-bubble{position:relative;background:white;color:var(--text);border-radius:18px 18px 18px 4px;padding:12px 18px;font-size:.82rem;font-weight:600;line-height:1.5;margin-top:12px;box-shadow:0 8px 24px rgba(0,0,0,0.18);max-width:220px;text-align:center}
+.mascote-bubble::before{content:'';position:absolute;top:-9px;left:24px;border:9px solid transparent;border-bottom-color:white;border-top:none}
+.mascote-bubble strong{color:var(--red)}
+
+/* ── SEÇÃO WHATSAPP DIRETO ── */
+.wpp-section{background:var(--white);padding:64px 5%}
+.wpp-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.wpp-text .eyebrow{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.wpp-text h2{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--text);letter-spacing:-.02em;margin-bottom:14px;line-height:1.15}
+.wpp-text p{color:var(--sub);font-size:.95rem;line-height:1.75;margin-bottom:28px}
+.wpp-btn-big{display:inline-flex;align-items:center;gap:12px;background:#25D366;color:white;font-weight:700;font-size:1rem;padding:16px 32px;border-radius:50px;text-decoration:none;box-shadow:0 8px 24px rgba(37,211,102,.35);transition:all .2s;border:none;cursor:pointer}
+.wpp-btn-big:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,211,102,.5)}
+.wpp-btn-big svg{width:22px;height:22px;fill:white;flex-shrink:0}
+.wpp-card{background:var(--off);border-radius:20px;padding:28px;border:1.5px solid var(--border)}
+.wpp-card-header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.wpp-avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.wpp-avatar svg{width:24px;height:24px;fill:white}
+.wpp-avatar-name{font-weight:700;font-size:.9rem;color:var(--text)}
+.wpp-avatar-status{font-size:.72rem;color:#25D366;font-weight:600}
+.wpp-msg{background:white;border-radius:0 12px 12px 12px;padding:10px 14px;font-size:.82rem;color:var(--text);font-weight:500;line-height:1.55;margin-bottom:8px;box-shadow:var(--shadow);max-width:85%}
+.wpp-msg-out{background:#DCF8C6;border-radius:12px 0 12px 12px;margin-left:auto;text-align:right}
+.wpp-msg-time{font-size:.62rem;color:var(--sub);text-align:right;margin-top:3px}
+.wpp-items{display:flex;flex-direction:column;gap:8px}
+@media(max-width:768px){.wpp-inner{grid-template-columns:1fr}}
+
+/* ── SEÇÃO SUPORTE COM IA ── */
+.support-section{background:var(--off);padding:64px 5%;border-top:1px solid var(--border)}
+.support-inner{max-width:1280px;margin:0 auto}
+.support-header{text-align:center;margin-bottom:40px}
+.support-header .eyebrow{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.support-header h2{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--text);letter-spacing:-.02em;margin-bottom:10px}
+.support-header p{color:var(--sub);font-size:.92rem;max-width:520px;margin:0 auto;line-height:1.7}
+.support-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px}
+@media(max-width:700px){.support-grid{grid-template-columns:1fr}}
+.support-card{background:white;border-radius:16px;padding:24px;border:1.5px solid var(--border);cursor:pointer;transition:all .22s}
+.support-card:hover{border-color:var(--blue-l);box-shadow:var(--shadow-h);transform:translateY(-3px)}
+.sc-icon{width:40px;height:40px;border-radius:12px;background:var(--off);display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:1.3rem}
+.sc-title{font-weight:700;font-size:.92rem;color:var(--text);margin-bottom:6px}
+.sc-desc{font-size:.78rem;color:var(--sub);line-height:1.6}
+/* Chat IA */
+.ai-chat{background:white;border-radius:20px;border:1.5px solid var(--border);overflow:hidden}
+.ai-chat-header{background:var(--blue);padding:16px 20px;display:flex;align-items:center;gap:12px}
+.ai-chat-dot{width:8px;height:8px;border-radius:50%;background:#22C55E}
+.ai-chat-name{font-weight:700;font-size:.88rem;color:white}
+.ai-chat-sub{font-size:.68rem;color:rgba(255,255,255,.55);margin-top:1px}
+.ai-messages{padding:20px;display:flex;flex-direction:column;gap:10px;max-height:260px;overflow-y:auto}
+.ai-msg{padding:10px 14px;border-radius:12px;font-size:.82rem;line-height:1.55;max-width:85%}
+.ai-msg.bot{background:var(--off);color:var(--text);border-radius:0 12px 12px 12px;font-weight:500}
+.ai-msg.user{background:var(--blue);color:white;border-radius:12px 12px 0 12px;margin-left:auto;font-weight:500}
+.ai-input-wrap{display:flex;gap:8px;padding:12px 16px;border-top:1px solid var(--border);background:#FAFBFF}
+.ai-input{flex:1;padding:10px 14px;border:1.5px solid var(--border);border-radius:50px;font-family:'Inter',sans-serif;font-size:.85rem;outline:none;transition:border-color .2s;background:white;color:var(--text)}
+.ai-input:focus{border-color:var(--blue-l)}
+.ai-send{background:var(--blue);color:white;border:none;border-radius:50%;width:38px;height:38px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}
+.ai-send:hover{background:var(--blue-l)}
+.ai-send svg{width:16px;height:16px;fill:white}
+.ai-typing{display:none;padding:8px 14px;background:var(--off);border-radius:0 12px 12px 12px;font-size:.78rem;color:var(--sub);font-style:italic;width:fit-content}
+.ai-typing.show{display:block}
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-visual{display:none}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+  .promo-card{flex-direction:column;text-align:center}
+  .cat-bar{padding:10px 4%}
+  .cat-pill{padding:7px 14px;font-size:.78rem}
+}
+@media(max-width:480px){
+  .foot-grid{grid-template-columns:1fr}
+  .products-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+}
+
+/* ── IMAGENS PRODUTO ── */
+.pcard-img img{
+  transition: opacity .3s;
+  opacity: 0;
+  background: transparent;
+}
+.pcard-img img.loaded { opacity: 1; }
+.pcard-img {
+  background: var(--off);
+}
+/* skeleton shimmer enquanto carrega */
+.pcard-img::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.6) 50%,transparent 100%);
+  background-size:200% 100%;
+  animation:shimmer 1.4s infinite;
+  pointer-events:none;
+  z-index:0;
+}
+@keyframes shimmer{
+  0%{background-position:200% 0}
+  100%{background-position:-200% 0}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">Doces · Festas · Salgadinhos · Bebidas — <strong>Delivery rápido (11) 98887-5328</strong></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo-wrap">
+      <div class="logo-mark">🛵</div>
+      <div>
+        <div class="logo-name">Delivery Mantovani</div>
+        <div class="logo-tag">Desde sempre na sua porta</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#catalogo">Cardápio</a></li>
+      <li><a href="#whatsapp">Pedir pelo WhatsApp</a></li>
+      <li><a href="#suporte">Suporte</a></li>
+    </ul>
+    <button class="nav-cart" onclick="openCart()">
+      🛒 Carrinho <span class="cart-badge" id="cartCount">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-blob"></div>
+  <div class="hero-blob2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-pill">🛵 Motoboy sempre pronto</div>
+      <h1>O Mantovani voltou,<em>agora no delivery.</em></h1>
+      <p>A tradição da loja física do Mantovani, agora no delivery. Doces, artigos de festa, salgadinhos e bebidas direto na sua porta.</p>
+      <div class="hero-btns">
+        <a href="#catalogo" class="btn-hero-p">🛒 Ver Cardápio</a>
+        <a href="#como-funciona" class="btn-hero-s">Como funciona →</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="hstat-n">30min</div><div class="hstat-l">Entrega média</div></div>
+        <div><div class="hstat-n">38+</div><div class="hstat-l">Produtos</div></div>
+        <div><div class="hstat-n">4.9★</div><div class="hstat-l">Avaliação</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="mascote-wrap">
+        <svg viewBox="0 0 320 420" xmlns="http://www.w3.org/2000/svg" class="mascote-svg">
+          <ellipse cx="160" cy="410" rx="72" ry="10" fill="rgba(0,0,0,0.22)"/>
+          <!-- Corpo jaleco vermelho -->
+          <rect x="90" y="232" width="140" height="126" rx="30" fill="#D72B2B"/>
+          <rect x="150" y="232" width="20" height="126" fill="rgba(255,255,255,0.10)"/>
+          <circle cx="160" cy="258" r="4.5" fill="white" opacity=".75"/>
+          <circle cx="160" cy="277" r="4.5" fill="white" opacity=".75"/>
+          <circle cx="160" cy="296" r="4.5" fill="white" opacity=".75"/>
+          <polygon points="140,232 160,256 180,232" fill="white" opacity=".85"/>
+          <!-- Braço esquerdo + sacola -->
+          <rect x="54" y="242" width="44" height="24" rx="12" fill="#D72B2B" transform="rotate(-20,76,254)"/>
+          <ellipse cx="48" cy="276" rx="15" ry="13" fill="#FBBF8A"/>
+          <rect x="22" y="286" width="44" height="38" rx="9" fill="#0E1F4D"/>
+          <path d="M31 286 Q38 272 54 272 Q70 272 77 286" fill="none" stroke="#0E1F4D" stroke-width="4" stroke-linecap="round"/>
+          <text x="44" y="309" font-family="Arial" font-weight="900" font-size="11" fill="white" text-anchor="middle">M</text>
+          <!-- Braço direito acenando -->
+          <rect x="222" y="233" width="44" height="24" rx="12" fill="#D72B2B" transform="rotate(26,244,245)"/>
+          <ellipse cx="268" cy="213" rx="15" ry="13" fill="#FBBF8A"/>
+          <ellipse cx="259" cy="201" rx="4.5" ry="6.5" fill="#FBBF8A"/>
+          <ellipse cx="268" cy="198" rx="4.5" ry="6.5" fill="#FBBF8A"/>
+          <ellipse cx="277" cy="201" rx="4.5" ry="6.5" fill="#FBBF8A"/>
+          <!-- Pernas + sapatos -->
+          <rect x="112" y="350" width="40" height="56" rx="16" fill="#0E1F4D"/>
+          <rect x="168" y="350" width="40" height="56" rx="16" fill="#0E1F4D"/>
+          <ellipse cx="132" cy="406" rx="25" ry="11" fill="#0A0C16"/>
+          <ellipse cx="188" cy="406" rx="25" ry="11" fill="#0A0C16"/>
+          <!-- Pescoço -->
+          <rect x="148" y="212" width="24" height="24" rx="9" fill="#FBBF8A"/>
+          <!-- Cabeça -->
+          <ellipse cx="160" cy="166" rx="70" ry="72" fill="#FBBF8A"/>
+          <!-- Orelhas -->
+          <ellipse cx="90" cy="170" rx="13" ry="17" fill="#FBBF8A"/>
+          <ellipse cx="230" cy="170" rx="13" ry="17" fill="#FBBF8A"/>
+          <ellipse cx="90" cy="170" rx="7" ry="10" fill="#F0A870"/>
+          <ellipse cx="230" cy="170" rx="7" ry="10" fill="#F0A870"/>
+          <!-- CABELO CASTANHO PRO LADO -->
+          <ellipse cx="160" cy="108" rx="70" ry="42" fill="#6B3A1F"/>
+          <ellipse cx="178" cy="98" rx="52" ry="32" fill="#6B3A1F"/>
+          <path d="M90 106 Q72 86 84 70 Q102 56 132 60 Q92 74 90 106Z" fill="#7C4422"/>
+          <path d="M92 103 Q70 83 82 64 Q100 50 128 54 Q90 70 92 103Z" fill="#5C2D0E"/>
+          <path d="M102 96 Q78 80 90 60 Q104 48 130 53" fill="none" stroke="#4A2409" stroke-width="5.5" stroke-linecap="round"/>
+          <path d="M110 92 Q88 78 98 58 Q112 46 136 50" fill="none" stroke="#4A2409" stroke-width="4.5" stroke-linecap="round"/>
+          <path d="M106 110 Q91 128 97 146 Q101 157 107 151 Q103 137 116 120Z" fill="#6B3A1F"/>
+          <path d="M113 108 Q99 126 104 144 Q108 155 113 149 Q110 134 122 118Z" fill="#7C4422"/>
+          <ellipse cx="186" cy="93" rx="18" ry="7" fill="rgba(255,255,255,0.13)" transform="rotate(-14,186,93)"/>
+          <!-- Sobrancelhas -->
+          <path d="M124 146 Q137 138 151 143" fill="none" stroke="#4A2409" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M169 143 Q183 138 196 146" fill="none" stroke="#4A2409" stroke-width="3.5" stroke-linecap="round"/>
+          <!-- Olhos -->
+          <ellipse cx="136" cy="163" rx="17" ry="19" fill="white"/>
+          <ellipse cx="184" cy="163" rx="17" ry="19" fill="white"/>
+          <circle cx="138" cy="165" r="11" fill="#3B1E08"/>
+          <circle cx="182" cy="165" r="11" fill="#3B1E08"/>
+          <circle cx="140" cy="165" r="6.5" fill="#0A0C16"/>
+          <circle cx="184" cy="165" r="6.5" fill="#0A0C16"/>
+          <circle cx="143" cy="160" r="2.8" fill="white"/>
+          <circle cx="187" cy="160" r="2.8" fill="white"/>
+          <ellipse cx="136" cy="163" rx="17" ry="19" fill="none" stroke="#3B1E08" stroke-width="1.5"/>
+          <ellipse cx="184" cy="163" rx="17" ry="19" fill="none" stroke="#3B1E08" stroke-width="1.5"/>
+          <!-- Nariz -->
+          <ellipse cx="160" cy="185" rx="7.5" ry="5.5" fill="#F0A870"/>
+          <!-- Sorriso + dentes -->
+          <path d="M139 199 Q160 218 181 199" fill="none" stroke="#C0622A" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M145 202 Q160 215 175 202 Q160 211 145 202Z" fill="white"/>
+          <!-- Bochechas -->
+          <ellipse cx="116" cy="194" rx="13" ry="9" fill="rgba(255,110,90,0.22)"/>
+          <ellipse cx="204" cy="194" rx="13" ry="9" fill="rgba(255,110,90,0.22)"/>
+          <!-- Estrelas decorativas -->
+          <text x="38" y="186" font-size="17" fill="rgba(255,255,255,0.55)">✦</text>
+          <text x="268" y="168" font-size="13" fill="rgba(255,255,255,0.50)">✦</text>
+          <text x="60" y="308" font-size="11" fill="rgba(255,255,255,0.40)">✦</text>
+        </svg>
+        <div class="mascote-bubble">
+          Oi! Sou o <strong>Mantovani!</strong><br>
+          Pode pedir que eu entrego!
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEARCH -->
+<div class="search-bar">
+  <div class="search-inner">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="Buscar produto, categoria…" oninput="applyFilters()">
+  </div>
+</div>
+
+<!-- CATEGORY PILLS -->
+<div class="cat-bar-wrap">
+  <div class="cat-bar" id="catBar"></div>
+</div>
+
+<!-- MAIN -->
+<div class="main-wrap" id="catalogo">
+  <div class="catalog-area">
+    <div class="catalog-header">
+      <div>
+        <div class="catalog-title" id="catalogTitle">Todos os Produtos</div>
+        <div class="catalog-sub" id="catalogSub">38 produtos disponíveis</div>
+      </div>
+      <div class="sort-wrap">
+        <select onchange="applyFilters()">
+          <option value="default">Ordenar por</option>
+          <option value="price_asc">Menor preço</option>
+          <option value="price_desc">Maior preço</option>
+          <option value="name">Nome A–Z</option>
+        </select>
+      </div>
+    </div>
+    <div class="products-grid" id="productsGrid"></div>
+  </div>
+</div>
+
+<!-- PROMO CUPOM -->
+<div style="max-width:1280px;margin:0 auto;padding:0 5% 48px">
+  <div class="promo-card">
+    <div>
+      <div class="promo-h">🎁 Primeira entrega grátis!</div>
+      <div class="promo-p">Use o cupom no seu primeiro pedido e não pague a taxa de entrega.</div>
+    </div>
+    <div class="promo-code-box">
+      <div class="promo-code-l">Cupom</div>
+      <div class="promo-code-v">MANTOVANI1</div>
+    </div>
+  </div>
+</div>
+
+<!-- COMO FUNCIONA -->
+<section class="how-section" id="como-funciona">
+  <div class="how-inner">
+    <div class="section-eyebrow">Simples assim</div>
+    <div class="section-title-light">Como funciona</div>
+    <div class="steps-grid">
+      <div class="step"><div class="step-n">01</div><div class="step-t">Escolha os produtos</div><div class="step-d">Navegue pelo catálogo, selecione unidade ou caixa e adicione ao carrinho.</div></div>
+      <div class="step"><div class="step-n">02</div><div class="step-t">Confirme o pedido</div><div class="step-d">Informe seu endereço e forma de pagamento. Leva menos de 1 minuto.</div></div>
+      <div class="step"><div class="step-n">03</div><div class="step-t">WhatsApp automático</div><div class="step-d">Seu pedido é enviado automaticamente para o WhatsApp do Mantovani.</div></div>
+      <div class="step"><div class="step-n">04</div><div class="step-t">Receba na porta</div><div class="step-d">Nosso motoboy sai em até 10 minutos e entrega com cuidado.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP DIRETO -->
+<section class="wpp-section" id="whatsapp">
+  <div class="wpp-inner">
+    <div class="wpp-text">
+      <div class="eyebrow">Atendimento direto</div>
+      <h2>Prefere pedir pelo WhatsApp?</h2>
+      <p>Sem cadastro, sem app. Manda uma mensagem diretamente para o Mantovani e a gente anota seu pedido na hora. Respondemos em minutos.</p>
+      <a class="wpp-btn-big" href="https://wa.me/5511988875328?text=Oi%20Mantovani!%20Quero%20fazer%20um%20pedido." target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chamar no WhatsApp
+      </a>
+    </div>
+    <div class="wpp-card">
+      <div class="wpp-card-header">
+        <div class="wpp-avatar">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+        <div>
+          <div class="wpp-avatar-name">Mantovani Delivery</div>
+          <div class="wpp-avatar-status">Online agora</div>
+        </div>
+      </div>
+      <div class="wpp-items">
+        <div class="wpp-msg">Oi! Seja bem-vindo ao Mantovani. O que posso separar pra você hoje?</div>
+        <div class="wpp-msg wpp-msg-out">Quero 2 Kit Kat e um Elma Chips Onda<div class="wpp-msg-time">agora</div></div>
+        <div class="wpp-msg">Ótima escolha! Me passa seu endereço que a gente manda o motoboy.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUPORTE COM IA -->
+<section class="support-section" id="suporte">
+  <div class="support-inner">
+    <div class="support-header">
+      <div class="eyebrow">Precisa de ajuda?</div>
+      <h2>Suporte inteligente</h2>
+      <p>Tire dúvidas sobre pedidos, entrega, pagamentos ou qualquer coisa do site. Nossa IA responde na hora, qualquer hora.</p>
+    </div>
+    <div class="support-grid">
+      <div class="support-card" onclick="setQuestion('Como faço um pedido?')">
+        <div class="sc-icon">📦</div>
+        <div class="sc-title">Como fazer um pedido</div>
+        <div class="sc-desc">Entenda o passo a passo para comprar pelo site ou pelo WhatsApp.</div>
+      </div>
+      <div class="support-card" onclick="setQuestion('Qual é a taxa de entrega?')">
+        <div class="sc-icon">🛵</div>
+        <div class="sc-title">Taxa e prazo de entrega</div>
+        <div class="sc-desc">Saiba quanto custa a entrega e em quanto tempo chega na sua porta.</div>
+      </div>
+      <div class="support-card" onclick="setQuestion('Quais formas de pagamento vocês aceitam?')">
+        <div class="sc-icon">💳</div>
+        <div class="sc-title">Formas de pagamento</div>
+        <div class="sc-desc">Pix, dinheiro, débito e crédito. Veja qual funciona melhor pra você.</div>
+      </div>
+      <div class="support-card" onclick="setQuestion('Posso cancelar meu pedido?')">
+        <div class="sc-icon">↩</div>
+        <div class="sc-title">Cancelamento e trocas</div>
+        <div class="sc-desc">Entenda nossa política e como entrar em contato em caso de problema.</div>
+      </div>
+    </div>
+    <!-- Chat IA -->
+    <div class="ai-chat">
+      <div class="ai-chat-header">
+        <div class="ai-chat-dot"></div>
+        <div>
+          <div class="ai-chat-name">Assistente Mantovani</div>
+          <div class="ai-chat-sub">Responde em segundos</div>
+        </div>
+      </div>
+      <div class="ai-messages" id="aiMessages">
+        <div class="ai-msg bot">Olá! Sou o assistente do Delivery Mantovani. Como posso te ajudar hoje?</div>
+        <div class="ai-typing" id="aiTyping">Digitando...</div>
+      </div>
+      <div class="ai-input-wrap">
+        <input class="ai-input" id="aiInput" placeholder="Digite sua dúvida..." onkeydown="if(event.key==='Enter')sendAI()">
+        <button class="ai-send" onclick="sendAI()">
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#" class="logo-wrap" style="text-decoration:none">
+          <div class="logo-mark">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="white"><path d="M13 2.05v2.02c3.95.49 7 3.85 7 7.93 0 3.21-1.81 6-4.72 7.28L13 17v5l5-3.37C21.14 16.46 23 12.56 23 12c0-5.96-4.54-10.85-10-11.95M11 2.05C5.54 3.15 1 8.04 1 14c0 .56 1.86 4.46 5 6.63L11 24v-5l-2.28-2.72C6.81 15 5 12.21 5 9c0-4.08 3.05-7.44 6-7.95M12 12c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+          </div>
+          <div>
+            <div class="logo-name">Delivery Mantovani</div>
+            <div class="logo-tag">Tradição de sempre</div>
+          </div>
+        </a>
+        <p>A loja do Mantovani que você sempre conheceu, agora no delivery. Doces, artigos de festa, salgadinhos e bebidas na sua porta.</p>
+        <div class="owner">Stefano Oliveira Nogueira</div>
+      </div>
+      <div class="foot-col">
+        <h4>Categorias</h4>
+        <ul class="foot-links">
+          <li><a href="#catalogo">Doces</a></li>
+          <li><a href="#catalogo">Festas</a></li>
+          <li><a href="#catalogo">Salgadinhos</a></li>
+          <li><a href="#catalogo">Bebidas</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Contato</h4>
+        <ul class="foot-links">
+          <li><a href="https://wa.me/5511988875328">WhatsApp</a></li>
+          <li><a href="#suporte">Suporte</a></li>
+          <li><a href="#">Seg–Dom 8h–22h</a></li>
+          <li><a href="#whatsapp">Fazer pedido</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2025 Delivery Mantovani — Todos os direitos reservados.</p>
+      <p>Feito com dedicação para o Mantovani</p>
+    </div>
+  </div>
+</footer>
+
+<!-- FABs -->
+<button class="cart-fab" onclick="openCart()" id="cartFab" style="display:none">
+  🛒 Carrinho <span class="cart-fab-badge" id="cartCountFab">0</span>
+</button>
+<button class="wpp-fab" onclick="openWhatsApp()" title="WhatsApp">💬</button>
+<div class="toast" id="toast"></div>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay" onclick="closeOuter(event)">
+  <div class="sheet" style="position:relative">
+    <div class="sheet-handle"></div>
+    <button class="close-sheet" onclick="closeCart()">✕</button>
+
+    <!-- CART VIEW -->
+    <div id="cartView">
+      <div class="sheet-title">🛒 Meu Carrinho</div>
+      <div id="cartItems"></div>
+      <div id="cartTotalBox" class="cart-total-box" style="display:none">
+        <div class="t-row"><span>Subtotal</span><span id="subtotalVal">R$ 0,00</span></div>
+        <div class="t-row"><span>Taxa de entrega</span><span>R$ 3,99</span></div>
+        <div class="t-final"><span>Total</span><span id="totalVal">R$ 0,00</span></div>
+      </div>
+      <button class="btn-finalizar" id="btnFinalizar" onclick="goForm()" style="display:none">📋 Finalizar Pedido</button>
+    </div>
+
+    <!-- FORM VIEW -->
+    <div class="form-wrap" id="formView">
+      <div class="sheet-title">📋 Dados de Entrega</div>
+      <div class="fg"><label>Nome completo *</label><input type="text" id="fNome" placeholder="Ex: João Silva"></div>
+      <div class="fg"><label>WhatsApp / Telefone *</label><input type="tel" id="fTel" placeholder="(11) 99999-9999"></div>
+      <div class="fg"><label>Endereço *</label><input type="text" id="fEnd" placeholder="Rua, número, bairro"></div>
+      <div class="fg"><label>Complemento</label><input type="text" id="fComp" placeholder="Apto, bloco, referência"></div>
+      <div class="fg">
+        <label>Forma de pagamento *</label>
+        <div class="pay-grid">
+          <div class="pay-opt" onclick="setPay('pix',this)">📱 PIX</div>
+          <div class="pay-opt" onclick="setPay('dinheiro',this)">💵 Dinheiro</div>
+          <div class="pay-opt" onclick="setPay('debito',this)">💳 Débito</div>
+          <div class="pay-opt" onclick="setPay('credito',this)">💳 Crédito</div>
+        </div>
+      </div>
+      <div class="fg"><label>Observações</label><textarea id="fObs" placeholder="Alguma instrução especial?"></textarea></div>
+      <div class="summary-box" id="summaryBox"></div>
+      <button class="btn-finalizar" onclick="confirmar()">🛵 Confirmar e Enviar Pedido</button>
+      <button class="btn-voltar" onclick="goCart()">← Voltar ao carrinho</button>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="success-wrap" id="successView">
+      <span class="suc-icon">🎉</span>
+      <div class="suc-title">Pedido Enviado!</div>
+      <div class="suc-text">Seu pedido foi enviado direto para o WhatsApp do Mantovani. O motoboy já está sendo acionado!</div>
+      <div class="suc-info">
+        <span>🛵 Tempo estimado: até 30 minutos</span>
+        <span>📱 Confirmação pelo WhatsApp</span>
+      </div>
+      <button class="btn-finalizar" onclick="closeCart()">🏠 Voltar ao cardápio</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── DADOS ────────────────────────────────────────────────────
+const CATS = [
+  { id:'todos',       label:'Tudo',         emoji:'🏪', count:0  },
+  { id:'doces',       label:'Doces',        emoji:'🍫', count:0  },
+  { id:'festas',      label:'Festas',       emoji:'🎉', count:0  },
+  { id:'salgadinhos', label:'Salgadinhos',  emoji:'🥨', count:0  },
+  { id:'bebidas',     label:'Bebidas',      emoji:'🥤', count:0  },
+];
+
+const PB = {
+  doces:'pb-doces', festas:'pb-festas',
+  salgadinhos:'pb-salgados', bebidas:'pb-bebidas'
+};
+
+const products = [
+
+  // ══════════════════════════════════════════════════════════════
+  // DOCES
+  // ══════════════════════════════════════════════════════════════
+
+  // — Sonho de Valsa
+  {id:1,  name:'Sonho de Valsa', cat:'doces', badge:'Clássico',
+   descUnit:'Bombom Lacta recheado — unidade',           priceUnit:3.20,
+   descBox:'Caixa com 16 unidades (258g)',               priceBox:40.96, qtyBox:16},
+
+  // — Ouro Branco
+  {id:2,  name:'Ouro Branco',             emoji:'🤍', cat:'doces', badge:'Clássico',
+   descUnit:'Bombom Lacta chocolate branco — unidade',   priceUnit:3.20,
+   descBox:'Caixa com 16 unidades (258g)',               priceBox:40.96, qtyBox:16},
+
+  // — Pirulito POP
+  {id:3,  name:'Pirulito POP',            emoji:'🍭', cat:'doces',
+   descUnit:'Pirulito POP sortido — unidade',            priceUnit:1.60,
+   descBox:'Pote com 50 unidades',                       priceBox:64.00, qtyBox:50},
+
+  // — Pirulito Coração
+  {id:4,  name:'Pirulito Coração',        emoji:'💗', cat:'doces',
+   descUnit:'Pirulito coração sortido — unidade',        priceUnit:2.40,
+   descBox:'Pote com 30 unidades',                       priceBox:57.60, qtyBox:30},
+
+  // — Balas de Goma
+  {id:5,  name:'Bala de Goma Sortida',    emoji:'🍬', cat:'doces',
+   descUnit:'Bala de goma sortida — unidade',            priceUnit:0.40,
+   descBox:'Pacote com 100 unidades',                    priceBox:32.00, qtyBox:100},
+
+  // — Bala 7 Belo
+  {id:6,  name:'Bala 7 Belo',             emoji:'🟡', cat:'doces',
+   descUnit:'Bala 7 Belo sortida — unidade',             priceUnit:0.40,
+   descBox:'Pacote com 100 unidades',                    priceBox:32.00, qtyBox:100},
+
+  // — Bala Iogurte 100
+  {id:7,  name:'Bala Iogurte 100',        emoji:'🍬', cat:'doces',
+   descUnit:'Bala iogurte 100 sortida — unidade',        priceUnit:0.40,
+   descBox:'Pacote com 100 unidades',                    priceBox:32.00, qtyBox:100},
+
+  // — Mentos por sabor
+  {id:8,  name:'Mentos Frutas',           emoji:'🌈', cat:'doces',
+   descUnit:'Mentos sabor frutas 37,5g — rolo',          priceUnit:3.20,
+   descBox:'Caixa com 16 rolos',                         priceBox:41.60, qtyBox:16},
+
+  {id:9,  name:'Mentos Menta',            emoji:'🟢', cat:'doces',
+   descUnit:'Mentos sabor menta 37,5g — rolo',           priceUnit:3.20,
+   descBox:'Caixa com 16 rolos',                         priceBox:41.60, qtyBox:16},
+
+  {id:10, name:'Mentos Morango',          emoji:'🍓', cat:'doces',
+   descUnit:'Mentos sabor morango 37,5g — rolo',         priceUnit:3.20,
+   descBox:'Caixa com 16 rolos',                         priceBox:41.60, qtyBox:16},
+
+  {id:11, name:'Mentos Tutti-Frutti',     emoji:'🌺', cat:'doces',
+   descUnit:'Mentos tutti-frutti 37,5g — rolo',          priceUnit:3.20,
+   descBox:'Caixa com 16 rolos',                         priceBox:41.60, qtyBox:16},
+
+  {id:12, name:'Mentos Limão',            emoji:'🍋', cat:'doces',
+   descUnit:'Mentos sabor limão 37,5g — rolo',           priceUnit:3.20,
+   descBox:'Caixa com 16 rolos',                         priceBox:41.60, qtyBox:16},
+
+  {id:13, name:'Mentos Watermelon',       emoji:'🍉', cat:'doces',
+   descUnit:'Mentos melancia 37,5g — rolo',              priceUnit:3.20,
+   descBox:'Caixa com 16 rolos',                         priceBox:41.60, qtyBox:16},
+
+  // — Bala Florestal
+  {id:14, name:'Bala Florestal',          emoji:'🌿', cat:'doces',
+   descUnit:'Bala florestal mel/eucalipto — unidade',    priceUnit:0.40,
+   descBox:'Pacote com 100 unidades',                    priceBox:32.00, qtyBox:100},
+
+  // — Butter Toffees
+  {id:15, name:'Butter Toffees Original', emoji:'🧈', cat:'doces',
+   descUnit:'Butter Toffees manteiga — unidade',         priceUnit:0.48,
+   descBox:'Pacote com 100 unidades',                    priceBox:38.40, qtyBox:100},
+
+  {id:16, name:'Butter Toffees Menta',    emoji:'🌀', cat:'doces',
+   descUnit:'Butter Toffees sabor menta — unidade',      priceUnit:0.48,
+   descBox:'Pacote com 100 unidades',                    priceBox:38.40, qtyBox:100},
+
+  {id:17, name:'Butter Toffees Chocolate',emoji:'🍫', cat:'doces',
+   descUnit:'Butter Toffees chocolate — unidade',        priceUnit:0.48,
+   descBox:'Pacote com 100 unidades',                    priceBox:38.40, qtyBox:100},
+
+  // — Moranguete
+  {id:18, name:'Moranguete',              emoji:'🍓', cat:'doces',
+   descUnit:'Bala Moranguete — unidade',                 priceUnit:0.40,
+   descBox:'Pacote com 100 unidades',                    priceBox:32.00, qtyBox:100},
+
+  // — Kit Kat
+  {id:19, name:'Kit Kat Original',        emoji:'🍫', cat:'doces', badge:'Top',
+   descUnit:'Kit Kat wafer leite 45g — unidade',         priceUnit:4.00,
+   descBox:'Caixa com 24 unidades',                      priceBox:76.80, qtyBox:24},
+
+  {id:20, name:'Kit Kat Dark',            emoji:'🟤', cat:'doces',
+   descUnit:'Kit Kat chocolate amargo 45g — unidade',    priceUnit:4.80,
+   descBox:'Caixa com 24 unidades',                      priceBox:92.16, qtyBox:24},
+
+  {id:21, name:'Kit Kat Branco',          emoji:'🤍', cat:'doces',
+   descUnit:'Kit Kat chocolate branco 45g — unidade',    priceUnit:4.80,
+   descBox:'Caixa com 24 unidades',                      priceBox:92.16, qtyBox:24},
+
+  // — Bis Lacta
+  {id:22, name:'Bis Lacta Chocolate',     emoji:'🍪', cat:'doces',
+   descUnit:'Bis wafer coberto chocolate — unidade',     priceUnit:2.00,
+   descBox:'Caixa com 30 unidades',                      priceBox:48.00, qtyBox:30},
+
+  {id:23, name:'Bis Lacta Branco',        emoji:'🍪', cat:'doces',
+   descUnit:'Bis wafer coberto chocolate branco — unid.',priceUnit:2.00,
+   descBox:'Caixa com 30 unidades',                      priceBox:48.00, qtyBox:30},
+
+  {id:24, name:'Bis Lacta Dark',          emoji:'🍪', cat:'doces',
+   descUnit:'Bis wafer coberto dark chocolate — unid.',  priceUnit:2.00,
+   descBox:'Caixa com 30 unidades',                      priceBox:48.00, qtyBox:30},
+
+  // — Caixas de bombom por marca
+  {id:25, name:'Caixa Lacta Sortida',     emoji:'🎁', cat:'doces', badge:'Presente',
+   descUnit:'Caixa bombom Lacta 300g — caixa',           priceUnit:28.00,
+   descBox:'Caixa com 6 unidades',                       priceBox:134.40, qtyBox:6},
+
+  {id:26, name:'Caixa Garoto Sortida',    emoji:'🎁', cat:'doces',
+   descUnit:'Caixa bombom Garoto 300g — caixa',          priceUnit:28.00,
+   descBox:'Caixa com 6 unidades',                       priceBox:134.40, qtyBox:6},
+
+  {id:27, name:'Caixa Nestlé Sortida',    emoji:'🎁', cat:'doces',
+   descUnit:'Caixa bombom Nestlé 251g — caixa',          priceUnit:28.00,
+   descBox:'Caixa com 6 unidades',                       priceBox:134.40, qtyBox:6},
+
+  {id:28, name:'Caixa Kopenhagen',        emoji:'🎁', cat:'doces', badge:'Premium',
+   descUnit:'Caixa bombom Kopenhagen 200g — caixa',      priceUnit:64.00,
+   descBox:'Caixa com 3 unidades',                       priceBox:153.60, qtyBox:3},
+
+  {id:29, name:'Caixa Brasil Cacau',      emoji:'🎁', cat:'doces',
+   descUnit:'Caixa bombom Brasil Cacau 200g — caixa',    priceUnit:48.00,
+   descBox:'Caixa com 3 unidades',                       priceBox:115.20, qtyBox:3},
+
+  // — Outros Doces (item especial com nota)
+  {id:30, name:'Outros Doces — Especificar', emoji:'📝', cat:'doces', badge:'Personalizado',
+   descUnit:'Não achou o que quer? Descreva no campo de obs ao finalizar o pedido.',
+   priceUnit:0.00,
+   descBox:'Consulte disponibilidade pelo WhatsApp.',
+   priceBox:0.00, qtyBox:1},
+
+  // ══════════════════════════════════════════════════════════════
+  // FESTAS
+  // ══════════════════════════════════════════════════════════════
+
+  // Balões
+  {id:31, name:'Balão Latex 9" Colorido', emoji:'🎈', cat:'festas', badge:'Mais vendido',
+   descUnit:'Balão latex liso sortido — unidade',        priceUnit:0.48,
+   descBox:'Pacote com 50 unidades',                     priceBox:12.00, qtyBox:50},
+
+  {id:32, name:'Balão Latex 11" Grande',  emoji:'🎈', cat:'festas',
+   descUnit:'Balão latex 11 pol. colorido — unidade',    priceUnit:0.80,
+   descBox:'Pacote com 50 unidades',                     priceBox:20.00, qtyBox:50},
+
+  {id:33, name:'Balão Metalizado Redondo',emoji:'🪩', cat:'festas',
+   descUnit:'Balão metalizado 45cm — unidade',           priceUnit:4.80,
+   descBox:'Pacote com 10 unidades',                     priceBox:36.00, qtyBox:10},
+
+  {id:34, name:'Balão Metalizado Coração',emoji:'❤️', cat:'festas',
+   descUnit:'Balão coração metalizado 45cm — unidade',   priceUnit:5.60,
+   descBox:'Pacote com 10 unidades',                     priceBox:44.80, qtyBox:10},
+
+  {id:35, name:'Balão Metalizado Estrela', emoji:'⭐', cat:'festas',
+   descUnit:'Balão estrela metalizado 45cm — unidade',   priceUnit:5.60,
+   descBox:'Pacote com 10 unidades',                     priceBox:44.80, qtyBox:10},
+
+  {id:36, name:'Balão Temático Aniversário',emoji:'🎂',cat:'festas',
+   descUnit:'Balão "Happy Birthday" impresso — unidade', priceUnit:6.40,
+   descBox:'Pacote com 10 unidades',                     priceBox:51.20, qtyBox:10},
+
+  // Confetes e Serpentinas
+  {id:37, name:'Confete Colorido',        emoji:'🎊', cat:'festas',
+   descUnit:'Confete papel colorido 25g — pacote',       priceUnit:2.40,
+   descBox:'Caixa com 20 pacotes',                       priceBox:38.40, qtyBox:20},
+
+  {id:38, name:'Serpentina Colorida',     emoji:'🎊', cat:'festas',
+   descUnit:'Serpentina papel 4m — unidade',             priceUnit:1.60,
+   descBox:'Caixa com 50 unidades',                      priceBox:64.00, qtyBox:50},
+
+  {id:39, name:'Pistola de Confete',      emoji:'🎉', cat:'festas', badge:'Diversão',
+   descUnit:'Pistola lança confete 30cm — unidade',      priceUnit:16.00,
+   descBox:'Caixa com 6 unidades',                       priceBox:76.80, qtyBox:6},
+
+  // Forminhas e caixinhas
+  {id:40, name:'Forminha Redonda Lisa',   emoji:'🫙', cat:'festas',
+   descUnit:'Forminha 4cm lisa — pacote 100un',          priceUnit:4.80,
+   descBox:'Caixa com 10 pacotes (1000un)',               priceBox:38.40, qtyBox:10},
+
+  {id:41, name:'Forminha Estampada Festa',emoji:'🌸', cat:'festas',
+   descUnit:'Forminha estampada — pacote 100un',         priceUnit:6.40,
+   descBox:'Caixa com 10 pacotes (1000un)',               priceBox:51.20, qtyBox:10},
+
+  {id:42, name:'Caixinha Kraft P (doces)',emoji:'📦', cat:'festas',
+   descUnit:'Caixinha kraft 7×7cm — unidade',            priceUnit:1.60,
+   descBox:'Caixa com 50 unidades',                      priceBox:64.00, qtyBox:50},
+
+  {id:43, name:'Caixinha Kraft M (lembranças)',emoji:'📦',cat:'festas',
+   descUnit:'Caixinha kraft 10×10cm — unidade',          priceUnit:2.40,
+   descBox:'Caixa com 30 unidades',                      priceBox:57.60, qtyBox:30},
+
+  // Toalhas
+  {id:44, name:'Toalha Plástica Lisa',    emoji:'🎉', cat:'festas',
+   descUnit:'Toalha plástica 1,4×2,2m — unidade',        priceUnit:9.60,
+   descBox:'Pacote com 5 unidades',                      priceBox:38.40, qtyBox:5},
+
+  {id:45, name:'Toalha Plástica Estampada',emoji:'🌈',cat:'festas',
+   descUnit:'Toalha plástica estampada 1,4×2,2m — unid.',priceUnit:12.80,
+   descBox:'Pacote com 5 unidades',                      priceBox:51.20, qtyBox:5},
+
+  {id:46, name:'Toalha TNT Lisa',         emoji:'🎀', cat:'festas',
+   descUnit:'Toalha TNT 1,4×2,2m — unidade',             priceUnit:11.20,
+   descBox:'Pacote com 5 unidades',                      priceBox:44.80, qtyBox:5},
+
+  // Copos
+  {id:47, name:'Copo Plástico 180ml',     emoji:'🥤', cat:'festas',
+   descUnit:'Copo descartável 180ml — pacote 50un',      priceUnit:4.80,
+   descBox:'Caixa com 10 pacotes (500un)',                priceBox:38.40, qtyBox:10},
+
+  {id:48, name:'Copo Plástico 200ml Transparente',emoji:'🥤',cat:'festas',
+   descUnit:'Copo 200ml transparente — pacote 50un',     priceUnit:5.60,
+   descBox:'Caixa com 10 pacotes (500un)',                priceBox:44.80, qtyBox:10},
+
+  {id:49, name:'Copo de Papel Estampado', emoji:'🎂', cat:'festas',
+   descUnit:'Copo papel 180ml estampado — pacote 10un',  priceUnit:8.00,
+   descBox:'Caixa com 10 pacotes (100un)',                priceBox:64.00, qtyBox:10},
+
+  // Pratos
+  {id:50, name:'Prato Descartável Branco',emoji:'🍽️',cat:'festas',
+   descUnit:'Prato plástico branco — pacote 10un',       priceUnit:3.20,
+   descBox:'Caixa com 20 pacotes (200un)',                priceBox:51.20, qtyBox:20},
+
+  {id:51, name:'Prato Descartável Estampado',emoji:'🍽️',cat:'festas',
+   descUnit:'Prato estampado festivo — pacote 10un',     priceUnit:4.80,
+   descBox:'Caixa com 20 pacotes (200un)',                priceBox:76.80, qtyBox:20},
+
+  // Velas
+  {id:52, name:'Vela de Aniversário Colorida',emoji:'🕯️',cat:'festas',
+   descUnit:'Kit 10 velinhas coloridas — kit',           priceUnit:3.20,
+   descBox:'Caixa com 12 kits',                          priceBox:30.72, qtyBox:12},
+
+  {id:53, name:'Vela Número (0-9)',       emoji:'🕯️', cat:'festas',
+   descUnit:'Vela número avulsa — unidade',              priceUnit:4.00,
+   descBox:'Caixa com 10 unidades',                      priceBox:32.00, qtyBox:10},
+
+  {id:54, name:'Vela Sparkle Dourada',    emoji:'✨', cat:'festas',
+   descUnit:'Vela sparkle brilhante — unidade',          priceUnit:6.40,
+   descBox:'Caixa com 10 unidades',                      priceBox:51.20, qtyBox:10},
+
+  {id:55, name:'Vela Tricks (não apaga)', emoji:'🔥', cat:'festas', badge:'Surpresa',
+   descUnit:'Vela mágica que não apaga — unidade',       priceUnit:4.80,
+   descBox:'Caixa com 10 unidades',                      priceBox:38.40, qtyBox:10},
+
+  // Decoração
+  {id:56, name:'Faixa Feliz Aniversário', emoji:'🎊', cat:'festas',
+   descUnit:'Faixa decorativa plástica — unidade',       priceUnit:8.00,
+   descBox:'Pacote com 5 unidades',                      priceBox:32.00, qtyBox:5},
+
+  {id:57, name:'Chapéu de Festa Conical', emoji:'🎩', cat:'festas',
+   descUnit:'Chapéu de festa colorido — unidade',        priceUnit:2.40,
+   descBox:'Pacote com 10 unidades',                     priceBox:19.20, qtyBox:10},
+
+  {id:58, name:'Guardanapo Estampado',    emoji:'🎀', cat:'festas',
+   descUnit:'Guardanapo festivo — pacote 20un',          priceUnit:4.00,
+   descBox:'Caixa com 10 pacotes (200un)',                priceBox:32.00, qtyBox:10},
+
+  {id:59, name:'Baleiro Plástico',        emoji:'🍬', cat:'festas',
+   descUnit:'Baleiro porta-doces plástico — unidade',    priceUnit:9.60,
+   descBox:'Pacote com 6 unidades',                      priceBox:46.08, qtyBox:6},
+
+  {id:60, name:'Lembrancinha Caixinha',   emoji:'🎁', cat:'festas', badge:'Personalizado',
+   descUnit:'Caixinha lembrancinha decorada — unidade',  priceUnit:3.20,
+   descBox:'Pacote com 10 unidades',                     priceBox:25.60, qtyBox:10},
+
+  // ══════════════════════════════════════════════════════════════
+  // SALGADINHOS
+  // ══════════════════════════════════════════════════════════════
+
+  // — Elma Chips / PepsiCo
+  {id:61, name:'Elma Chips Onda Original',emoji:'🥔',cat:'salgadinhos',badge:'Top',
+   descUnit:'Batata ondulada original 40g — unidade',    priceUnit:4.00,
+   descBox:'Caixa com 20 unidades',                      priceBox:64.00, qtyBox:20},
+
+  {id:62, name:'Elma Chips Onda Cheddar', emoji:'🧀',cat:'salgadinhos',
+   descUnit:'Batata ondulada cheddar 40g — unidade',     priceUnit:4.00,
+   descBox:'Caixa com 20 unidades',                      priceBox:64.00, qtyBox:20},
+
+  {id:63, name:'Elma Chips Onda Picanha', emoji:'🥩',cat:'salgadinhos',
+   descUnit:'Batata ondulada picanha 40g — unidade',     priceUnit:4.00,
+   descBox:'Caixa com 20 unidades',                      priceBox:64.00, qtyBox:20},
+
+  {id:64, name:'Elma Chips Forno Original',emoji:'🌾',cat:'salgadinhos',
+   descUnit:'Elma Chips de forno original 35g — unidade',priceUnit:3.60,
+   descBox:'Caixa com 20 unidades',                      priceBox:57.60, qtyBox:20},
+
+  {id:65, name:'Elma Chips Forno Mostarda',emoji:'🌾',cat:'salgadinhos',
+   descUnit:'Elma Chips forno mostarda 35g — unidade',   priceUnit:3.60,
+   descBox:'Caixa com 20 unidades',                      priceBox:57.60, qtyBox:20},
+
+  {id:66, name:'Ruffles Original',        emoji:'🥔',cat:'salgadinhos',
+   descUnit:'Ruffles original 57g — unidade',            priceUnit:5.60,
+   descBox:'Caixa com 15 unidades',                      priceBox:67.20, qtyBox:15},
+
+  {id:67, name:'Ruffles Cheddar',         emoji:'🧀',cat:'salgadinhos',
+   descUnit:'Ruffles cheddar & cebola 57g — unidade',    priceUnit:5.60,
+   descBox:'Caixa com 15 unidades',                      priceBox:67.20, qtyBox:15},
+
+  {id:68, name:'Ruffles Churrasco',       emoji:'🔥',cat:'salgadinhos',
+   descUnit:'Ruffles churrasco 57g — unidade',           priceUnit:5.60,
+   descBox:'Caixa com 15 unidades',                      priceBox:67.20, qtyBox:15},
+
+  {id:69, name:'Cheetos Anel Requeijão',  emoji:'🧡',cat:'salgadinhos',badge:'Favorito',
+   descUnit:'Cheetos anel requeijão 45g — unidade',      priceUnit:4.00,
+   descBox:'Caixa com 20 unidades',                      priceBox:64.00, qtyBox:20},
+
+  {id:70, name:'Cheetos Crunchy Queijo',  emoji:'🧡',cat:'salgadinhos',
+   descUnit:'Cheetos crunchy queijo 45g — unidade',      priceUnit:4.00,
+   descBox:'Caixa com 20 unidades',                      priceBox:64.00, qtyBox:20},
+
+  {id:71, name:'Cheetos Crunchy Flamin Hot',emoji:'🌶️',cat:'salgadinhos',badge:'Ardido',
+   descUnit:'Cheetos Flamin Hot 45g — unidade',          priceUnit:4.80,
+   descBox:'Caixa com 20 unidades',                      priceBox:76.80, qtyBox:20},
+
+  {id:72, name:'Doritos Nacho Cheese',    emoji:'🟡',cat:'salgadinhos',
+   descUnit:'Doritos nacho cheese 54g — unidade',        priceUnit:5.60,
+   descBox:'Caixa com 15 unidades',                      priceBox:67.20, qtyBox:15},
+
+  {id:73, name:'Doritos Churrasco',       emoji:'🔴',cat:'salgadinhos',
+   descUnit:'Doritos churrasco 54g — unidade',           priceUnit:5.60,
+   descBox:'Caixa com 15 unidades',                      priceBox:67.20, qtyBox:15},
+
+  {id:74, name:'Doritos Queijo Picante',  emoji:'🌶️',cat:'salgadinhos',
+   descUnit:'Doritos queijo picante 54g — unidade',      priceUnit:5.60,
+   descBox:'Caixa com 15 unidades',                      priceBox:67.20, qtyBox:15},
+
+  // — Forno de Minas / Jangada
+  {id:75, name:'Forno de Minas Palha Italiana',emoji:'🧀',cat:'salgadinhos',
+   descUnit:'Palha italiana queijo 50g — unidade',       priceUnit:4.80,
+   descBox:'Caixa com 18 unidades',                      priceBox:69.12, qtyBox:18},
+
+  // — Yoki (Forno & Fogão)
+  {id:76, name:'Lobito Original',         emoji:'🐺',cat:'salgadinhos',badge:'Clássico',
+   descUnit:'Lobito salgadinho trigo 25g — unidade',     priceUnit:2.00,
+   descBox:'Caixa com 30 unidades',                      priceBox:48.00, qtyBox:30},
+
+  {id:77, name:'Fofura Milho',            emoji:'🌽',cat:'salgadinhos',
+   descUnit:'Fofura salgadinho milho 30g — unidade',     priceUnit:2.00,
+   descBox:'Caixa com 30 unidades',                      priceBox:48.00, qtyBox:30},
+
+  {id:78, name:'Ebicem Camarão',          emoji:'🦐',cat:'salgadinhos',
+   descUnit:'Ebicem sabor camarão 25g — unidade',        priceUnit:2.40,
+   descBox:'Caixa com 25 unidades',                      priceBox:48.00, qtyBox:25},
+
+  {id:79, name:'Pipoca Yoki Salgada',     emoji:'🍿',cat:'salgadinhos',
+   descUnit:'Pipoca pronta salgada 50g — unidade',       priceUnit:2.80,
+   descBox:'Caixa com 20 unidades',                      priceBox:44.80, qtyBox:20},
+
+  {id:80, name:'Pipoca Yoki Manteiga',    emoji:'🍿',cat:'salgadinhos',
+   descUnit:'Pipoca pronta manteiga 50g — unidade',      priceUnit:2.80,
+   descBox:'Caixa com 20 unidades',                      priceBox:44.80, qtyBox:20},
+
+  {id:81, name:'Pipoca Yoki Queijo',      emoji:'🍿',cat:'salgadinhos',
+   descUnit:'Pipoca pronta queijo 50g — unidade',        priceUnit:2.80,
+   descBox:'Caixa com 20 unidades',                      priceBox:44.80, qtyBox:20},
+
+  {id:82, name:'Pipoca Microondas Yoki Manteiga',emoji:'🍿',cat:'salgadinhos',
+   descUnit:'Pipoca microondas manteiga 100g — pacote',  priceUnit:3.60,
+   descBox:'Caixa com 12 pacotes',                       priceBox:34.56, qtyBox:12},
+
+  {id:83, name:'Pipoca Microondas Yoki Ervas',emoji:'🍿',cat:'salgadinhos',
+   descUnit:'Pipoca microondas ervas 100g — pacote',     priceUnit:3.60,
+   descBox:'Caixa com 12 pacotes',                       priceBox:34.56, qtyBox:12},
+
+  // — Pepsico Mix
+  {id:84, name:'Baconzitos',              emoji:'🥓',cat:'salgadinhos',
+   descUnit:'Baconzitos snack bacon 67g — unidade',      priceUnit:4.80,
+   descBox:'Caixa com 15 unidades',                      priceBox:57.60, qtyBox:15},
+
+  {id:85, name:'Twistos Original',        emoji:'🌀',cat:'salgadinhos',
+   descUnit:'Twistos original 55g — unidade',            priceUnit:4.00,
+   descBox:'Caixa com 18 unidades',                      priceBox:57.60, qtyBox:18},
+
+  {id:86, name:'Twistos Queijo',          emoji:'🧀',cat:'salgadinhos',
+   descUnit:'Twistos queijo 55g — unidade',              priceUnit:4.00,
+   descBox:'Caixa com 18 unidades',                      priceBox:57.60, qtyBox:18},
+
+  // — Lucky / Marilan
+  {id:87, name:'Lucky Churrasco',         emoji:'🔥',cat:'salgadinhos',
+   descUnit:'Lucky churrasco 60g — unidade',             priceUnit:3.20,
+   descBox:'Caixa com 20 unidades',                      priceBox:51.20, qtyBox:20},
+
+  {id:88, name:'Lucky Queijo',            emoji:'🧀',cat:'salgadinhos',
+   descUnit:'Lucky queijo 60g — unidade',                priceUnit:3.20,
+   descBox:'Caixa com 20 unidades',                      priceBox:51.20, qtyBox:20},
+
+  // — Pringles
+  {id:89, name:'Pringles Original',       emoji:'🥫',cat:'salgadinhos',badge:'Premium',
+   descUnit:'Pringles original 114g — lata',             priceUnit:14.40,
+   descBox:'Caixa com 12 latas',                         priceBox:138.24,qtyBox:12},
+
+  {id:90, name:'Pringles Creme & Cebola', emoji:'🥫',cat:'salgadinhos',
+   descUnit:'Pringles cream & onion 114g — lata',        priceUnit:14.40,
+   descBox:'Caixa com 12 latas',                         priceBox:138.24,qtyBox:12},
+
+  {id:91, name:'Pringles Pizza',          emoji:'🍕',cat:'salgadinhos',
+   descUnit:'Pringles pizza 114g — lata',                priceUnit:14.40,
+   descBox:'Caixa com 12 latas',                         priceBox:138.24,qtyBox:12},
+
+  {id:92, name:'Pringles BBQ',            emoji:'🔥',cat:'salgadinhos',
+   descUnit:'Pringles BBQ 114g — lata',                  priceUnit:14.40,
+   descBox:'Caixa com 12 latas',                         priceBox:138.24,qtyBox:12},
+
+  // ══════════════════════════════════════════════════════════════
+  // BEBIDAS
+  // ══════════════════════════════════════════════════════════════
+
+  // — Coca-Cola
+  {id:93,  name:'Coca-Cola Original 350ml',  emoji:'🥤',cat:'bebidas',badge:'Clássico',
+   descUnit:'Coca-Cola lata 350ml — unidade',            priceUnit:3.60,
+   descBox:'Fardo com 12 latas',                         priceBox:34.56, qtyBox:12},
+
+  {id:94,  name:'Coca-Cola Original 600ml',  emoji:'🥤',cat:'bebidas',
+   descUnit:'Coca-Cola garrafa 600ml — unidade',         priceUnit:4.80,
+   descBox:'Fardo com 12 garrafas',                      priceBox:46.08, qtyBox:12},
+
+  {id:95,  name:'Coca-Cola Original 1L',     emoji:'🥤',cat:'bebidas',
+   descUnit:'Coca-Cola garrafa 1L — unidade',            priceUnit:6.40,
+   descBox:'Fardo com 6 garrafas',                       priceBox:30.72, qtyBox:6},
+
+  {id:96,  name:'Coca-Cola Original 2L',     emoji:'🥤',cat:'bebidas',badge:'Família',
+   descUnit:'Coca-Cola garrafa 2L — unidade',            priceUnit:7.90,
+   descBox:'Fardo com 6 garrafas',                       priceBox:37.44, qtyBox:6},
+
+  {id:97,  name:'Coca-Cola Zero 350ml',      emoji:'⚫',cat:'bebidas',
+   descUnit:'Coca-Cola Zero lata 350ml — unidade',       priceUnit:3.60,
+   descBox:'Fardo com 12 latas',                         priceBox:34.56, qtyBox:12},
+
+  {id:98,  name:'Coca-Cola Zero 2L',         emoji:'⚫',cat:'bebidas',
+   descUnit:'Coca-Cola Zero garrafa 2L — unidade',       priceUnit:7.90,
+   descBox:'Fardo com 6 garrafas',                       priceBox:37.44, qtyBox:6},
+
+  // — Guaraná Antarctica
+  {id:99,  name:'Guaraná Antarctica 350ml',  emoji:'🟢',cat:'bebidas',
+   descUnit:'Guaraná Antarctica lata 350ml — unidade',   priceUnit:3.20,
+   descBox:'Fardo com 12 latas',                         priceBox:30.72, qtyBox:12},
+
+  {id:100, name:'Guaraná Antarctica 2L',     emoji:'🟢',cat:'bebidas',badge:'Família',
+   descUnit:'Guaraná Antarctica garrafa 2L — unidade',   priceUnit:7.20,
+   descBox:'Fardo com 6 garrafas',                       priceBox:34.56, qtyBox:6},
+
+  {id:101, name:'Guaraná Antarctica Zero 2L',emoji:'🟢',cat:'bebidas',
+   descUnit:'Guaraná Zero garrafa 2L — unidade',         priceUnit:7.20,
+   descBox:'Fardo com 6 garrafas',                       priceBox:34.56, qtyBox:6},
+
+  // — Fanta
+  {id:102, name:'Fanta Laranja 350ml',       emoji:'🟠',cat:'bebidas',
+   descUnit:'Fanta laranja lata 350ml — unidade',        priceUnit:3.20,
+   descBox:'Fardo com 12 latas',                         priceBox:30.72, qtyBox:12},
+
+  {id:103, name:'Fanta Uva 350ml',           emoji:'🟣',cat:'bebidas',
+   descUnit:'Fanta uva lata 350ml — unidade',            priceUnit:3.20,
+   descBox:'Fardo com 12 latas',                         priceBox:30.72, qtyBox:12},
+
+  {id:104, name:'Fanta Laranja 2L',          emoji:'🟠',cat:'bebidas',
+   descUnit:'Fanta laranja garrafa 2L — unidade',        priceUnit:7.20,
+   descBox:'Fardo com 6 garrafas',                       priceBox:34.56, qtyBox:6},
+
+  // — Sprite
+  {id:105, name:'Sprite Original 350ml',     emoji:'🟡',cat:'bebidas',
+   descUnit:'Sprite lata 350ml — unidade',               priceUnit:3.20,
+   descBox:'Fardo com 12 latas',                         priceBox:30.72, qtyBox:12},
+
+  {id:106, name:'Sprite Original 2L',        emoji:'🟡',cat:'bebidas',
+   descUnit:'Sprite garrafa 2L — unidade',               priceUnit:7.20,
+   descBox:'Fardo com 6 garrafas',                       priceBox:34.56, qtyBox:6},
+
+  // — Pepsi
+  {id:107, name:'Pepsi Cola 350ml',          emoji:'🔵',cat:'bebidas',
+   descUnit:'Pepsi lata 350ml — unidade',                priceUnit:3.20,
+   descBox:'Fardo com 12 latas',                         priceBox:30.72, qtyBox:12},
+
+  {id:108, name:'Pepsi Cola 2L',             emoji:'🔵',cat:'bebidas',
+   descUnit:'Pepsi garrafa 2L — unidade',                priceUnit:7.20,
+   descBox:'Fardo com 6 garrafas',                       priceBox:34.56, qtyBox:6},
+
+  // — H2OH!
+  {id:109, name:'H2OH! Limão 500ml',         emoji:'💧',cat:'bebidas',
+   descUnit:'H2OH limão garrafa 500ml — unidade',        priceUnit:4.80,
+   descBox:'Fardo com 12 garrafas',                      priceBox:46.08, qtyBox:12},
+
+  {id:110, name:'H2OH! Tangerina 500ml',     emoji:'💧',cat:'bebidas',
+   descUnit:'H2OH tangerina garrafa 500ml — unidade',    priceUnit:4.80,
+   descBox:'Fardo com 12 garrafas',                      priceBox:46.08, qtyBox:12},
+
+  // — Schweppes
+  {id:111, name:'Schweppes Tônica 350ml',    emoji:'🫧',cat:'bebidas',
+   descUnit:'Schweppes tônica lata 350ml — unidade',     priceUnit:4.00,
+   descBox:'Fardo com 12 latas',                         priceBox:38.40, qtyBox:12},
+
+  {id:112, name:'Schweppes Limão 350ml',     emoji:'🍋',cat:'bebidas',
+   descUnit:'Schweppes citrus lata 350ml — unidade',     priceUnit:4.00,
+   descBox:'Fardo com 12 latas',                         priceBox:38.40, qtyBox:12},
+
+  {id:113, name:'Schweppes Grapefruit 350ml',emoji:'🩷',cat:'bebidas',
+   descUnit:'Schweppes grapefruit lata 350ml — unidade', priceUnit:4.00,
+   descBox:'Fardo com 12 latas',                         priceBox:38.40, qtyBox:12},
+
+  // — Sucos Del Valle
+  {id:114, name:'Del Valle Uva 1L',          emoji:'🍇',cat:'bebidas',
+   descUnit:'Suco Del Valle uva 1L — unidade',           priceUnit:6.00,
+   descBox:'Caixa com 6 unidades',                       priceBox:28.80, qtyBox:6},
+
+  {id:115, name:'Del Valle Laranja 1L',      emoji:'🍊',cat:'bebidas',
+   descUnit:'Suco Del Valle laranja 1L — unidade',       priceUnit:6.00,
+   descBox:'Caixa com 6 unidades',                       priceBox:28.80, qtyBox:6},
+
+  {id:116, name:'Del Valle Maracujá 1L',     emoji:'🟡',cat:'bebidas',
+   descUnit:'Suco Del Valle maracujá 1L — unidade',      priceUnit:6.00,
+   descBox:'Caixa com 6 unidades',                       priceBox:28.80, qtyBox:6},
+
+  {id:117, name:'Del Valle Pêssego 200ml',   emoji:'🍑',cat:'bebidas',
+   descUnit:'Del Valle pêssego caixinha 200ml — unidade',priceUnit:2.40,
+   descBox:'Caixa com 24 unidades',                      priceBox:46.08, qtyBox:24},
+
+  {id:118, name:'Del Valle Manga 200ml',     emoji:'🥭',cat:'bebidas',
+   descUnit:'Del Valle manga caixinha 200ml — unidade',  priceUnit:2.40,
+   descBox:'Caixa com 24 unidades',                      priceBox:46.08, qtyBox:24},
+
+  // — Minute Maid
+  {id:119, name:'Minute Maid Laranja 1L',    emoji:'🍊',cat:'bebidas',
+   descUnit:'Minute Maid laranja 1L — unidade',          priceUnit:6.40,
+   descBox:'Caixa com 6 unidades',                       priceBox:30.72, qtyBox:6},
+
+  {id:120, name:'Minute Maid Limão 1L',      emoji:'🍋',cat:'bebidas',
+   descUnit:'Minute Maid limonada 1L — unidade',         priceUnit:6.40,
+   descBox:'Caixa com 6 unidades',                       priceBox:30.72, qtyBox:6},
+
+  // — Água
+  {id:121, name:'Água Crystal s/ Gás 500ml', emoji:'💧',cat:'bebidas',
+   descUnit:'Água mineral Crystal 500ml — garrafa',      priceUnit:1.60,
+   descBox:'Pack com 12 garrafas',                       priceBox:15.36, qtyBox:12},
+
+  {id:122, name:'Água Crystal c/ Gás 500ml', emoji:'🫧',cat:'bebidas',
+   descUnit:'Água com gás Crystal 500ml — garrafa',      priceUnit:2.40,
+   descBox:'Pack com 12 garrafas',                       priceBox:23.04, qtyBox:12},
+
+  {id:123, name:'Água Minalba 1,5L',         emoji:'💧',cat:'bebidas',
+   descUnit:'Água Minalba s/ gás 1,5L — garrafa',        priceUnit:3.20,
+   descBox:'Pack com 6 garrafas',                        priceBox:15.36, qtyBox:6},
+
+  {id:124, name:'Água Ouro Fino 500ml',      emoji:'💧',cat:'bebidas',
+   descUnit:'Água mineral Ouro Fino 500ml — garrafa',    priceUnit:1.60,
+   descBox:'Pack com 12 garrafas',                       priceBox:15.36, qtyBox:12},
+
+  // — Energéticos
+  {id:125, name:'Red Bull Original 250ml',   emoji:'⚡',cat:'bebidas',badge:'Energia',
+   descUnit:'Red Bull energético 250ml — lata',          priceUnit:9.60,
+   descBox:'Caixa com 12 latas',                         priceBox:92.16, qtyBox:12},
+
+  {id:126, name:'Red Bull Sugar Free 250ml', emoji:'⚡',cat:'bebidas',
+   descUnit:'Red Bull sugar free 250ml — lata',          priceUnit:9.60,
+   descBox:'Caixa com 12 latas',                         priceBox:92.16, qtyBox:12},
+
+  {id:127, name:'Monster Energy Original',   emoji:'🟢',cat:'bebidas',badge:'Energia',
+   descUnit:'Monster original 473ml — lata',             priceUnit:9.60,
+   descBox:'Caixa com 12 latas',                         priceBox:92.16, qtyBox:12},
+
+  {id:128, name:'Monster Energy Zero',       emoji:'⚫',cat:'bebidas',
+   descUnit:'Monster zero açúcar 473ml — lata',          priceUnit:9.60,
+   descBox:'Caixa com 12 latas',                         priceBox:92.16, qtyBox:12},
+
+  {id:129, name:'TNT Energy 269ml',          emoji:'💥',cat:'bebidas',
+   descUnit:'TNT energético 269ml — lata',               priceUnit:4.80,
+   descBox:'Caixa com 12 latas',                         priceBox:46.08, qtyBox:12},
+
+  {id:130, name:'Flash Power 2L',            emoji:'⚡',cat:'bebidas',
+   descUnit:'Flash Power energético 2L — garrafa',       priceUnit:6.40,
+   descBox:'Fardo com 6 garrafas',                       priceBox:30.72, qtyBox:6},
+
+  // — Isotônicos
+  {id:131, name:'Gatorade Limão 500ml',      emoji:'🟡',cat:'bebidas',
+   descUnit:'Gatorade limão 500ml — garrafa',            priceUnit:5.60,
+   descBox:'Fardo com 12 garrafas',                      priceBox:53.76, qtyBox:12},
+
+  {id:132, name:'Gatorade Laranja 500ml',    emoji:'🟠',cat:'bebidas',
+   descUnit:'Gatorade laranja 500ml — garrafa',          priceUnit:5.60,
+   descBox:'Fardo com 12 garrafas',                      priceBox:53.76, qtyBox:12},
+
+  {id:133, name:'Gatorade Uva 500ml',        emoji:'🟣',cat:'bebidas',
+   descUnit:'Gatorade uva 500ml — garrafa',              priceUnit:5.60,
+   descBox:'Fardo com 12 garrafas',                      priceBox:53.76, qtyBox:12},
+
+  {id:134, name:'Powerade Limão 500ml',      emoji:'🔵',cat:'bebidas',
+   descUnit:'Powerade limão 500ml — garrafa',            priceUnit:5.60,
+   descBox:'Fardo com 12 garrafas',                      priceBox:53.76, qtyBox:12},
+
+  // — Achocolatados / Lácteos
+  {id:135, name:'Nescau 200ml',              emoji:'🍫',cat:'bebidas',
+   descUnit:'Nescau achocolatado 200ml — caixinha',      priceUnit:2.40,
+   descBox:'Caixa com 24 unidades',                      priceBox:46.08, qtyBox:24},
+
+  {id:136, name:'Toddynho 200ml',            emoji:'🍫',cat:'bebidas',badge:'Kids',
+   descUnit:'Toddynho achocolatado 200ml — caixinha',    priceUnit:2.40,
+   descBox:'Caixa com 24 unidades',                      priceBox:46.08, qtyBox:24},
+
+  {id:137, name:'Danoninho p/ Beber 100ml',  emoji:'🍓',cat:'bebidas',
+   descUnit:'Danoninho bebida 100ml — unidade',          priceUnit:3.20,
+   descBox:'Caixa com 12 unidades',                      priceBox:30.72, qtyBox:12},
+
+  // — Leite
+  {id:138, name:'Leite Integral Longa Vida 1L',emoji:'🥛',cat:'bebidas',
+   descUnit:'Leite integral caixa 1L — unidade',         priceUnit:4.40,
+   descBox:'Fardo com 12 caixas',                        priceBox:42.24, qtyBox:12},
+
+  {id:139, name:'Leite Desnatado 1L',        emoji:'🥛',cat:'bebidas',
+   descUnit:'Leite desnatado caixa 1L — unidade',        priceUnit:4.40,
+   descBox:'Fardo com 12 caixas',                        priceBox:42.24, qtyBox:12},
+
+  // — Chás / Iced Tea
+  {id:140, name:'Lipton Ice Tea Limão 1,5L', emoji:'🫖',cat:'bebidas',
+   descUnit:'Lipton ice tea limão 1,5L — garrafa',       priceUnit:7.20,
+   descBox:'Fardo com 6 garrafas',                       priceBox:34.56, qtyBox:6},
+
+  {id:141, name:'Lipton Ice Tea Pêssego 1,5L',emoji:'🫖',cat:'bebidas',
+   descUnit:'Lipton ice tea pêssego 1,5L — garrafa',     priceUnit:7.20,
+   descBox:'Fardo com 6 garrafas',                       priceBox:34.56, qtyBox:6},
+
+  {id:142, name:'Matte Leão 1,5L',           emoji:'🫖',cat:'bebidas',
+   descUnit:'Chá matte pronto Leão 1,5L — garrafa',      priceUnit:6.40,
+   descBox:'Fardo com 6 garrafas',                       priceBox:30.72, qtyBox:6},
+
+  // — Cervejas
+  {id:143, name:'Brahma Lata 350ml',         emoji:'🍺',cat:'bebidas',badge:'Gelada',
+   descUnit:'Brahma pilsen lata 350ml — unidade',        priceUnit:4.00,
+   descBox:'Fardo com 12 latas',                         priceBox:38.40, qtyBox:12},
+
+  {id:144, name:'Skol Lata 350ml',           emoji:'🍺',cat:'bebidas',
+   descUnit:'Skol pilsen lata 350ml — unidade',          priceUnit:4.00,
+   descBox:'Fardo com 12 latas',                         priceBox:38.40, qtyBox:12},
+
+  {id:145, name:'Heineken Lata 350ml',       emoji:'🍺',cat:'bebidas',badge:'Premium',
+   descUnit:'Heineken lager lata 350ml — unidade',       priceUnit:6.40,
+   descBox:'Fardo com 12 latas',                         priceBox:61.44, qtyBox:12},
+
+  {id:146, name:'Budweiser Lata 350ml',      emoji:'🍺',cat:'bebidas',
+   descUnit:'Budweiser lager lata 350ml — unidade',      priceUnit:5.60,
+   descBox:'Fardo com 12 latas',                         priceBox:53.76, qtyBox:12},
+
+  {id:147, name:'Corona Extra Garrafa 330ml',emoji:'🍺',cat:'bebidas',badge:'Premium',
+   descUnit:'Corona Extra garrafa 330ml — unidade',      priceUnit:7.20,
+   descBox:'Caixa com 24 garrafas',                      priceBox:138.24,qtyBox:24},
+
+  {id:148, name:'Stella Artois Lata 350ml',  emoji:'🍺',cat:'bebidas',
+   descUnit:'Stella Artois lata 350ml — unidade',        priceUnit:6.40,
+   descBox:'Fardo com 12 latas',                         priceBox:61.44, qtyBox:12},
+
+  // — Drinks prontos
+  {id:149, name:'Smirnoff Ice 275ml',        emoji:'🍸',cat:'bebidas',
+   descUnit:'Smirnoff Ice garrafa 275ml — unidade',      priceUnit:7.20,
+   descBox:'Caixa com 24 garrafas',                      priceBox:138.24,qtyBox:24},
+
+  {id:150, name:'Bacardi Breezer Morango 275ml',emoji:'🍹',cat:'bebidas',
+   descUnit:'Bacardi Breezer morango 275ml — unidade',   priceUnit:7.20,
+   descBox:'Caixa com 24 garrafas',                      priceBox:138.24,qtyBox:24},
+
+];
+
+const mode = {}; products.forEach(p => mode[p.id]='unit');
+let cart = [];
+let activecat = 'todos';
+let selPay = '';
+
+function fmt(v){return v.toFixed(2).replace('.',',')}
+
+// ── CATEGORIAS SIDEBAR ───────────────────────────────────────
+function buildCats(){
+  const el = document.getElementById('catBar');
+  // Calcula contagem real por categoria
+  CATS.forEach(c => {
+    c.count = c.id === 'todos' ? products.length : products.filter(p => p.cat === c.id).length;
+  });
+  el.innerHTML = CATS.map(c=>`
+    <button class="cat-pill${c.id==='todos'?' active':''}" onclick="setCat('${c.id}',this)">
+      <span class="cat-pill-emoji">${c.emoji}</span>
+      ${c.label}
+      <span class="cat-pill-count">${c.count}</span>
+    </button>`).join('');
+}
+
+function setCat(id,el){
+  activecat=id;
+  document.querySelectorAll('.cat-pill').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  const info = CATS.find(c=>c.id===id);
+  document.getElementById('catalogTitle').textContent = id==='todos' ? 'Todos os Produtos' : `${info.emoji} ${info.label}`;
+  applyFilters();
+}
+
+// ── FILTROS + RENDER ─────────────────────────────────────────
+function applyFilters(){
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  const sort = document.querySelector('.sort-wrap select').value;
+  let list = products.filter(p=>{
+    const catOk = activecat==='todos' || p.cat===activecat;
+    const qOk   = !q || p.name.toLowerCase().includes(q) || p.descUnit.toLowerCase().includes(q);
+    return catOk && qOk;
+  });
+  if(sort==='price_asc')  list.sort((a,b)=>a.priceUnit-b.priceUnit);
+  if(sort==='price_desc') list.sort((a,b)=>b.priceUnit-a.priceUnit);
+  if(sort==='name')       list.sort((a,b)=>a.name.localeCompare(b.name));
+  document.getElementById('catalogSub').textContent = `${list.length} produto${list.length!==1?'s':''} encontrado${list.length!==1?'s':''}`;
+  renderGrid(list);
+}
+
+// ── BARCODES → Open Food Facts ───────────────────────────────
+// Formato da URL: https://images.openfoodfacts.org/images/products/{barcode_com_barras}/front_en.3.400.jpg
+// O barcode é formatado em grupos de 3/4 separados por /
+const BARCODES = {
+  1:  '7891000248942', // Kit Kat Nestlé Brasil
+  2:  '7622300441937', // Bis Lacta
+  3:  '7896058500053', // Pirulito sortido
+  4:  '7896035900019', // Paçoca rolha
+  5:  '7896008800215', // Brigadeiro gourmet
+  6:  '7891118024889', // Bala Fini
+  7:  '7622210951403', // Chiclete Trident
+  8:  '7896183003001', // Sonho de Valsa
+  9:  '7891000100004', // Morango chocolate
+  10: '7896063280300', // Trufa sortida
+  11: '7891118019007', // Algodão doce
+  12: '7898920820602', // Bolo no pote
+  13: '7896948100011', // Balão latex
+  14: '7891448001030', // Balão metalizado
+  15: '7891962012543', // Vela aniversário
+  16: '7896948200018', // Vela sparkle
+  17: '7891020038519', // Guardanapo decorado
+  18: '7891448003003', // Prato descartável
+  19: '7896048103010', // Copo descartável
+  20: '7891448005007', // Toalha de mesa
+  21: '7895640001007', // Faixa aniversário
+  22: '7896948300014', // Confete serpentina
+  23: '7891448007001', // Chapéu de festa
+  24: '7896085898023', // Elma Chips Onda
+  25: '7896085898030', // Elma Chips Forno
+  26: '7891962040027', // Lobito
+  27: '7891962040003', // Fofura
+  28: '7891962040010', // Ebicem
+  29: '7896085870005', // Pipoca Yoki
+  30: '7896085898016', // Cheetos
+  31: '7896085898047', // Ruffles
+  32: '7894900011517', // Coca-Cola 2L
+  33: '7894900700053', // Coca-Cola lata 350ml
+  34: '7891991010822', // Suco Del Valle 1L
+  35: '7891150050006', // Água Crystal 500ml
+  36: '9002490100063', // Red Bull 250ml
+  37: '7891000012048', // Nescau achocolatado
+};
+
+function barcodeToPath(code){
+  // Converte "7894900011517" → "789/490/001/1517"
+  const s = String(code);
+  if(s.length === 13){
+    return `${s.slice(0,3)}/${s.slice(3,6)}/${s.slice(6,9)}/${s.slice(9)}`;
+  }
+  if(s.length === 8){
+    return `${s.slice(0,4)}/${s.slice(4)}`;
+  }
+  return s;
+}
+
+function imgUrl(id){
+  const bc = BARCODES[id];
+  if(!bc) return null;
+  const path = barcodeToPath(bc);
+  return `https://images.openfoodfacts.org/images/products/${path}/front_en.3.400.jpg`;
+}
+
+function renderGrid(list){
+  const g = document.getElementById('productsGrid');
+  if(!list.length){
+    g.innerHTML='<p style="color:var(--sub);font-weight:600;grid-column:1/-1;text-align:center;padding:48px 0;font-size:.9rem">Nenhum produto encontrado 😕</p>';
+    return;
+  }
+  g.innerHTML = list.map(p=>{
+    const isBox  = mode[p.id]==='box';
+    const price  = isBox ? p.priceBox : p.priceUnit;
+    const desc   = isBox ? p.descBox  : p.descUnit;
+    const saving = isBox ? `Economize R$ ${fmt(p.priceUnit*p.qtyBox - p.priceBox)}` : '';
+    const url    = imgUrl(p.id);
+    const imgHtml = url
+      ? `<img
+          src="${url}"
+          alt="${p.name}"
+          loading="lazy"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+          style="width:100%;height:100%;object-fit:contain;padding:10px;position:absolute;inset:0"
+        >
+        <span class="pcard-emoji-fallback" style="display:none;position:absolute;inset:0;align-items:center;justify-content:center;font-size:3.5rem;filter:drop-shadow(0 4px 10px rgba(0,0,0,.12))">${p.emoji}</span>`
+      : `<span style="font-size:3.5rem;filter:drop-shadow(0 4px 10px rgba(0,0,0,.12))">${p.emoji}</span>`;
+    return `<div class="pcard" id="pc-${p.id}">
+      <div class="pcard-img ${PB[p.cat]||''}" style="position:relative;overflow:hidden">
+        ${p.badge?`<div class="pcard-badge">${p.badge}</div>`:''}
+        ${imgHtml}
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-name">${p.name}</div>
+        <div class="toggle-wrap">
+          <button class="${!isBox?'on':''}" onclick="setMode(${p.id},'unit')">🔹 Unidade</button>
+          <button class="${isBox?'on':''}"  onclick="setMode(${p.id},'box')">📦 Caixa</button>
+        </div>
+        <div class="pcard-desc" id="desc-${p.id}">${desc}</div>
+        <div class="pcard-foot">
+          <div>
+            <div class="price-main" id="price-${p.id}">R$ ${fmt(price)}</div>
+            <div class="price-tag"  id="ptag-${p.id}">${isBox?'caixa fechada':'por unidade'}</div>
+            <div class="price-save" id="psave-${p.id}" style="display:${saving?'inline-block':'none'}">${saving}</div>
+          </div>
+          <button class="add-btn" id="abtn-${p.id}" onclick="addItem(${p.id})">+</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Revela imagens com fade após carregamento
+  setTimeout(()=>{
+    document.querySelectorAll('.pcard-img img').forEach(img=>{
+      const reveal = ()=>{ img.classList.add('loaded'); };
+      if(img.complete && img.naturalWidth > 0) reveal();
+      else { img.addEventListener('load', reveal); }
+    });
+  }, 80);
+}
+
+function setMode(id,m){
+  mode[id]=m;
+  const p=products.find(x=>x.id===id);
+  const isBox=m==='box';
+  const price=isBox?p.priceBox:p.priceUnit;
+  const desc =isBox?p.descBox :p.descUnit;
+  const saving=isBox?`Economize R$ ${fmt(p.priceUnit*p.qtyBox - p.priceBox)}`:'';
+  const card=document.getElementById(`pc-${id}`);
+  if(!card)return;
+  card.querySelectorAll('.toggle-wrap button').forEach((b,i)=>{b.classList.toggle('on',(i===0&&!isBox)||(i===1&&isBox))});
+  document.getElementById(`desc-${id}`).textContent=desc;
+  document.getElementById(`price-${id}`).textContent=`R$ ${fmt(price)}`;
+  document.getElementById(`ptag-${id}`).textContent=isBox?'caixa fechada':'por unidade';
+  const sv=document.getElementById(`psave-${id}`);
+  sv.textContent=saving; sv.style.display=saving?'inline-block':'none';
+}
+
+// ── CARRINHO ─────────────────────────────────────────────────
+function addItem(id){
+  const p=products.find(x=>x.id===id);
+  const isBox=mode[id]==='box';
+  const price=isBox?p.priceBox:p.priceUnit;
+  const label=isBox?`${p.name} (Caixa)`:p.name;
+  const cid=`${id}-${isBox?'box':'unit'}`;
+  const ex=cart.find(c=>c.cid===cid);
+  if(ex)ex.qty++;
+  else cart.push({...p,cid,name:label,price,qty:1});
+  updateCount();
+  toast(`${p.emoji} ${label} adicionado!`);
+  const btn=document.getElementById(`abtn-${id}`);
+  if(btn){btn.textContent='✓';btn.classList.add('ok');setTimeout(()=>{btn.textContent='+';btn.classList.remove('ok')},700)}
+  const card=document.getElementById(`pc-${id}`);
+  if(card){card.classList.add('popped');setTimeout(()=>card.classList.remove('popped'),220)}
+}
+
+function updateCount(){
+  const n=cart.reduce((s,c)=>s+c.qty,0);
+  document.getElementById('cartCount').textContent=n;
+  document.getElementById('cartCountFab').textContent=n;
+  document.getElementById('cartFab').style.display=n>0?'flex':'none';
+}
+
+function changeQty(cid,d){
+  const i=cart.findIndex(c=>c.cid===cid);
+  if(i<0)return;
+  cart[i].qty+=d;
+  if(cart[i].qty<=0)cart.splice(i,1);
+  updateCount(); renderCartItems();
+}
+
+function renderCartItems(){
+  const ci=document.getElementById('cartItems');
+  const tb=document.getElementById('cartTotalBox');
+  const bf=document.getElementById('btnFinalizar');
+  if(!cart.length){
+    ci.innerHTML='<div class="empty-cart"><span class="empty-cart-icon">🛒</span><p style="font-weight:600;color:var(--sub)">Carrinho vazio<br>Adicione produtos para continuar</p></div>';
+    tb.style.display='none'; bf.style.display='none'; return;
+  }
+  ci.innerHTML=cart.map(item=>`
+    <div class="cart-item">
+      <div class="ci-em">${item.emoji}</div>
+      <div class="ci-inf">
+        <div class="ci-n">${item.name}</div>
+        <div class="ci-p">R$ ${fmt(item.price)} cada</div>
+      </div>
+      <div class="ci-ctrl">
+        <button class="q-btn" onclick="changeQty('${item.cid}',-1)">${item.qty===1?'🗑':'−'}</button>
+        <span class="q-num">${item.qty}</span>
+        <button class="q-btn" onclick="changeQty('${item.cid}',1)">+</button>
+      </div>
+    </div>`).join('');
+  const sub=cart.reduce((s,c)=>s+c.price*c.qty,0);
+  document.getElementById('subtotalVal').textContent=`R$ ${fmt(sub)}`;
+  document.getElementById('totalVal').textContent=`R$ ${fmt(sub+3.99)}`;
+  tb.style.display='block'; bf.style.display='flex';
+}
+
+// ── MODAL ────────────────────────────────────────────────────
+function openCart(){
+  document.getElementById('overlay').classList.add('open');
+  goCart();
+}
+function closeCart(){document.getElementById('overlay').classList.remove('open')}
+function closeOuter(e){if(e.target===document.getElementById('overlay'))closeCart()}
+
+function goCart(){
+  document.getElementById('cartView').style.display='block';
+  document.getElementById('formView').classList.remove('vis');
+  document.getElementById('successView').classList.remove('vis');
+  renderCartItems();
+}
+function goForm(){
+  document.getElementById('cartView').style.display='none';
+  document.getElementById('formView').classList.add('vis');
+  buildSummary();
+}
+
+function buildSummary(){
+  const sub=cart.reduce((s,c)=>s+c.price*c.qty,0);
+  document.getElementById('summaryBox').innerHTML=`
+    <div style="font-size:.78rem;font-weight:700;color:var(--sub);letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px">Resumo do pedido</div>
+    ${cart.map(i=>`<div style="display:flex;justify-content:space-between;font-size:.8rem;font-weight:600;margin-bottom:4px"><span>${i.emoji} ${i.name} ×${i.qty}</span><span>R$ ${fmt(i.price*i.qty)}</span></div>`).join('')}
+    <div style="display:flex;justify-content:space-between;font-weight:800;font-size:.9rem;border-top:1.5px solid var(--border);margin-top:8px;padding-top:8px"><span>Total (c/ entrega)</span><span style="color:var(--red)">R$ ${fmt(sub+3.99)}</span></div>`;
+}
+
+function setPay(v,el){
+  selPay=v;
+  document.querySelectorAll('.pay-opt').forEach(o=>o.classList.remove('on'));
+  el.classList.add('on');
+}
+
+function confirmar(){
+  const nome=document.getElementById('fNome').value.trim();
+  const tel =document.getElementById('fTel').value.trim();
+  const end =document.getElementById('fEnd').value.trim();
+  const obs =document.getElementById('fObs').value.trim();
+  if(!nome||!tel||!end||!selPay){alert('Preencha todos os campos obrigatórios!');return}
+
+  const itens=cart.map(i=>`  • ${i.emoji} ${i.name} ×${i.qty} — R$ ${fmt(i.price*i.qty)}`).join('\n');
+  const sub=cart.reduce((s,c)=>s+c.price*c.qty,0);
+  const pagLabel={pix:'📱 PIX',dinheiro:'💵 Dinheiro',debito:'💳 Débito',credito:'💳 Crédito'};
+  const hora=new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+
+  const msg=[
+    '🛵 *NOVO PEDIDO — Delivery Mantovani*','',
+    `👤 *Cliente:* ${nome}`,
+    `📱 *Telefone:* ${tel}`,
+    `📍 *Endereço:* ${end}${document.getElementById('fComp').value?' — '+document.getElementById('fComp').value:''}`,
+    `💳 *Pagamento:* ${pagLabel[selPay]||selPay}`,
+    '','🛒 *Itens:*',itens,'',
+    `💰 *Subtotal:* R$ ${fmt(sub)}`,
+    `🚚 *Entrega:* R$ 3,99`,
+    `✅ *TOTAL: R$ ${fmt(sub+3.99)}*`,
+    obs?`\n📝 *Obs:* ${obs}`:'',
+    `\n⏰ *Pedido às ${hora}*`
+  ].filter(l=>l!==undefined).join('\n').trim();
+
+  window.open(`https://wa.me/5511988875328?text=${encodeURIComponent(msg)}`,'_blank');
+
+  document.getElementById('formView').classList.remove('vis');
+  document.getElementById('successView').classList.add('vis');
+  cart=[]; updateCount(); selPay='';
+}
+
+function openWhatsApp(){
+  window.open(`https://wa.me/5511988875328?text=${encodeURIComponent('Olá! Gostaria de fazer um pedido no Delivery Mantovani 🛵')}`,'_blank');
+}
+
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2400);
+}
+
+// ── CHAT IA SUPORTE ──────────────────────────────────────────
+const AI_ANSWERS = {
+  default: [
+    'Para dúvidas mais específicas, entre em contato pelo WhatsApp (11) 98887-5328.',
+    'Boa pergunta! Posso te ajudar melhor se você chamar no WhatsApp: (11) 98887-5328.',
+  ],
+  pedido: 'Para fazer um pedido: adicione produtos ao carrinho, clique em "Finalizar Pedido", preencha seu endereço e forma de pagamento. O pedido chega automaticamente no WhatsApp do Mantovani!',
+  entrega: 'A taxa de entrega é de R$ 3,99. O tempo médio é de 30 minutos após a confirmação. No primeiro pedido use o cupom MANTOVANI1 e ganhe frete grátis!',
+  pagamento: 'Aceitamos PIX, dinheiro, cartão de débito e cartão de crédito. O pagamento é feito na entrega ao motoboy.',
+  cancelar: 'Para cancelar, entre em contato pelo WhatsApp (11) 98887-5328 o mais rápido possível. Se o motoboy ainda não saiu, cancelamos sem problema.',
+  horario: 'Atendemos de segunda a domingo, das 8h às 22h.',
+  cupom: 'Use o cupom MANTOVANI1 no seu primeiro pedido e ganhe a taxa de entrega grátis!',
+  whatsapp: 'Nosso WhatsApp é (11) 98887-5328. Você pode chamar direto ou usar o site para fazer o pedido automaticamente.',
+};
+
+function getAIAnswer(q){
+  const ql = q.toLowerCase();
+  if(/pedido|comprar|fazer|como|pedir/.test(ql)) return AI_ANSWERS.pedido;
+  if(/entrega|taxa|frete|tempo|minuto|prazo/.test(ql)) return AI_ANSWERS.entrega;
+  if(/pag|pix|cartão|dinheiro|forma/.test(ql)) return AI_ANSWERS.pagamento;
+  if(/cancel|trocar|troca|devolver|devolução/.test(ql)) return AI_ANSWERS.cancelar;
+  if(/hor[aá]rio|funciona|abre|fecha|domingo|sábado/.test(ql)) return AI_ANSWERS.horario;
+  if(/cupom|desconto|promoção|grátis|frete/.test(ql)) return AI_ANSWERS.cupom;
+  if(/whatsapp|zap|número|contato/.test(ql)) return AI_ANSWERS.whatsapp;
+  const rand = AI_ANSWERS.default;
+  return rand[Math.floor(Math.random()*rand.length)];
+}
+
+function addMsg(text, type){
+  const msgs = document.getElementById('aiMessages');
+  const typing = document.getElementById('aiTyping');
+  const div = document.createElement('div');
+  div.className = `ai-msg ${type}`;
+  div.textContent = text;
+  msgs.insertBefore(div, typing);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function sendAI(){
+  const inp = document.getElementById('aiInput');
+  const q = inp.value.trim();
+  if(!q) return;
+  addMsg(q, 'user');
+  inp.value = '';
+  const typing = document.getElementById('aiTyping');
+  typing.classList.add('show');
+  document.getElementById('aiMessages').scrollTop = 9999;
+  setTimeout(()=>{
+    typing.classList.remove('show');
+    addMsg(getAIAnswer(q), 'bot');
+  }, 900 + Math.random()*600);
+}
+
+function setQuestion(q){
+  document.getElementById('aiInput').value = q;
+  document.getElementById('suporte').scrollIntoView({behavior:'smooth'});
+  setTimeout(sendAI, 400);
+}
+
+// ── INIT ─────────────────────────────────────────────────────
+buildCats();
+applyFilters();
+</script>
+</body>
+</html>

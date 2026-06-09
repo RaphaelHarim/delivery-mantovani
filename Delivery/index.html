@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delivery Mantovani</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">Doces · Festas · Salgadinhos · Bebidas — <strong>Delivery rápido (11) 98887-5328</strong></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo-wrap">
+      <div class="logo-mark">🛵</div>
+      <div>
+        <div class="logo-name">Delivery Mantovani</div>
+        <div class="logo-tag">Desde sempre na sua porta</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#catalogo">Cardápio</a></li>
+      <li><a href="#whatsapp">Pedir pelo WhatsApp</a></li>
+      <li><a href="#suporte">Suporte</a></li>
+    </ul>
+    <button class="nav-cart" onclick="openCart()">
+      🛒 Carrinho <span class="cart-badge" id="cartCount">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-blob"></div>
+  <div class="hero-blob2"></div>
+  <div class="hero-inner">
+    <!-- Texto -->
+    <div>
+      <div class="hero-pill">🛵 Motoboy sempre pronto</div>
+      <h1>O Mantovani voltou,<em>agora no delivery.</em></h1>
+      <p>A tradição da loja física do Mantovani, agora no delivery. Doces, artigos de festa, salgadinhos e bebidas direto na sua porta.</p>
+      <div class="hero-btns">
+        <a href="#catalogo" class="btn-hero-p">Ver Cardápio</a>
+        <a href="#como-funciona" class="btn-hero-s">Como funciona →</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="hstat-n">150+</div><div class="hstat-l">Produtos na porta da sua casa</div></div>
+      </div>
+    </div>
+    <!-- Mascote -->
+    <div class="hero-visual">
+      <div class="mascote-wrap">
+        <svg viewBox="0 0 320 420" xmlns="http://www.w3.org/2000/svg" class="mascote-svg">
+          <ellipse cx="160" cy="410" rx="72" ry="10" fill="rgba(0,0,0,0.22)"/>
+          <rect x="90" y="232" width="140" height="126" rx="30" fill="#D72B2B"/>
+          <rect x="150" y="232" width="20" height="126" fill="rgba(255,255,255,0.10)"/>
+          <circle cx="160" cy="258" r="4.5" fill="white" opacity=".75"/>
+          <circle cx="160" cy="277" r="4.5" fill="white" opacity=".75"/>
+          <circle cx="160" cy="296" r="4.5" fill="white" opacity=".75"/>
+          <polygon points="140,232 160,256 180,232" fill="white" opacity=".85"/>
+          <rect x="54" y="242" width="44" height="24" rx="12" fill="#D72B2B" transform="rotate(-20,76,254)"/>
+          <ellipse cx="48" cy="276" rx="15" ry="13" fill="#FBBF8A"/>
+          <rect x="22" y="286" width="44" height="38" rx="9" fill="#0E1F4D"/>
+          <path d="M31 286 Q38 272 54 272 Q70 272 77 286" fill="none" stroke="#0E1F4D" stroke-width="4" stroke-linecap="round"/>
+          <text x="44" y="309" font-family="Arial" font-weight="900" font-size="11" fill="white" text-anchor="middle">M</text>
+          <rect x="222" y="233" width="44" height="24" rx="12" fill="#D72B2B" transform="rotate(26,244,245)"/>
+          <ellipse cx="268" cy="213" rx="15" ry="13" fill="#FBBF8A"/>
+          <ellipse cx="259" cy="201" rx="4.5" ry="6.5" fill="#FBBF8A"/>
+          <ellipse cx="268" cy="198" rx="4.5" ry="6.5" fill="#FBBF8A"/>
+          <ellipse cx="277" cy="201" rx="4.5" ry="6.5" fill="#FBBF8A"/>
+          <rect x="112" y="350" width="40" height="56" rx="16" fill="#0E1F4D"/>
+          <rect x="168" y="350" width="40" height="56" rx="16" fill="#0E1F4D"/>
+          <ellipse cx="132" cy="406" rx="25" ry="11" fill="#0A0C16"/>
+          <ellipse cx="188" cy="406" rx="25" ry="11" fill="#0A0C16"/>
+          <rect x="148" y="212" width="24" height="24" rx="9" fill="#FBBF8A"/>
+          <ellipse cx="160" cy="166" rx="70" ry="72" fill="#FBBF8A"/>
+          <ellipse cx="90" cy="170" rx="13" ry="17" fill="#FBBF8A"/>
+          <ellipse cx="230" cy="170" rx="13" ry="17" fill="#FBBF8A"/>
+          <ellipse cx="90" cy="170" rx="7" ry="10" fill="#F0A870"/>
+          <ellipse cx="230" cy="170" rx="7" ry="10" fill="#F0A870"/>
+          <ellipse cx="160" cy="108" rx="70" ry="42" fill="#6B3A1F"/>
+          <ellipse cx="178" cy="98" rx="52" ry="32" fill="#6B3A1F"/>
+          <path d="M90 106 Q72 86 84 70 Q102 56 132 60 Q92 74 90 106Z" fill="#7C4422"/>
+          <path d="M92 103 Q70 83 82 64 Q100 50 128 54 Q90 70 92 103Z" fill="#5C2D0E"/>
+          <path d="M102 96 Q78 80 90 60 Q104 48 130 53" fill="none" stroke="#4A2409" stroke-width="5.5" stroke-linecap="round"/>
+          <path d="M110 92 Q88 78 98 58 Q112 46 136 50" fill="none" stroke="#4A2409" stroke-width="4.5" stroke-linecap="round"/>
+          <path d="M106 110 Q91 128 97 146 Q101 157 107 151 Q103 137 116 120Z" fill="#6B3A1F"/>
+          <path d="M113 108 Q99 126 104 144 Q108 155 113 149 Q110 134 122 118Z" fill="#7C4422"/>
+          <ellipse cx="186" cy="93" rx="18" ry="7" fill="rgba(255,255,255,0.13)" transform="rotate(-14,186,93)"/>
+          <path d="M124 146 Q137 138 151 143" fill="none" stroke="#4A2409" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M169 143 Q183 138 196 146" fill="none" stroke="#4A2409" stroke-width="3.5" stroke-linecap="round"/>
+          <ellipse cx="136" cy="163" rx="17" ry="19" fill="white"/>
+          <ellipse cx="184" cy="163" rx="17" ry="19" fill="white"/>
+          <circle cx="138" cy="165" r="11" fill="#3B1E08"/>
+          <circle cx="182" cy="165" r="11" fill="#3B1E08"/>
+          <circle cx="140" cy="165" r="6.5" fill="#0A0C16"/>
+          <circle cx="184" cy="165" r="6.5" fill="#0A0C16"/>
+          <circle cx="143" cy="160" r="2.8" fill="white"/>
+          <circle cx="187" cy="160" r="2.8" fill="white"/>
+          <ellipse cx="136" cy="163" rx="17" ry="19" fill="none" stroke="#3B1E08" stroke-width="1.5"/>
+          <ellipse cx="184" cy="163" rx="17" ry="19" fill="none" stroke="#3B1E08" stroke-width="1.5"/>
+          <ellipse cx="160" cy="185" rx="7.5" ry="5.5" fill="#F0A870"/>
+          <path d="M139 199 Q160 218 181 199" fill="none" stroke="#C0622A" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M145 202 Q160 215 175 202 Q160 211 145 202Z" fill="white"/>
+          <ellipse cx="116" cy="194" rx="13" ry="9" fill="rgba(255,110,90,0.22)"/>
+          <ellipse cx="204" cy="194" rx="13" ry="9" fill="rgba(255,110,90,0.22)"/>
+          <text x="38" y="186" font-size="17" fill="rgba(255,255,255,0.55)">✦</text>
+          <text x="268" y="168" font-size="13" fill="rgba(255,255,255,0.50)">✦</text>
+          <text x="60" y="308" font-size="11" fill="rgba(255,255,255,0.40)">✦</text>
+        </svg>
+        <div class="mascote-bubble">
+          Oi! Sou o <strong>Mantovani!</strong><br>
+          Pode pedir que eu entrego!
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     COMO FUNCIONA
+════════════════════════════════════════════════ -->
+<section class="how-section" id="como-funciona">
+  <div class="how-inner">
+    <div class="section-eyebrow">Simples assim</div>
+    <div class="section-title-light">Como funciona</div>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-n">01</div>
+        <div class="step-t">Escolha os produtos</div>
+        <div class="step-d">Navegue pelo catálogo, selecione unidade ou caixa e adicione ao carrinho.</div>
+      </div>
+      <div class="step">
+        <div class="step-n">02</div>
+        <div class="step-t">Confirme o pedido</div>
+        <div class="step-d">Informe seu endereço e forma de pagamento. Leva menos de 1 minuto.</div>
+      </div>
+      <div class="step">
+        <div class="step-n">03</div>
+        <div class="step-t">WhatsApp automático</div>
+        <div class="step-d">Seu pedido é enviado automaticamente para o WhatsApp do Mantovani.</div>
+      </div>
+      <div class="step">
+        <div class="step-n">04</div>
+        <div class="step-t">Receba na porta</div>
+        <div class="step-d">Nosso motoboy sai em até 10 minutos e entrega com cuidado.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     BUSCA
+════════════════════════════════════════════════ -->
+<div class="search-bar">
+  <div class="search-inner">
+    <span class="search-icon">🔍︎</span>
+    <input type="text" id="searchInput" placeholder="Buscar produto, categoria…" oninput="applyFilters()">
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     PILLS DE CATEGORIA
+════════════════════════════════════════════════ -->
+<div class="cat-bar-wrap">
+  <div class="cat-bar" id="catBar"></div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     CATÁLOGO DE PRODUTOS
+════════════════════════════════════════════════ -->
+<div class="main-wrap" id="catalogo">
+  <div class="catalog-area">
+    <div class="catalog-header">
+      <div>
+        <div class="catalog-title" id="catalogTitle">Todos os Produtos</div>
+        <div class="catalog-sub"  id="catalogSub">150 produtos disponíveis</div>
+      </div>
+      <div class="sort-wrap">
+        <select onchange="applyFilters()">
+          <option value="default">Ordenar por</option>
+          <option value="price_asc">Menor preço</option>
+          <option value="price_desc">Maior preço</option>
+          <option value="name">Nome A–Z</option>
+        </select>
+      </div>
+    </div>
+    <div class="products-grid" id="productsGrid"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     CUPOM / PROMO
+════════════════════════════════════════════════ -->
+<div style="max-width:1280px;margin:0 auto;padding:0 5% 48px">
+  <div class="promo-card">
+    <div>
+      <div class="promo-h">Primeira entrega grátis!</div>
+      <div class="promo-p">Use o cupom no seu primeiro pedido e não pague a taxa de entrega.</div>
+    </div>
+    <div class="promo-code-box">
+      <div class="promo-code-l">Cupom</div>
+      <div class="promo-code-v">MANTOVANI1</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     WHATSAPP DIRETO
+════════════════════════════════════════════════ -->
+<section class="wpp-section" id="whatsapp">
+  <div class="wpp-inner">
+    <div class="wpp-text">
+      <div class="eyebrow">Atendimento direto</div>
+      <h2>Prefere pedir pelo WhatsApp?</h2>
+      <p>Sem cadastro, sem app. Manda uma mensagem diretamente para o Mantovani e a gente anota seu pedido na hora. Respondemos em minutos.</p>
+      <a class="wpp-btn-big" href="https://wa.me/5511988875328?text=Oi%20Mantovani!%20Quero%20fazer%20um%20pedido." target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chamar no WhatsApp
+      </a>
+    </div>
+    <div class="wpp-card">
+      <div class="wpp-card-header">
+        <div class="wpp-avatar">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+        <div>
+          <div class="wpp-avatar-name">Mantovani Delivery</div>
+          <div class="wpp-avatar-status">Online agora</div>
+        </div>
+      </div>
+      <div class="wpp-items">
+        <div class="wpp-msg">Oi! Seja bem-vindo ao Mantovani. O que posso separar pra você hoje?</div>
+        <div class="wpp-msg wpp-msg-out">Quero 2 Kit Kat e um Elma Chips Onda<div class="wpp-msg-time">agora</div></div>
+        <div class="wpp-msg">Ótima escolha! Me passa seu endereço que a gente manda o motoboy.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SUPORTE COM IA
+════════════════════════════════════════════════ -->
+<section class="support-section" id="suporte">
+  <div class="support-inner">
+    <div class="support-header">
+      <div class="eyebrow">Precisa de ajuda?</div>
+      <h2>Suporte inteligente</h2>
+      <p>Tire dúvidas sobre pedidos, entrega, pagamentos ou qualquer coisa do site. Nossa IA responde na hora, qualquer hora.</p>
+    </div>
+    <div class="support-grid">
+      <div class="support-card" onclick="setQuestion('Como faço um pedido?')">
+        <div class="sc-icon">📦</div>
+        <div class="sc-title">Como fazer um pedido</div>
+        <div class="sc-desc">Entenda o passo a passo para comprar pelo site ou pelo WhatsApp.</div>
+      </div>
+      <div class="support-card" onclick="setQuestion('Qual é a taxa de entrega?')">
+        <div class="sc-icon">🛵</div>
+        <div class="sc-title">Taxa e prazo de entrega</div>
+        <div class="sc-desc">Saiba quanto custa a entrega e em quanto tempo chega na sua porta.</div>
+      </div>
+      <div class="support-card" onclick="setQuestion('Quais formas de pagamento vocês aceitam?')">
+        <div class="sc-icon">💳</div>
+        <div class="sc-title">Formas de pagamento</div>
+        <div class="sc-desc">Pix, dinheiro, débito e crédito. Veja qual funciona melhor pra você.</div>
+      </div>
+      <div class="support-card" onclick="setQuestion('Posso cancelar meu pedido?')">
+        <div class="sc-icon">↩</div>
+        <div class="sc-title">Cancelamento e trocas</div>
+        <div class="sc-desc">Entenda nossa política e como entrar em contato em caso de problema.</div>
+      </div>
+    </div>
+    <div class="ai-chat">
+      <div class="ai-chat-header">
+        <div class="ai-chat-dot"></div>
+        <div>
+          <div class="ai-chat-name">Assistente Mantovani</div>
+          <div class="ai-chat-sub">Responde em segundos</div>
+        </div>
+      </div>
+      <div class="ai-messages" id="aiMessages">
+        <div class="ai-msg bot">Olá! Sou o assistente do Delivery Mantovani. Como posso te ajudar hoje?</div>
+        <div class="ai-typing" id="aiTyping">Digitando...</div>
+      </div>
+      <div class="ai-input-wrap">
+        <input class="ai-input" id="aiInput" placeholder="Digite sua dúvida..." onkeydown="if(event.key==='Enter')sendAI()">
+        <button class="ai-send" onclick="sendAI()">
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════ -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#" class="logo-wrap" style="text-decoration:none">
+          <div class="logo-mark">🛵</div>
+          <div>
+            <div class="logo-name">Delivery Mantovani</div>
+            <div class="logo-tag">Tradição de sempre</div>
+          </div>
+        </a>
+        <p>A loja do Mantovani que você sempre conheceu, agora no delivery. Doces, artigos de festa, salgadinhos e bebidas na sua porta.</p>
+        <div class="owner">Stefano Oliveira Nogueira</div>
+      </div>
+      <div class="foot-col">
+        <h4>Categorias</h4>
+        <ul class="foot-links">
+          <li><a href="#catalogo">Doces</a></li>
+          <li><a href="#catalogo">Festas</a></li>
+          <li><a href="#catalogo">Salgadinhos</a></li>
+          <li><a href="#catalogo">Bebidas</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Contato</h4>
+        <ul class="foot-links">
+          <li><a href="https://wa.me/5511988875328">WhatsApp</a></li>
+          <li><a href="#suporte">Suporte</a></li>
+          <li><a href="#">Seg–Dom 8h–22h</a></li>
+          <li><a href="#whatsapp">Fazer pedido</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2025 Delivery Mantovani — Todos os direitos reservados.</p>
+      <p>Feito com dedicação para o Mantovani</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════
+     FABs FLUTUANTES
+════════════════════════════════════════════════ -->
+<button class="cart-fab" onclick="openCart()" id="cartFab" style="display:none">
+  🛒 Carrinho <span class="cart-fab-badge" id="cartCountFab">0</span>
+</button>
+<button class="wpp-fab" onclick="openWhatsApp()" title="WhatsApp">💬</button>
+<div class="toast" id="toast"></div>
+
+<!-- ══════════════════════════════════════════════
+     MODAL CARRINHO
+════════════════════════════════════════════════ -->
+<div class="overlay" id="overlay" onclick="closeOuter(event)">
+  <div class="sheet" style="position:relative">
+    <div class="sheet-handle"></div>
+    <button class="close-sheet" onclick="closeCart()">✕</button>
+
+    <!-- Vista: Carrinho -->
+    <div id="cartView">
+      <div class="sheet-title">Meu Carrinho</div>
+      <div id="cartItems"></div>
+      <div id="cartTotalBox" class="cart-total-box" style="display:none">
+        <div class="t-row"><span>Subtotal</span><span id="subtotalVal">R$ 0,00</span></div>
+        <div class="t-row"><span>Taxa de entrega</span><span id="deliveryVal">R$ 3,99</span></div>
+        <div class="t-final"><span>Total</span><span id="totalVal">R$ 0,00</span></div>
+      </div>
+      <button class="btn-finalizar" id="btnFinalizar" onclick="goForm()" style="display:none">
+        Finalizar Pedido
+      </button>
+    </div>
+
+    <!-- Vista: Formulário de entrega -->
+    <div class="form-wrap" id="formView">
+      <div class="sheet-title">Dados de Entrega</div>
+      <div class="fg"><label>Nome completo *</label><input type="text" id="fNome" placeholder="Ex: João Silva"></div>
+      <div class="fg"><label>WhatsApp / Telefone *</label><input type="tel" id="fTel" placeholder="(11) 99999-9999"></div>
+      <div class="fg"><label>Endereço *</label><input type="text" id="fEnd" placeholder="Rua, número, bairro"></div>
+      <div class="fg"><label>Complemento</label><input type="text" id="fComp" placeholder="Apto, bloco, referência"></div>
+      <div class="fg">
+        <label>Forma de pagamento *</label>
+        <div class="pay-grid">
+          <div class="pay-opt" onclick="setPay('pix',this)">PIX</div>
+          <div class="pay-opt" onclick="setPay('dinheiro',this)">Dinheiro</div>
+          <div class="pay-opt" onclick="setPay('debito',this)">Débito</div>
+          <div class="pay-opt" onclick="setPay('credito',this)">Crédito</div>
+        </div>
+      </div>
+      <div class="fg"><label>Observações</label><textarea id="fObs" placeholder="Alguma instrução especial?"></textarea></div>
+      <div class="summary-box" id="summaryBox"></div>
+      <button class="btn-finalizar" onclick="confirmar()">Confirmar e Enviar Pedido</button>
+      <button class="btn-voltar" onclick="goCart()">← Voltar ao carrinho</button>
+    </div>
+
+    <!-- Vista: Sucesso -->
+    <div class="success-wrap" id="successView">
+      <span class="suc-icon">🎉</span>
+      <div class="suc-title">Pedido Enviado!</div>
+      <div class="suc-text">Seu pedido foi enviado direto para o WhatsApp do Mantovani.</div>
+      <div class="suc-info">
+        <span>Tempo estimado: até 30 minutos</span>
+        <span>Confirmação pelo WhatsApp</span>
+      </div>
+      <button class="btn-finalizar" onclick="closeCart()">Voltar ao cardápio</button>
+    </div>
+  </div>
+</div>
+
+<!-- JS externo -->
+<script src="main.js"></script>
+</body>
+</html>

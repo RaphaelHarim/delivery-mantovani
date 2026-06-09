@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciar Fotos — Delivery Mantovani</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red:#D72B2B; --blue:#0E1F4D; --blue-m:#162E6E; --blue-l:#1E40AF;
+      --off:#F5F6FA; --border:#E2E4EE; --text:#0A0C16; --sub:#52566E;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',sans-serif;background:var(--off);color:var(--text)}
+
+    /* ── NAV ── */
+    .anav{position:sticky;top:0;z-index:100;background:var(--blue);height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;gap:16px;box-shadow:0 4px 20px rgba(0,0,0,.25)}
+    .anav a{color:rgba(255,255,255,.65);text-decoration:none;font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:6px;transition:color .2s;white-space:nowrap}
+    .anav a:hover{color:#fff}
+    .anav h1{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;white-space:nowrap}
+    .badge{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:50px;padding:5px 14px;font-size:.78rem;font-weight:700;color:#fff;white-space:nowrap}
+    .badge b{color:#4ADE80}
+
+    /* ── BARRA DE PROGRESSO ── */
+    .pbar-wrap{height:5px;background:var(--blue-m)}
+    .pbar-fill{height:100%;background:linear-gradient(90deg,#4ADE80,#22C55E);transition:width .6s ease;width:0%}
+
+    /* ── FILTROS ── */
+    .filters{background:#fff;border-bottom:1px solid var(--border);padding:12px 5%;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .fpill{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:50px;border:1.5px solid var(--border);background:#fff;cursor:pointer;font-family:'Inter',sans-serif;font-size:.78rem;font-weight:600;color:var(--sub);transition:all .2s;white-space:nowrap}
+    .fpill:hover{border-color:var(--blue-l);color:var(--text)}
+    .fpill.active{background:var(--blue);border-color:var(--blue);color:#fff}
+    .fpill.ok-pill.active{background:#059669;border-color:#059669}
+    .fpill.miss-pill.active{background:#EA580C;border-color:#EA580C}
+    .fsep{width:1px;height:26px;background:var(--border);flex-shrink:0}
+    .fcounter{font-size:.75rem;font-weight:600;color:var(--sub);margin-left:auto}
+    .fcounter b{color:var(--text)}
+
+    /* ── GRID ── */
+    .wrap{max-width:1300px;margin:0 auto;padding:24px 5% 120px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:12px}
+
+    /* ── CARD ── */
+    .pcard{background:#fff;border-radius:14px;border:1.5px solid var(--border);overflow:hidden;cursor:pointer;transition:all .22s;position:relative}
+    .pcard:hover{border-color:var(--blue-l);box-shadow:0 8px 28px rgba(10,12,22,.12);transform:translateY(-3px)}
+    .pcard.ok{border-color:#A7F3D0}
+    .pcard.preview{border-color:var(--red);border-width:2px}
+
+    .pcard-img{height:130px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+    .pb-doces   {background:linear-gradient(145deg,#FFF0F5,#FFE4EE)}
+    .pb-festas  {background:linear-gradient(145deg,#FFFBEB,#FEF9C3)}
+    .pb-salgados{background:linear-gradient(145deg,#FFF5F0,#FFE4D6)}
+    .pb-bebidas {background:linear-gradient(145deg,#EBF8FF,#DBEAFE)}
+
+    .pcard-img img{width:100%;height:100%;object-fit:contain;padding:8px;display:block}
+    .pcard-img .efb{font-size:2.8rem;display:none;align-items:center;justify-content:center;width:100%;height:100%}
+
+    .stbadge{position:absolute;top:8px;right:8px;width:10px;height:10px;border-radius:50%;background:#D1D5DB;border:2px solid rgba(255,255,255,.8)}
+    .pcard.ok  .stbadge{background:#4ADE80}
+    .pcard.preview .stbadge{background:var(--red)}
+
+    .hover-ov{position:absolute;inset:0;background:rgba(14,31,77,.65);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s}
+    .pcard:hover .hover-ov{opacity:1}
+    .hover-ov span{color:#fff;font-size:.72rem;font-weight:700;text-align:center;padding:0 10px;line-height:1.4}
+
+    .pcard-body{padding:10px 12px 12px}
+    .pid{font-size:.6rem;font-weight:700;color:var(--sub);letter-spacing:.06em;margin-bottom:2px}
+    .pname{font-size:.78rem;font-weight:700;color:var(--text);line-height:1.3}
+    .pcat{margin-top:4px;display:inline-flex;align-items:center;gap:4px;font-size:.62rem;font-weight:600;color:var(--sub)}
+    .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+    .d-doces{background:#F472B6} .d-festas{background:#FBBF24}
+    .d-salgadinhos{background:#F97316} .d-bebidas{background:#60A5FA}
+
+    /* ── ACTION BAR ── */
+    .abar{position:fixed;bottom:0;left:0;right:0;background:var(--blue);padding:16px 5%;display:flex;align-items:center;justify-content:space-between;gap:16px;transform:translateY(110%);transition:transform .32s cubic-bezier(.34,1.2,.64,1);z-index:200;box-shadow:0 -4px 28px rgba(0,0,0,.28);flex-wrap:wrap}
+    .abar.show{transform:translateY(0)}
+    .abar-info strong{display:block;font-size:.9rem;color:#fff;margin-bottom:2px}
+    .abar-info span{font-size:.75rem;color:rgba(255,255,255,.6)}
+    .abar-info code{background:rgba(255,255,255,.12);padding:1px 7px;border-radius:5px;font-size:.75rem;color:#4ADE80;font-family:'Inter',monospace}
+    .abar-btns{display:flex;gap:10px;flex-shrink:0}
+    .btn-dl{background:#4ADE80;color:#052e16;border:none;border-radius:50px;padding:11px 22px;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;transition:background .2s}
+    .btn-dl:hover{background:#22C55E}
+    .btn-cancel{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:50px;padding:11px 20px;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer}
+
+    /* ── EMPTY ── */
+    .empty{grid-column:1/-1;text-align:center;padding:60px 0;color:var(--sub);font-weight:600;font-size:.9rem}
+
+    /* ── INSTRUÇÃO ── */
+    .instrucao{background:white;border:1.5px solid var(--border);border-radius:16px;padding:18px 22px;margin-bottom:24px;display:flex;align-items:flex-start;gap:14px}
+    .instrucao-icon{font-size:1.6rem;flex-shrink:0;margin-top:2px}
+    .instrucao h3{font-size:.9rem;font-weight:700;margin-bottom:4px}
+    .instrucao p{font-size:.78rem;color:var(--sub);line-height:1.7}
+    .instrucao code{background:var(--off);padding:1px 6px;border-radius:5px;font-size:.76rem;color:var(--blue-m);font-weight:600}
+
+    @media(max-width:580px){
+      .anav h1{display:none}
+      .grid{grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:8px}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="anav">
+  <a href="../../index.html">← Voltar ao site</a>
+  <h1>Gerenciar Fotos dos Produtos</h1>
+  <div class="badge"><b id="okCount">0</b> / 150 com foto</div>
+</nav>
+<div class="pbar-wrap"><div class="pbar-fill" id="pbarFill"></div></div>
+
+<!-- FILTROS -->
+<div class="filters">
+  <button class="fpill active" data-cat="todos"        onclick="setCat(this)">🏪 Tudo</button>
+  <button class="fpill"        data-cat="doces"        onclick="setCat(this)">🍫 Doces</button>
+  <button class="fpill"        data-cat="festas"       onclick="setCat(this)">🎉 Festas</button>
+  <button class="fpill"        data-cat="salgadinhos"  onclick="setCat(this)">🥨 Salgadinhos</button>
+  <button class="fpill"        data-cat="bebidas"      onclick="setCat(this)">🥤 Bebidas</button>
+  <div class="fsep"></div>
+  <button class="fpill ok-pill"   data-st="ok"      onclick="setSt(this)">✓ Com foto</button>
+  <button class="fpill miss-pill" data-st="missing" onclick="setSt(this)">✕ Sem foto</button>
+  <div class="fcounter">Mostrando <b id="showing">150</b> produtos</div>
+</div>
+
+<!-- GRID -->
+<div class="wrap">
+  <div class="instrucao">
+    <div class="instrucao-icon">📋</div>
+    <div>
+      <h3>Como adicionar fotos</h3>
+      <p>
+        <strong>1.</strong> Clique em qualquer produto e selecione a foto no seu computador.<br>
+        <strong>2.</strong> Clique em <strong>"Salvar foto"</strong> — na primeira vez, o sistema vai pedir para você escolher a pasta <code>images/produtos/</code> do projeto.<br>
+        <strong>3.</strong> Selecione essa pasta e confirme. Depois disso, todas as fotos são salvas automaticamente lá com o nome certo (ex: <code>1.jpg</code>).<br>
+        Formatos aceitos: <code>.jpg</code> · <code>.png</code> · <code>.webp</code>
+      </p>
+    </div>
+  </div>
+  <div class="grid" id="grid"></div>
+</div>
+
+<!-- Input de arquivo oculto -->
+<input type="file" id="fileInput" accept="image/*" style="display:none" onchange="onFileChosen(event)">
+
+<!-- Action bar -->
+<div class="abar" id="abar">
+  <div class="abar-info">
+    <strong id="abarName">Produto</strong>
+    <span>Baixe e salve como <code id="abarFile">1.jpg</code> na pasta <code>images/produtos/</code></span>
+  </div>
+  <div class="abar-btns">
+    <button class="btn-dl" onclick="baixarFoto()">💾 Salvar foto</button>
+    <button class="btn-cancel" onclick="cancelar()">✕ Cancelar</button>
+  </div>
+</div>
+
+<script>
+// ── DADOS DOS PRODUTOS ────────────────────────────────────────
+const PRODS = [
+  // DOCES
+  {id:1,  name:'Sonho de Valsa',              emoji:'💝', cat:'doces'},
+  {id:2,  name:'Ouro Branco',                 emoji:'🤍', cat:'doces'},
+  {id:3,  name:'Pirulito POP',                emoji:'🍭', cat:'doces'},
+  {id:4,  name:'Pirulito Coração',            emoji:'💗', cat:'doces'},
+  {id:5,  name:'Bala de Goma Sortida',        emoji:'🍬', cat:'doces'},
+  {id:6,  name:'Bala 7 Belo',                 emoji:'🟡', cat:'doces'},
+  {id:7,  name:'Bala Iogurte 100',            emoji:'🍬', cat:'doces'},
+  {id:8,  name:'Mentos Frutas',               emoji:'🌈', cat:'doces'},
+  {id:9,  name:'Mentos Menta',                emoji:'🟢', cat:'doces'},
+  {id:10, name:'Mentos Morango',              emoji:'🍓', cat:'doces'},
+  {id:11, name:'Mentos Tutti-Frutti',         emoji:'🌺', cat:'doces'},
+  {id:12, name:'Mentos Limão',                emoji:'🍋', cat:'doces'},
+  {id:13, name:'Mentos Watermelon',           emoji:'🍉', cat:'doces'},
+  {id:14, name:'Bala Florestal',              emoji:'🌿', cat:'doces'},
+  {id:15, name:'Butter Toffees Original',     emoji:'🧈', cat:'doces'},
+  {id:16, name:'Butter Toffees Menta',        emoji:'🌀', cat:'doces'},
+  {id:17, name:'Butter Toffees Chocolate',    emoji:'🍫', cat:'doces'},
+  {id:18, name:'Moranguete',                  emoji:'🍓', cat:'doces'},
+  {id:19, name:'Kit Kat Original',            emoji:'🍫', cat:'doces'},
+  {id:20, name:'Kit Kat Dark',                emoji:'🟤', cat:'doces'},
+  {id:21, name:'Kit Kat Branco',              emoji:'🤍', cat:'doces'},
+  {id:22, name:'Bis Lacta Chocolate',         emoji:'🍪', cat:'doces'},
+  {id:23, name:'Bis Lacta Branco',            emoji:'🍪', cat:'doces'},
+  {id:24, name:'Bis Lacta Dark',              emoji:'🍪', cat:'doces'},
+  {id:25, name:'Caixa Lacta Sortida',         emoji:'🎁', cat:'doces'},
+  {id:26, name:'Caixa Garoto Sortida',        emoji:'🎁', cat:'doces'},
+  {id:27, name:'Caixa Nestlé Sortida',        emoji:'🎁', cat:'doces'},
+  {id:28, name:'Caixa Kopenhagen',            emoji:'🎁', cat:'doces'},
+  {id:29, name:'Caixa Brasil Cacau',          emoji:'🎁', cat:'doces'},
+  {id:30, name:'Outros Doces',                emoji:'📝', cat:'doces'},
+  // FESTAS
+  {id:31, name:'Balão Latex 9"',              emoji:'🎈', cat:'festas'},
+  {id:32, name:'Balão Latex 11"',             emoji:'🎈', cat:'festas'},
+  {id:33, name:'Balão Metalizado Redondo',    emoji:'🪩', cat:'festas'},
+  {id:34, name:'Balão Metalizado Coração',    emoji:'❤️', cat:'festas'},
+  {id:35, name:'Balão Metalizado Estrela',    emoji:'⭐', cat:'festas'},
+  {id:36, name:'Balão Temático Aniversário',  emoji:'🎂', cat:'festas'},
+  {id:37, name:'Confete Colorido',            emoji:'🎊', cat:'festas'},
+  {id:38, name:'Serpentina Colorida',         emoji:'🎊', cat:'festas'},
+  {id:39, name:'Pistola de Confete',          emoji:'🎉', cat:'festas'},
+  {id:40, name:'Forminha Redonda Lisa',       emoji:'🫙', cat:'festas'},
+  {id:41, name:'Forminha Estampada Festa',    emoji:'🌸', cat:'festas'},
+  {id:42, name:'Caixinha Kraft P',            emoji:'📦', cat:'festas'},
+  {id:43, name:'Caixinha Kraft M',            emoji:'📦', cat:'festas'},
+  {id:44, name:'Toalha Plástica Lisa',        emoji:'🎉', cat:'festas'},
+  {id:45, name:'Toalha Plástica Estampada',   emoji:'🌈', cat:'festas'},
+  {id:46, name:'Toalha TNT Lisa',             emoji:'🎀', cat:'festas'},
+  {id:47, name:'Copo Plástico 180ml',         emoji:'🥤', cat:'festas'},
+  {id:48, name:'Copo Plástico 200ml',         emoji:'🥤', cat:'festas'},
+  {id:49, name:'Copo de Papel Estampado',     emoji:'🎂', cat:'festas'},
+  {id:50, name:'Prato Descartável Branco',    emoji:'🍽️', cat:'festas'},
+  {id:51, name:'Prato Descartável Estampado', emoji:'🍽️', cat:'festas'},
+  {id:52, name:'Vela de Aniversário',         emoji:'🕯️', cat:'festas'},
+  {id:53, name:'Vela Número (0–9)',           emoji:'🕯️', cat:'festas'},
+  {id:54, name:'Vela Sparkle Dourada',        emoji:'✨', cat:'festas'},
+  {id:55, name:'Vela Tricks (não apaga)',     emoji:'🔥', cat:'festas'},
+  {id:56, name:'Faixa Feliz Aniversário',     emoji:'🎊', cat:'festas'},
+  {id:57, name:'Chapéu de Festa',             emoji:'🎩', cat:'festas'},
+  {id:58, name:'Guardanapo Estampado',        emoji:'🎀', cat:'festas'},
+  {id:59, name:'Baleiro Plástico',            emoji:'🍬', cat:'festas'},
+  {id:60, name:'Lembrancinha Caixinha',       emoji:'🎁', cat:'festas'},
+  // SALGADINHOS
+  {id:61, name:'Elma Chips Onda Original',    emoji:'🥔', cat:'salgadinhos'},
+  {id:62, name:'Elma Chips Onda Cheddar',     emoji:'🧀', cat:'salgadinhos'},
+  {id:63, name:'Elma Chips Onda Picanha',     emoji:'🥩', cat:'salgadinhos'},
+  {id:64, name:'Elma Chips Forno Original',   emoji:'🌾', cat:'salgadinhos'},
+  {id:65, name:'Elma Chips Forno Mostarda',   emoji:'🌾', cat:'salgadinhos'},
+  {id:66, name:'Ruffles Original',            emoji:'🥔', cat:'salgadinhos'},
+  {id:67, name:'Ruffles Cheddar',             emoji:'🧀', cat:'salgadinhos'},
+  {id:68, name:'Ruffles Churrasco',           emoji:'🔥', cat:'salgadinhos'},
+  {id:69, name:'Cheetos Anel Requeijão',      emoji:'🧡', cat:'salgadinhos'},
+  {id:70, name:'Cheetos Crunchy Queijo',      emoji:'🧡', cat:'salgadinhos'},
+  {id:71, name:'Cheetos Flamin Hot',          emoji:'🌶️', cat:'salgadinhos'},
+  {id:72, name:'Doritos Nacho Cheese',        emoji:'🟡', cat:'salgadinhos'},
+  {id:73, name:'Doritos Churrasco',           emoji:'🔴', cat:'salgadinhos'},
+  {id:74, name:'Doritos Queijo Picante',      emoji:'🌶️', cat:'salgadinhos'},
+  {id:75, name:'Forno de Minas Palha Italiana',emoji:'🧀',cat:'salgadinhos'},
+  {id:76, name:'Lobito Original',             emoji:'🐺', cat:'salgadinhos'},
+  {id:77, name:'Fofura Milho',                emoji:'🌽', cat:'salgadinhos'},
+  {id:78, name:'Ebicem Camarão',              emoji:'🦐', cat:'salgadinhos'},
+  {id:79, name:'Pipoca Yoki Salgada',         emoji:'🍿', cat:'salgadinhos'},
+  {id:80, name:'Pipoca Yoki Manteiga',        emoji:'🍿', cat:'salgadinhos'},
+  {id:81, name:'Pipoca Yoki Queijo',          emoji:'🍿', cat:'salgadinhos'},
+  {id:82, name:'Pipoca Microondas Manteiga',  emoji:'🍿', cat:'salgadinhos'},
+  {id:83, name:'Pipoca Microondas Ervas',     emoji:'🍿', cat:'salgadinhos'},
+  {id:84, name:'Baconzitos',                  emoji:'🥓', cat:'salgadinhos'},
+  {id:85, name:'Twistos Original',            emoji:'🌀', cat:'salgadinhos'},
+  {id:86, name:'Twistos Queijo',              emoji:'🧀', cat:'salgadinhos'},
+  {id:87, name:'Lucky Churrasco',             emoji:'🔥', cat:'salgadinhos'},
+  {id:88, name:'Lucky Queijo',                emoji:'🧀', cat:'salgadinhos'},
+  {id:89, name:'Pringles Original',           emoji:'🥫', cat:'salgadinhos'},
+  {id:90, name:'Pringles Creme & Cebola',     emoji:'🥫', cat:'salgadinhos'},
+  {id:91, name:'Pringles Pizza',              emoji:'🍕', cat:'salgadinhos'},
+  {id:92, name:'Pringles BBQ',                emoji:'🔥', cat:'salgadinhos'},
+  // BEBIDAS
+  {id:93,  name:'Coca-Cola Original 350ml',   emoji:'🥤', cat:'bebidas'},
+  {id:94,  name:'Coca-Cola Original 600ml',   emoji:'🥤', cat:'bebidas'},
+  {id:95,  name:'Coca-Cola Original 1L',      emoji:'🥤', cat:'bebidas'},
+  {id:96,  name:'Coca-Cola Original 2L',      emoji:'🥤', cat:'bebidas'},
+  {id:97,  name:'Coca-Cola Zero 350ml',       emoji:'⚫', cat:'bebidas'},
+  {id:98,  name:'Coca-Cola Zero 2L',          emoji:'⚫', cat:'bebidas'},
+  {id:99,  name:'Guaraná Antarctica 350ml',   emoji:'🟢', cat:'bebidas'},
+  {id:100, name:'Guaraná Antarctica 2L',      emoji:'🟢', cat:'bebidas'},
+  {id:101, name:'Guaraná Antarctica Zero 2L', emoji:'🟢', cat:'bebidas'},
+  {id:102, name:'Fanta Laranja 350ml',        emoji:'🟠', cat:'bebidas'},
+  {id:103, name:'Fanta Uva 350ml',            emoji:'🟣', cat:'bebidas'},
+  {id:104, name:'Fanta Laranja 2L',           emoji:'🟠', cat:'bebidas'},
+  {id:105, name:'Sprite Original 350ml',      emoji:'🟡', cat:'bebidas'},
+  {id:106, name:'Sprite Original 2L',         emoji:'🟡', cat:'bebidas'},
+  {id:107, name:'Pepsi Cola 350ml',           emoji:'🔵', cat:'bebidas'},
+  {id:108, name:'Pepsi Cola 2L',              emoji:'🔵', cat:'bebidas'},
+  {id:109, name:'H2OH! Limão 500ml',          emoji:'💧', cat:'bebidas'},
+  {id:110, name:'H2OH! Tangerina 500ml',      emoji:'💧', cat:'bebidas'},
+  {id:111, name:'Schweppes Tônica 350ml',     emoji:'🫧', cat:'bebidas'},
+  {id:112, name:'Schweppes Limão 350ml',      emoji:'🍋', cat:'bebidas'},
+  {id:113, name:'Schweppes Grapefruit 350ml', emoji:'🩷', cat:'bebidas'},
+  {id:114, name:'Del Valle Uva 1L',           emoji:'🍇', cat:'bebidas'},
+  {id:115, name:'Del Valle Laranja 1L',       emoji:'🍊', cat:'bebidas'},
+  {id:116, name:'Del Valle Maracujá 1L',      emoji:'🟡', cat:'bebidas'},
+  {id:117, name:'Del Valle Pêssego 200ml',    emoji:'🍑', cat:'bebidas'},
+  {id:118, name:'Del Valle Manga 200ml',      emoji:'🥭', cat:'bebidas'},
+  {id:119, name:'Minute Maid Laranja 1L',     emoji:'🍊', cat:'bebidas'},
+  {id:120, name:'Minute Maid Limão 1L',       emoji:'🍋', cat:'bebidas'},
+  {id:121, name:'Água Crystal s/ Gás 500ml',  emoji:'💧', cat:'bebidas'},
+  {id:122, name:'Água Crystal c/ Gás 500ml',  emoji:'🫧', cat:'bebidas'},
+  {id:123, name:'Água Minalba 1,5L',          emoji:'💧', cat:'bebidas'},
+  {id:124, name:'Água Ouro Fino 500ml',       emoji:'💧', cat:'bebidas'},
+  {id:125, name:'Red Bull Original 250ml',    emoji:'⚡', cat:'bebidas'},
+  {id:126, name:'Red Bull Sugar Free 250ml',  emoji:'⚡', cat:'bebidas'},
+  {id:127, name:'Monster Energy Original',    emoji:'🟢', cat:'bebidas'},
+  {id:128, name:'Monster Energy Zero',        emoji:'⚫', cat:'bebidas'},
+  {id:129, name:'TNT Energy 269ml',           emoji:'💥', cat:'bebidas'},
+  {id:130, name:'Flash Power 2L',             emoji:'⚡', cat:'bebidas'},
+  {id:131, name:'Gatorade Limão 500ml',       emoji:'🟡', cat:'bebidas'},
+  {id:132, name:'Gatorade Laranja 500ml',     emoji:'🟠', cat:'bebidas'},
+  {id:133, name:'Gatorade Uva 500ml',         emoji:'🟣', cat:'bebidas'},
+  {id:134, name:'Powerade Limão 500ml',       emoji:'🔵', cat:'bebidas'},
+  {id:135, name:'Nescau 200ml',               emoji:'🍫', cat:'bebidas'},
+  {id:136, name:'Toddynho 200ml',             emoji:'🍫', cat:'bebidas'},
+  {id:137, name:'Danoninho p/ Beber 100ml',   emoji:'🍓', cat:'bebidas'},
+  {id:138, name:'Leite Integral 1L',          emoji:'🥛', cat:'bebidas'},
+  {id:139, name:'Leite Desnatado 1L',         emoji:'🥛', cat:'bebidas'},
+  {id:140, name:'Lipton Ice Tea Limão 1,5L',  emoji:'🫖', cat:'bebidas'},
+  {id:141, name:'Lipton Ice Tea Pêssego 1,5L',emoji:'🫖', cat:'bebidas'},
+  {id:142, name:'Matte Leão 1,5L',            emoji:'🫖', cat:'bebidas'},
+  {id:143, name:'Brahma Lata 350ml',          emoji:'🍺', cat:'bebidas'},
+  {id:144, name:'Skol Lata 350ml',            emoji:'🍺', cat:'bebidas'},
+  {id:145, name:'Heineken Lata 350ml',        emoji:'🍺', cat:'bebidas'},
+  {id:146, name:'Budweiser Lata 350ml',       emoji:'🍺', cat:'bebidas'},
+  {id:147, name:'Corona Extra 330ml',         emoji:'🍺', cat:'bebidas'},
+  {id:148, name:'Stella Artois 350ml',        emoji:'🍺', cat:'bebidas'},
+  {id:149, name:'Smirnoff Ice 275ml',         emoji:'🍸', cat:'bebidas'},
+  {id:150, name:'Bacardi Breezer 275ml',      emoji:'🍹', cat:'bebidas'},
+];
+
+const PB  = {doces:'pb-doces',festas:'pb-festas',salgadinhos:'pb-salgados',bebidas:'pb-bebidas'};
+const DOT = {doces:'d-doces', festas:'d-festas', salgadinhos:'d-salgadinhos',bebidas:'d-bebidas'};
+const CAT = {doces:'Doce',    festas:'Festa',     salgadinhos:'Salgadinho',   bebidas:'Bebida'};
+
+// ── ESTADO ────────────────────────────────────────────────────
+let imgStatus   = {};   // id → true se tem foto
+let selId       = null;
+let selFile     = null;
+let filterCat   = 'todos';
+let filterSt    = 'all';
+let checksLeft  = PRODS.length;
+
+// ── VERIFICAR IMAGENS EXISTENTES ──────────────────────────────
+PRODS.forEach(p => {
+  const img = new Image();
+  img.onload  = () => { imgStatus[p.id] = true;  afterCheck(p.id); };
+  img.onerror = () => { imgStatus[p.id] = false; afterCheck(p.id); };
+  img.src = `./${p.id}.jpg`;
+});
+
+function afterCheck(id){
+  checksLeft--;
+  refreshCounters();
+  // Atualiza o card se já estiver renderizado
+  const card = document.getElementById(`c${id}`);
+  if(card && imgStatus[id]) card.classList.add('ok');
+  const dot = document.getElementById(`st${id}`);
+  if(dot) dot.style.background = imgStatus[id] ? '#4ADE80' : '#D1D5DB';
+  const ov = document.getElementById(`ov${id}`);
+  if(ov) ov.textContent = imgStatus[id] ? '✏️ Substituir foto' : '📷 Adicionar foto';
+}
+
+function refreshCounters(){
+  const ok = Object.values(imgStatus).filter(Boolean).length;
+  document.getElementById('okCount').textContent = ok;
+  document.getElementById('pbarFill').style.width = `${(ok/PRODS.length)*100}%`;
+}
+
+// ── FILTROS ───────────────────────────────────────────────────
+function setCat(el){
+  filterCat = el.dataset.cat;
+  document.querySelectorAll('.fpill[data-cat]').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  render();
+}
+function setSt(el){
+  const s = el.dataset.st;
+  if(filterSt === s){ filterSt='all'; el.classList.remove('active'); }
+  else {
+    filterSt = s;
+    document.querySelectorAll('.fpill[data-st]').forEach(b=>b.classList.remove('active'));
+    el.classList.add('active');
+  }
+  render();
+}
+
+// ── RENDER ────────────────────────────────────────────────────
+function render(){
+  const list = PRODS.filter(p => {
+    const cOk = filterCat==='todos' || p.cat===filterCat;
+    const sOk = filterSt==='all'
+             || (filterSt==='ok'      && imgStatus[p.id])
+             || (filterSt==='missing' && !imgStatus[p.id]);
+    return cOk && sOk;
+  });
+
+  document.getElementById('showing').textContent = list.length;
+
+  if(!list.length){
+    document.getElementById('grid').innerHTML =
+      '<div class="empty">Nenhum produto com esse filtro.</div>';
+    return;
+  }
+
+  document.getElementById('grid').innerHTML = list.map(p => `
+    <div class="pcard ${imgStatus[p.id]?'ok':''}" id="c${p.id}" onclick="clicar(${p.id})">
+      <div class="pcard-img ${PB[p.cat]||''}">
+        <span class="stbadge" id="st${p.id}" style="background:${imgStatus[p.id]?'#4ADE80':'#D1D5DB'}"></span>
+        <img src="./${p.id}.jpg"
+             onload="this.style.display='block'"
+             onerror="this.style.display='none';this.parentElement.querySelector('.efb').style.display='flex'"
+             style="display:${imgStatus[p.id]?'block':'none'}">
+        <span class="efb" style="display:${imgStatus[p.id]?'none':'flex'}">${p.emoji}</span>
+        <div class="hover-ov">
+          <span id="ov${p.id}">${imgStatus[p.id]?'✏️ Substituir foto':'📷 Adicionar foto'}</span>
+        </div>
+      </div>
+      <div class="pcard-body">
+        <div class="pid">ID ${p.id}</div>
+        <div class="pname">${p.name}</div>
+        <div class="pcat"><span class="dot ${DOT[p.cat]}"></span>${CAT[p.cat]}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ── SELEÇÃO DE ARQUIVO ────────────────────────────────────────
+function clicar(id){
+  selId = id;
+  document.getElementById('fileInput').click();
+}
+
+function onFileChosen(e){
+  const file = e.target.files[0];
+  if(!file || !selId) return;
+  selFile = file;
+  const p = PRODS.find(x => x.id===selId);
+
+  // Preview no card
+  const card = document.getElementById(`c${selId}`);
+  if(card){
+    card.classList.add('preview');
+    const reader = new FileReader();
+    reader.onload = ev => {
+      const img = card.querySelector('img');
+      const efb = card.querySelector('.efb');
+      img.src = ev.target.result;
+      img.style.display = 'block';
+      if(efb) efb.style.display = 'none';
+    };
+    reader.readAsDataURL(file);
+  }
+
+  // Action bar
+  const fname = `${selId}.jpg`;
+  document.getElementById('abarName').textContent = `${p.name} — ID ${selId}`;
+  document.getElementById('abarFile').textContent = fname;
+  document.getElementById('abar').classList.add('show');
+
+  e.target.value = ''; // permite re-selecionar o mesmo arquivo
+}
+
+// ── PASTA DE DESTINO (selecionada uma vez, reutilizada na sessão) ──
+let dirHandle = null;
+
+async function selecionarPasta(){
+  if(!('showDirectoryPicker' in window)) return null;
+  try {
+    const h = await window.showDirectoryPicker({ mode: 'readwrite' });
+    dirHandle = h;
+    return h;
+  } catch(e){ return null; }
+}
+
+// ── CONVERTER PARA JPEG ───────────────────────────────────────
+function toJpeg(file){
+  return new Promise(resolve => {
+    const img = new Image();
+    const blobUrl = URL.createObjectURL(file);
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width  = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0);
+      URL.revokeObjectURL(blobUrl);
+      canvas.toBlob(resolve, 'image/jpeg', 0.92);
+    };
+    img.src = blobUrl;
+  });
+}
+
+// ── SALVAR ARQUIVO ────────────────────────────────────────────
+async function baixarFoto(){
+  if(!selFile || !selId) return;
+
+  const blob  = await toJpeg(selFile);
+  const fname = `${selId}.jpg`;
+
+  // Tenta salvar direto na pasta via File System Access API
+  if('showDirectoryPicker' in window){
+    // Pede a pasta na primeira vez
+    if(!dirHandle){
+      alert('Selecione a pasta "images/produtos" do projeto para que as fotos sejam salvas automaticamente lá.');
+      dirHandle = await selecionarPasta();
+    }
+
+    if(dirHandle){
+      try {
+        const fileHandle = await dirHandle.getFileHandle(fname, { create: true });
+        const writable   = await fileHandle.createWritable();
+        await writable.write(blob);
+        await writable.close();
+        confirmarSalvo();
+        return;
+      } catch(e){
+        dirHandle = null;
+        alert('Não foi possível salvar na pasta. Tente novamente e selecione a pasta correta.');
+        return;
+      }
+    }
+  }
+
+  // Fallback: download normal para quem não usa Chrome/Edge
+  const url = URL.createObjectURL(blob);
+  const a   = document.createElement('a');
+  a.href = url; a.download = fname; a.click();
+  URL.revokeObjectURL(url);
+  confirmarSalvo();
+}
+
+function confirmarSalvo(){
+  imgStatus[selId] = true;
+  const card = document.getElementById(`c${selId}`);
+  if(card){ card.classList.remove('preview'); card.classList.add('ok'); }
+  const dot = document.getElementById(`st${selId}`);
+  if(dot) dot.style.background = '#4ADE80';
+  const ov  = document.getElementById(`ov${selId}`);
+  if(ov)  ov.textContent = '✏️ Substituir foto';
+  refreshCounters();
+  cancelar();
+}
+
+function cancelar(){
+  const prevCard = document.querySelector('.pcard.preview');
+  if(prevCard && selId){
+    prevCard.classList.remove('preview');
+    const img = prevCard.querySelector('img');
+    const efb = prevCard.querySelector('.efb');
+    if(imgStatus[selId]){
+      img.src = `./${selId}.jpg`; img.style.display='block';
+      if(efb) efb.style.display='none';
+    } else {
+      img.style.display='none';
+      if(efb) efb.style.display='flex';
+    }
+  }
+  selId=null; selFile=null;
+  document.getElementById('abar').classList.remove('show');
+}
+
+// ── INIT ──────────────────────────────────────────────────────
+render();
+</script>
+</body>
+</html>
