@@ -558,66 +558,6 @@ const products = [
    descUnit:'Toddynho achocolatado 200ml — caixinha',    priceUnit:2.40,
    descBox:'Caixa com 24 unidades',                      priceBox:46.08, qtyBox:24},
 
-  {id:137, name:'Danoninho p/ Beber 100ml',  emoji:'🍓',cat:'bebidas',
-   descUnit:'Danoninho bebida 100ml — unidade',          priceUnit:3.20,
-   descBox:'Caixa com 12 unidades',                      priceBox:30.72, qtyBox:12},
-
-  // — Leite
-  {id:138, name:'Leite Integral Longa Vida 1L',emoji:'🥛',cat:'bebidas',
-   descUnit:'Leite integral caixa 1L — unidade',         priceUnit:4.40,
-   descBox:'Fardo com 12 caixas',                        priceBox:42.24, qtyBox:12},
-
-  {id:139, name:'Leite Desnatado 1L',        emoji:'🥛',cat:'bebidas',
-   descUnit:'Leite desnatado caixa 1L — unidade',        priceUnit:4.40,
-   descBox:'Fardo com 12 caixas',                        priceBox:42.24, qtyBox:12},
-
-  // — Chás / Iced Tea
-  {id:140, name:'Lipton Ice Tea Limão 1,5L', emoji:'🫖',cat:'bebidas',
-   descUnit:'Lipton ice tea limão 1,5L — garrafa',       priceUnit:7.20,
-   descBox:'Fardo com 6 garrafas',                       priceBox:34.56, qtyBox:6},
-
-  {id:141, name:'Lipton Ice Tea Pêssego 1,5L',emoji:'🫖',cat:'bebidas',
-   descUnit:'Lipton ice tea pêssego 1,5L — garrafa',     priceUnit:7.20,
-   descBox:'Fardo com 6 garrafas',                       priceBox:34.56, qtyBox:6},
-
-  {id:142, name:'Matte Leão 1,5L',           emoji:'🫖',cat:'bebidas',
-   descUnit:'Chá matte pronto Leão 1,5L — garrafa',      priceUnit:6.40,
-   descBox:'Fardo com 6 garrafas',                       priceBox:30.72, qtyBox:6},
-
-  // — Cervejas
-  {id:143, name:'Brahma Lata 350ml',         emoji:'🍺',cat:'bebidas',badge:'Gelada',
-   descUnit:'Brahma pilsen lata 350ml — unidade',        priceUnit:4.00,
-   descBox:'Fardo com 12 latas',                         priceBox:38.40, qtyBox:12},
-
-  {id:144, name:'Skol Lata 350ml',           emoji:'🍺',cat:'bebidas',
-   descUnit:'Skol pilsen lata 350ml — unidade',          priceUnit:4.00,
-   descBox:'Fardo com 12 latas',                         priceBox:38.40, qtyBox:12},
-
-  {id:145, name:'Heineken Lata 350ml',       emoji:'🍺',cat:'bebidas',badge:'Premium',
-   descUnit:'Heineken lager lata 350ml — unidade',       priceUnit:6.40,
-   descBox:'Fardo com 12 latas',                         priceBox:61.44, qtyBox:12},
-
-  {id:146, name:'Budweiser Lata 350ml',      emoji:'🍺',cat:'bebidas',
-   descUnit:'Budweiser lager lata 350ml — unidade',      priceUnit:5.60,
-   descBox:'Fardo com 12 latas',                         priceBox:53.76, qtyBox:12},
-
-  {id:147, name:'Corona Extra Garrafa 330ml',emoji:'🍺',cat:'bebidas',badge:'Premium',
-   descUnit:'Corona Extra garrafa 330ml — unidade',      priceUnit:7.20,
-   descBox:'Caixa com 24 garrafas',                      priceBox:138.24,qtyBox:24},
-
-  {id:148, name:'Stella Artois Lata 350ml',  emoji:'🍺',cat:'bebidas',
-   descUnit:'Stella Artois lata 350ml — unidade',        priceUnit:6.40,
-   descBox:'Fardo com 12 latas',                         priceBox:61.44, qtyBox:12},
-
-  // — Drinks prontos
-  {id:149, name:'Smirnoff Ice 275ml',        emoji:'🍸',cat:'bebidas',
-   descUnit:'Smirnoff Ice garrafa 275ml — unidade',      priceUnit:7.20,
-   descBox:'Caixa com 24 garrafas',                      priceBox:138.24,qtyBox:24},
-
-  {id:150, name:'Bacardi Breezer Morango 275ml',emoji:'🍹',cat:'bebidas',
-   descUnit:'Bacardi Breezer morango 275ml — unidade',   priceUnit:7.20,
-   descBox:'Caixa com 24 garrafas',                      priceBox:138.24,qtyBox:24},
-
 ];
 
 const mode = {}; products.forEach(p => mode[p.id]='unit');
@@ -833,20 +773,6 @@ const IMG = {
   134: 'images/produtos/134.jpg', // Powerade Limao 500ml
   135: 'images/produtos/135.jpg', // Nescau 200ml
   136: 'images/produtos/136.jpg', // Toddynho 200ml
-  137: 'images/produtos/137.jpg', // Danoninho para Beber 100ml
-  138: 'images/produtos/138.jpg', // Leite Integral Longa Vida 1L
-  139: 'images/produtos/139.jpg', // Leite Desnatado 1L
-  140: 'images/produtos/140.jpg', // Lipton Ice Tea Limao 1,5L
-  141: 'images/produtos/141.jpg', // Lipton Ice Tea Pessego 1,5L
-  142: 'images/produtos/142.jpg', // Matte Leao 1,5L
-  143: 'images/produtos/143.jpg', // Brahma Lata 350ml
-  144: 'images/produtos/144.jpg', // Skol Lata 350ml
-  145: 'images/produtos/145.jpg', // Heineken Lata 350ml
-  146: 'images/produtos/146.jpg', // Budweiser Lata 350ml
-  147: 'images/produtos/147.jpg', // Corona Extra Garrafa 330ml
-  148: 'images/produtos/148.jpg', // Stella Artois Lata 350ml
-  149: 'images/produtos/149.jpg', // Smirnoff Ice 275ml
-  150: 'images/produtos/150.jpg', // Bacardi Breezer Morango 275ml
 };
 
 
