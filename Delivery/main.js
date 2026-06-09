@@ -55,6 +55,107 @@ const products = [
    descUnit:'Mostarda tradicional 260g — squeeze',         priceUnit:5.90,
    descBox:'Caixa com 12 unidades',                        priceBox:56.64, qtyBox:12},
 
+
+  {id:161, name:'Arroz Branco 5kg',          emoji:'🍚', cat:'mercado',
+   descUnit:'Arroz branco tipo 1 5kg — pacote',                 priceUnit:19.90,
+   descBox:'Fardo com 5 pacotes',                         priceBox:79.50,  qtyBox:5},
+
+  {id:162, name:'Feijão Carioca 1kg',        emoji:'🫘', cat:'mercado',
+   descUnit:'Feijão carioca 1kg — pacote',                      priceUnit:8.90,
+   descBox:'Fardo com 10 pacotes',                        priceBox:71.20,  qtyBox:10},
+
+  {id:163, name:'Farinha de Trigo 1kg',      emoji:'🌾', cat:'mercado',
+   descUnit:'Farinha de trigo especial 1kg — pacote',           priceUnit:4.90,
+   descBox:'Fardo com 10 pacotes',                        priceBox:39.20,  qtyBox:10},
+
+  {id:164, name:'Fubá 1kg',                  emoji:'🌽', cat:'mercado',
+   descUnit:'Fubá de milho 1kg — pacote',                       priceUnit:3.90,
+   descBox:'Fardo com 10 pacotes',                        priceBox:31.20,  qtyBox:10},
+
+  {id:165, name:'Aveia em Flocos 400g',      emoji:'🥣', cat:'mercado',
+   descUnit:'Aveia em flocos finos 400g — pacote',              priceUnit:5.90,
+   descBox:'Caixa com 12 pacotes',                        priceBox:56.64,  qtyBox:12},
+
+  {id:166, name:'Extrato de Tomate 340g',    emoji:'🍅', cat:'mercado',
+   descUnit:'Extrato de tomate 340g — lata',                    priceUnit:3.90,
+   descBox:'Caixa com 24 unidades',                       priceBox:74.88,  qtyBox:24},
+
+  {id:167, name:'Molho de Tomate 340g',      emoji:'🍅', cat:'mercado',
+   descUnit:'Molho de tomate tradicional 340g — caixinha',      priceUnit:4.90,
+   descBox:'Caixa com 24 unidades',                       priceBox:94.08,  qtyBox:24},
+
+  {id:168, name:'Atum em Lata 170g',         emoji:'🐟', cat:'mercado',
+   descUnit:'Atum sólido em óleo 170g — lata',                  priceUnit:6.90,
+   descBox:'Caixa com 24 unidades',                       priceBox:132.48,  qtyBox:24},
+
+  {id:169, name:'Sardinha em Lata 250g',     emoji:'🐟', cat:'mercado',
+   descUnit:'Sardinha em óleo 250g — lata',                     priceUnit:5.90,
+   descBox:'Caixa com 24 unidades',                       priceBox:113.28,  qtyBox:24},
+
+  {id:170, name:'Ervilha em Lata 200g',      emoji:'🟢', cat:'mercado',
+   descUnit:'Ervilha em conserva 200g — lata',                  priceUnit:3.90,
+   descBox:'Caixa com 24 unidades',                       priceBox:74.88,  qtyBox:24},
+
+  {id:171, name:'Azeite de Oliva 500ml',     emoji:'🫒', cat:'mercado',
+   descUnit:'Azeite extra virgem 500ml — garrafa',              priceUnit:24.90,
+   descBox:'Caixa com 6 garrafas',                        priceBox:119.52,  qtyBox:6},
+
+  {id:172, name:'Maionese 500g',             emoji:'🥄', cat:'mercado',
+   descUnit:'Maionese tradicional 500g — pote',                 priceUnit:8.90,
+   descBox:'Caixa com 12 unidades',                       priceBox:85.44,  qtyBox:12},
+
+  {id:173, name:'Molho Shoyu 150ml',         emoji:'🍶', cat:'mercado',
+   descUnit:'Shoyu tradicional 150ml — garrafa',                priceUnit:4.90,
+   descBox:'Caixa com 24 garrafas',                       priceBox:94.08,  qtyBox:24},
+
+  {id:174, name:'Colorau 100g',              emoji:'🌶', cat:'mercado',
+   descUnit:'Colorau urucum 100g — pacote',                     priceUnit:3.90,
+   descBox:'Caixa com 24 pacotes',                        priceBox:74.88,  qtyBox:24},
+
+  {id:175, name:'Alho em Pasta 200g',        emoji:'🧄', cat:'mercado',
+   descUnit:'Alho triturado em pasta 200g — pote',              priceUnit:7.90,
+   descBox:'Caixa com 12 unidades',                       priceBox:75.84,  qtyBox:12},
+
+  {id:176, name:'Café em Pó 500g',           emoji:'☕', cat:'mercado',
+   descUnit:'Café torrado e moído 500g — pacote',               priceUnit:18.90,
+   descBox:'Caixa com 6 pacotes',                         priceBox:90.72,  qtyBox:6},
+
+  {id:177, name:'Açúcar Cristal 1kg',        emoji:'🍬', cat:'mercado',
+   descUnit:'Açúcar cristal 1kg — pacote',                      priceUnit:4.90,
+   descBox:'Fardo com 10 pacotes',                        priceBox:39.20,  qtyBox:10},
+
+  {id:178, name:'Biscoito Recheado 130g',    emoji:'🍪', cat:'mercado',
+   descUnit:'Biscoito recheado sortido 130g — pacote',          priceUnit:3.90,
+   descBox:'Caixa com 20 pacotes',                        priceBox:62.40,  qtyBox:20},
+
+  {id:179, name:'Biscoito Água e Sal 200g',  emoji:'🫓', cat:'mercado',
+   descUnit:'Biscoito água e sal 200g — pacote',                priceUnit:3.90,
+   descBox:'Caixa com 20 pacotes',                        priceBox:62.40,  qtyBox:20},
+
+  {id:180, name:'Achocolatado em Pó 400g',   emoji:'🍫', cat:'mercado',
+   descUnit:'Achocolatado em pó Nescau 400g — lata',            priceUnit:12.90,
+   descBox:'Caixa com 12 unidades',                       priceBox:123.84,  qtyBox:12},
+
+  {id:181, name:'Macarrão Instantâneo',      emoji:'🍜', cat:'mercado',
+   descUnit:'Miojo sabores variados 85g — unidade',             priceUnit:2.90,
+   descBox:'Caixa com 24 unidades',                       priceBox:55.68,  qtyBox:24},
+
+  {id:182, name:'Sabão em Pó 1kg',           emoji:'🧼', cat:'mercado',
+   descUnit:'Sabão em pó multiação 1kg — caixa',                priceUnit:9.90,
+   descBox:'Fardo com 6 caixas',                          priceBox:47.52,  qtyBox:6},
+
+  {id:183, name:'Detergente 500ml',          emoji:'🫧', cat:'mercado',
+   descUnit:'Detergente neutro 500ml — frasco',                 priceUnit:3.90,
+   descBox:'Caixa com 12 frascos',                        priceBox:37.44,  qtyBox:12},
+
+  {id:184, name:'Água Sanitária 1L',         emoji:'💧', cat:'mercado',
+   descUnit:'Água sanitária 1L — frasco',                       priceUnit:4.90,
+   descBox:'Fardo com 12 frascos',                        priceBox:47.04,  qtyBox:12},
+
+  {id:185, name:'Amaciante 1L',              emoji:'🌸', cat:'mercado',
+   descUnit:'Amaciante concentrado 1L — frasco',                priceUnit:9.90,
+   descBox:'Fardo com 6 frascos',                         priceBox:47.52,  qtyBox:6},
+
   // ══════════════════════════════════════════════════════════════
   // BEBIDAS
   // ══════════════════════════════════════════════════════════════
@@ -345,6 +446,32 @@ const IMG = {
   158: 'images/produtos/158.jpg', // Leite Condensado
   159: 'images/produtos/159.jpg', // Ketchup
   160: 'images/produtos/160.jpg', // Mostarda
+
+  161: 'images/produtos/161.jpg', // Arroz Branco 5kg
+  162: 'images/produtos/162.jpg', // Feijão Carioca 1kg
+  163: 'images/produtos/163.jpg', // Farinha de Trigo 1kg
+  164: 'images/produtos/164.jpg', // Fubá 1kg
+  165: 'images/produtos/165.jpg', // Aveia em Flocos 400g
+  166: 'images/produtos/166.jpg', // Extrato de Tomate 340g
+  167: 'images/produtos/167.jpg', // Molho de Tomate 340g
+  168: 'images/produtos/168.jpg', // Atum em Lata 170g
+  169: 'images/produtos/169.jpg', // Sardinha em Lata 250g
+  170: 'images/produtos/170.jpg', // Ervilha em Lata 200g
+  171: 'images/produtos/171.jpg', // Azeite de Oliva 500ml
+  172: 'images/produtos/172.jpg', // Maionese 500g
+  173: 'images/produtos/173.jpg', // Molho Shoyu 150ml
+  174: 'images/produtos/174.jpg', // Colorau 100g
+  175: 'images/produtos/175.jpg', // Alho em Pasta 200g
+  176: 'images/produtos/176.jpg', // Café em Pó 500g
+  177: 'images/produtos/177.jpg', // Açúcar Cristal 1kg
+  178: 'images/produtos/178.jpg', // Biscoito Recheado 130g
+  179: 'images/produtos/179.jpg', // Biscoito Água e Sal 200g
+  180: 'images/produtos/180.jpg', // Achocolatado em Pó 400g
+  181: 'images/produtos/181.jpg', // Macarrão Instantâneo
+  182: 'images/produtos/182.jpg', // Sabão em Pó 1kg
+  183: 'images/produtos/183.jpg', // Detergente 500ml
+  184: 'images/produtos/184.jpg', // Água Sanitária 1L
+  185: 'images/produtos/185.jpg', // Amaciante 1L
 
   // BEBIDAS
   93:  'images/produtos/93.jpg',  // Coca-Cola Original 350ml
