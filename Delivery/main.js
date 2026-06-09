@@ -251,26 +251,6 @@ const products = [
   // SALGADINHOS
   // ══════════════════════════════════════════════════════════════
 
-  // — Elma Chips / PepsiCo
-  {id:61, name:'Elma Chips Onda Original',emoji:'🥔',cat:'salgadinhos',badge:'Top',
-   descUnit:'Batata ondulada original 40g — unidade',    priceUnit:4.00,
-   descBox:'Caixa com 20 unidades',                      priceBox:64.00, qtyBox:20},
-
-  {id:62, name:'Elma Chips Onda Cheddar', emoji:'🧀',cat:'salgadinhos',
-   descUnit:'Batata ondulada cheddar 40g — unidade',     priceUnit:4.00,
-   descBox:'Caixa com 20 unidades',                      priceBox:64.00, qtyBox:20},
-
-  {id:63, name:'Elma Chips Onda Picanha', emoji:'🥩',cat:'salgadinhos',
-   descUnit:'Batata ondulada picanha 40g — unidade',     priceUnit:4.00,
-   descBox:'Caixa com 20 unidades',                      priceBox:64.00, qtyBox:20},
-
-  {id:64, name:'Elma Chips Forno Original',emoji:'🌾',cat:'salgadinhos',
-   descUnit:'Elma Chips de forno original 35g — unidade',priceUnit:3.60,
-   descBox:'Caixa com 20 unidades',                      priceBox:57.60, qtyBox:20},
-
-  {id:65, name:'Elma Chips Forno Mostarda',emoji:'🌾',cat:'salgadinhos',
-   descUnit:'Elma Chips forno mostarda 35g — unidade',   priceUnit:3.60,
-   descBox:'Caixa com 20 unidades',                      priceBox:57.60, qtyBox:20},
 
   {id:66, name:'Ruffles Original',        emoji:'🥔',cat:'salgadinhos',
    descUnit:'Ruffles original 57g — unidade',            priceUnit:5.60,
@@ -780,11 +760,6 @@ const IMG = {
   58:  'images/produtos/58.jpg',  // Guardanapo Estampado
 
   // SALGADINHOS
-  61:  'images/produtos/61.jpg',  // Elma Chips Onda Original
-  62:  'images/produtos/62.jpg',  // Elma Chips Onda Cheddar
-  63:  'images/produtos/63.jpg',  // Elma Chips Onda Picanha
-  64:  'images/produtos/64.jpg',  // Elma Chips Forno Original
-  65:  'images/produtos/65.jpg',  // Elma Chips Forno Mostarda
   66:  'images/produtos/66.jpg',  // Ruffles Original
   67:  'images/produtos/67.jpg',  // Ruffles Cheddar
   68:  'images/produtos/68.jpg',  // Ruffles Churrasco
