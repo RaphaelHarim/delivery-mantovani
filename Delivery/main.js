@@ -194,18 +194,6 @@ const products = [
 
 
 
-  // Toalhas
-  {id:44, name:'Toalha Plástica Lisa',    emoji:'🎉', cat:'festas',
-   descUnit:'Toalha plástica 1,4×2,2m — unidade',        priceUnit:9.60,
-   descBox:'Pacote com 5 unidades',                      priceBox:38.40, qtyBox:5},
-
-  {id:45, name:'Toalha Plástica Estampada',emoji:'🌈',cat:'festas',
-   descUnit:'Toalha plástica estampada 1,4×2,2m — unid.',priceUnit:12.80,
-   descBox:'Pacote com 5 unidades',                      priceBox:51.20, qtyBox:5},
-
-  {id:46, name:'Toalha TNT Lisa',         emoji:'🎀', cat:'festas',
-   descUnit:'Toalha TNT 1,4×2,2m — unidade',             priceUnit:11.20,
-   descBox:'Pacote com 5 unidades',                      priceBox:44.80, qtyBox:5},
 
   // Copos
   {id:47, name:'Copo Plástico 180ml',     emoji:'🥤', cat:'festas',
@@ -786,9 +774,6 @@ const IMG = {
   37:  'images/produtos/37.jpg',  // Confete Colorido
   38:  'images/produtos/38.jpg',  // Serpentina Colorida
   39:  'images/produtos/39.jpg',  // Pistola de Confete
-  44:  'images/produtos/44.jpg',  // Toalha Plastica Lisa
-  45:  'images/produtos/45.jpg',  // Toalha Plastica Estampada
-  46:  'images/produtos/46.jpg',  // Toalha TNT Lisa
   47:  'images/produtos/47.jpg',  // Copo Plastico 180ml
   48:  'images/produtos/48.jpg',  // Copo Plastico 200ml Transparente
   49:  'images/produtos/49.jpg',  // Copo de Papel Estampado
