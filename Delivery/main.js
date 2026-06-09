@@ -256,7 +256,7 @@ const products = [
    descUnit:'Ruffles original 57g — unidade',            priceUnit:5.60,
    descBox:'Caixa com 15 unidades',                      priceBox:67.20, qtyBox:15},
 
-  {id:67, name:'Ruffles Cheddar',         emoji:'🧀',cat:'salgadinhos',
+  {id:67, name:'Ruffles Cebola',          emoji:'🧅',cat:'salgadinhos',
    descUnit:'Ruffles cheddar & cebola 57g — unidade',    priceUnit:5.60,
    descBox:'Caixa com 15 unidades',                      priceBox:67.20, qtyBox:15},
 
@@ -761,7 +761,7 @@ const IMG = {
 
   // SALGADINHOS
   66:  'images/produtos/66.jpg',  // Ruffles Original
-  67:  'images/produtos/67.jpg',  // Ruffles Cheddar
+  67:  'images/produtos/67.jpg',  // Ruffles Cebola
   68:  'images/produtos/68.jpg',  // Ruffles Churrasco
   69:  'images/produtos/69.jpg',  // Cheetos Anel Requeijao
   70:  'images/produtos/70.jpg',  // Cheetos Crunchy Queijo
