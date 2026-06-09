@@ -1,369 +1,59 @@
 // ── DADOS ────────────────────────────────────────────────────
 const CATS = [
-  { id:'todos',       label:'Tudo',         emoji:'🏪', count:0  },
-  { id:'doces',       label:'Doces',        emoji:'🍫', count:0  },
-  { id:'festas',      label:'Festas',       emoji:'🎉', count:0  },
-  { id:'salgadinhos', label:'Salgadinhos',  emoji:'🥨', count:0  },
-  { id:'bebidas',     label:'Bebidas',      emoji:'🥤', count:0  },
+  { id:'todos',   label:'Tudo',    emoji:'🏪', count:0 },
+  { id:'bebidas', label:'Bebidas', emoji:'🥤', count:0 },
+  { id:'mercado', label:'Mercado', emoji:'🛒', count:0 },
 ];
 
 const PB = {
-  doces:'pb-doces', festas:'pb-festas',
-  salgadinhos:'pb-salgados', bebidas:'pb-bebidas'
+  bebidas:'pb-bebidas', mercado:'pb-mercado'
 };
 
 const products = [
 
   // ══════════════════════════════════════════════════════════════
-  // DOCES
+  // MERCADO
   // ══════════════════════════════════════════════════════════════
 
-  // — Sonho de Valsa
-  {id:1,  name:'Sonho de Valsa',          emoji:'💝', cat:'doces', badge:'Clássico',
-   descUnit:'Bombom Lacta recheado — unidade',           priceUnit:3.20,
-   descBox:'Caixa com 16 unidades (258g)',               priceBox:40.96, qtyBox:16},
-
-  // — Ouro Branco
-  {id:2,  name:'Ouro Branco',             emoji:'🤍', cat:'doces', badge:'Clássico',
-   descUnit:'Bombom Lacta chocolate branco — unidade',   priceUnit:3.20,
-   descBox:'Caixa com 16 unidades (258g)',               priceBox:40.96, qtyBox:16},
-
-  // — Pirulito POP
-  {id:3,  name:'Pirulito POP',            emoji:'🍭', cat:'doces',
-   descUnit:'Pirulito POP sortido — unidade',            priceUnit:1.60,
-   descBox:'Pote com 50 unidades',                       priceBox:64.00, qtyBox:50},
-
-  // — Pirulito Coração
-  {id:4,  name:'Pirulito Coração',        emoji:'💗', cat:'doces',
-   descUnit:'Pirulito coração sortido — unidade',        priceUnit:2.40,
-   descBox:'Pote com 30 unidades',                       priceBox:57.60, qtyBox:30},
-
-  // — Balas de Goma
-  {id:5,  name:'Bala de Goma Sortida',    emoji:'🍬', cat:'doces',
-   descUnit:'Bala de goma sortida — unidade',            priceUnit:0.40,
-   descBox:'Pacote com 100 unidades',                    priceBox:32.00, qtyBox:100},
-
-  // — Bala 7 Belo
-  {id:6,  name:'Bala 7 Belo',             emoji:'🟡', cat:'doces',
-   descUnit:'Bala 7 Belo sortida — unidade',             priceUnit:0.40,
-   descBox:'Pacote com 100 unidades',                    priceBox:32.00, qtyBox:100},
-
-  // — Bala Iogurte 100
-  {id:7,  name:'Bala Iogurte 100',        emoji:'🍬', cat:'doces',
-   descUnit:'Bala iogurte 100 sortida — unidade',        priceUnit:0.40,
-   descBox:'Pacote com 100 unidades',                    priceBox:32.00, qtyBox:100},
-
-  // — Mentos por sabor
-  {id:8,  name:'Mentos Frutas',           emoji:'🌈', cat:'doces',
-   descUnit:'Mentos sabor frutas 37,5g — rolo',          priceUnit:3.20,
-   descBox:'Caixa com 16 rolos',                         priceBox:41.60, qtyBox:16},
-
-  {id:9,  name:'Mentos Menta',            emoji:'🟢', cat:'doces',
-   descUnit:'Mentos sabor menta 37,5g — rolo',           priceUnit:3.20,
-   descBox:'Caixa com 16 rolos',                         priceBox:41.60, qtyBox:16},
-
-  {id:10, name:'Mentos Morango',          emoji:'🍓', cat:'doces',
-   descUnit:'Mentos sabor morango 37,5g — rolo',         priceUnit:3.20,
-   descBox:'Caixa com 16 rolos',                         priceBox:41.60, qtyBox:16},
-
-  {id:11, name:'Mentos Tutti-Frutti',     emoji:'🌺', cat:'doces',
-   descUnit:'Mentos tutti-frutti 37,5g — rolo',          priceUnit:3.20,
-   descBox:'Caixa com 16 rolos',                         priceBox:41.60, qtyBox:16},
-
-
-  {id:13, name:'Mentos Watermelon',       emoji:'🍉', cat:'doces',
-   descUnit:'Mentos melancia 37,5g — rolo',              priceUnit:3.20,
-   descBox:'Caixa com 16 rolos',                         priceBox:41.60, qtyBox:16},
-
-  // — Bala Florestal
-  {id:14, name:'Bala Florestal',          emoji:'🌿', cat:'doces',
-   descUnit:'Bala florestal mel/eucalipto — unidade',    priceUnit:0.40,
-   descBox:'Pacote com 100 unidades',                    priceBox:32.00, qtyBox:100},
-
-  // — Butter Toffees
-  {id:15, name:'Butter Toffees Original', emoji:'🧈', cat:'doces',
-   descUnit:'Butter Toffees manteiga — unidade',         priceUnit:0.48,
-   descBox:'Pacote com 100 unidades',                    priceBox:38.40, qtyBox:100},
-
-  {id:16, name:'Butter Toffees Menta',    emoji:'🌀', cat:'doces',
-   descUnit:'Butter Toffees sabor menta — unidade',      priceUnit:0.48,
-   descBox:'Pacote com 100 unidades',                    priceBox:38.40, qtyBox:100},
-
-  {id:17, name:'Butter Toffees Chocolate',emoji:'🍫', cat:'doces',
-   descUnit:'Butter Toffees chocolate — unidade',        priceUnit:0.48,
-   descBox:'Pacote com 100 unidades',                    priceBox:38.40, qtyBox:100},
-
-  // — Moranguete
-  {id:18, name:'Moranguete',              emoji:'🍓', cat:'doces',
-   descUnit:'Bala Moranguete — unidade',                 priceUnit:0.40,
-   descBox:'Pacote com 100 unidades',                    priceBox:32.00, qtyBox:100},
-
-  // — Kit Kat
-  {id:19, name:'Kit Kat Original',        emoji:'🍫', cat:'doces', badge:'Top',
-   descUnit:'Kit Kat wafer leite 45g — unidade',         priceUnit:4.00,
-   descBox:'Caixa com 24 unidades',                      priceBox:76.80, qtyBox:24},
-
-  {id:20, name:'Kit Kat Dark',            emoji:'🟤', cat:'doces',
-   descUnit:'Kit Kat chocolate amargo 45g — unidade',    priceUnit:4.80,
-   descBox:'Caixa com 24 unidades',                      priceBox:92.16, qtyBox:24},
-
-  {id:21, name:'Kit Kat Branco',          emoji:'🤍', cat:'doces',
-   descUnit:'Kit Kat chocolate branco 45g — unidade',    priceUnit:4.80,
-   descBox:'Caixa com 24 unidades',                      priceBox:92.16, qtyBox:24},
-
-  // — Bis Lacta
-  {id:22, name:'Bis Lacta Chocolate',     emoji:'🍪', cat:'doces',
-   descUnit:'Bis wafer coberto chocolate — unidade',     priceUnit:2.00,
-   descBox:'Caixa com 30 unidades',                      priceBox:48.00, qtyBox:30},
-
-  {id:23, name:'Bis Lacta Branco',        emoji:'🍪', cat:'doces',
-   descUnit:'Bis wafer coberto chocolate branco — unid.',priceUnit:2.00,
-   descBox:'Caixa com 30 unidades',                      priceBox:48.00, qtyBox:30},
-
-  {id:24, name:'Bis Lacta Dark',          emoji:'🍪', cat:'doces',
-   descUnit:'Bis wafer coberto dark chocolate — unid.',  priceUnit:2.00,
-   descBox:'Caixa com 30 unidades',                      priceBox:48.00, qtyBox:30},
-
-  // — Caixas de bombom por marca
-  {id:25, name:'Caixa Lacta Sortida',     emoji:'🎁', cat:'doces', badge:'Presente',
-   descUnit:'Caixa bombom Lacta 300g — caixa',           priceUnit:28.00,
-   descBox:'Caixa com 6 unidades',                       priceBox:134.40, qtyBox:6},
-
-  {id:26, name:'Caixa Garoto Sortida',    emoji:'🎁', cat:'doces',
-   descUnit:'Caixa bombom Garoto 300g — caixa',          priceUnit:28.00,
-   descBox:'Caixa com 6 unidades',                       priceBox:134.40, qtyBox:6},
-
-  {id:27, name:'Caixa Nestlé Sortida',    emoji:'🎁', cat:'doces',
-   descUnit:'Caixa bombom Nestlé 251g — caixa',          priceUnit:28.00,
-   descBox:'Caixa com 6 unidades',                       priceBox:134.40, qtyBox:6},
-
-  {id:28, name:'Caixa Kopenhagen',        emoji:'🎁', cat:'doces', badge:'Premium',
-   descUnit:'Caixa bombom Kopenhagen 200g — caixa',      priceUnit:64.00,
-   descBox:'Caixa com 3 unidades',                       priceBox:153.60, qtyBox:3},
-
-
-  // — Outros Doces (item especial com nota)
-  {id:30, name:'Outros Doces — Especificar', emoji:'📝', cat:'doces', badge:'Personalizado',
-   descUnit:'Não achou o que quer? Descreva no campo de obs ao finalizar o pedido.',
-   priceUnit:0.00,
-   descBox:'Consulte disponibilidade pelo WhatsApp.',
-   priceBox:0.00, qtyBox:1},
-
-  // ══════════════════════════════════════════════════════════════
-  // FESTAS
-  // ══════════════════════════════════════════════════════════════
-
-  // Balões
-  {id:31, name:'Balão Latex 9" Colorido', emoji:'🎈', cat:'festas', badge:'Mais vendido',
-   descUnit:'Balão latex liso sortido — unidade',        priceUnit:0.48,
-   descBox:'Pacote com 50 unidades',                     priceBox:12.00, qtyBox:50},
-
-  {id:32, name:'Balão Latex 11" Grande',  emoji:'🎈', cat:'festas',
-   descUnit:'Balão latex 11 pol. colorido — unidade',    priceUnit:0.80,
-   descBox:'Pacote com 50 unidades',                     priceBox:20.00, qtyBox:50},
-
-  {id:33, name:'Balão Metalizado Redondo',emoji:'🪩', cat:'festas',
-   descUnit:'Balão metalizado 45cm — unidade',           priceUnit:4.80,
-   descBox:'Pacote com 10 unidades',                     priceBox:36.00, qtyBox:10},
-
-  {id:34, name:'Balão Metalizado Coração',emoji:'❤️', cat:'festas',
-   descUnit:'Balão coração metalizado 45cm — unidade',   priceUnit:5.60,
-   descBox:'Pacote com 10 unidades',                     priceBox:44.80, qtyBox:10},
-
-  {id:35, name:'Balão Metalizado Estrela', emoji:'⭐', cat:'festas',
-   descUnit:'Balão estrela metalizado 45cm — unidade',   priceUnit:5.60,
-   descBox:'Pacote com 10 unidades',                     priceBox:44.80, qtyBox:10},
-
-  {id:36, name:'Balão Temático Aniversário',emoji:'🎂',cat:'festas',
-   descUnit:'Balão "Happy Birthday" impresso — unidade', priceUnit:6.40,
-   descBox:'Pacote com 10 unidades',                     priceBox:51.20, qtyBox:10},
-
-  // Confetes e Serpentinas
-  {id:37, name:'Confete Colorido',        emoji:'🎊', cat:'festas',
-   descUnit:'Confete papel colorido 25g — pacote',       priceUnit:2.40,
-   descBox:'Caixa com 20 pacotes',                       priceBox:38.40, qtyBox:20},
-
-  {id:38, name:'Serpentina Colorida',     emoji:'🎊', cat:'festas',
-   descUnit:'Serpentina papel 4m — unidade',             priceUnit:1.60,
-   descBox:'Caixa com 50 unidades',                      priceBox:64.00, qtyBox:50},
-
-  {id:39, name:'Pistola de Confete',      emoji:'🎉', cat:'festas', badge:'Diversão',
-   descUnit:'Pistola lança confete 30cm — unidade',      priceUnit:16.00,
-   descBox:'Caixa com 6 unidades',                       priceBox:76.80, qtyBox:6},
-
-
-
-
-
-  // Copos
-  {id:47, name:'Copo Plástico 180ml',     emoji:'🥤', cat:'festas',
-   descUnit:'Copo descartável 180ml — pacote 50un',      priceUnit:4.80,
-   descBox:'Caixa com 10 pacotes (500un)',                priceBox:38.40, qtyBox:10},
-
-  {id:48, name:'Copo Plástico 200ml Transparente',emoji:'🥤',cat:'festas',
-   descUnit:'Copo 200ml transparente — pacote 50un',     priceUnit:5.60,
-   descBox:'Caixa com 10 pacotes (500un)',                priceBox:44.80, qtyBox:10},
-
-  {id:49, name:'Copo de Papel Estampado', emoji:'🎂', cat:'festas',
-   descUnit:'Copo papel 180ml estampado — pacote 10un',  priceUnit:8.00,
-   descBox:'Caixa com 10 pacotes (100un)',                priceBox:64.00, qtyBox:10},
-
-  // Pratos
-  {id:50, name:'Prato Descartável Branco',emoji:'🍽️',cat:'festas',
-   descUnit:'Prato plástico branco — pacote 10un',       priceUnit:3.20,
-   descBox:'Caixa com 20 pacotes (200un)',                priceBox:51.20, qtyBox:20},
-
-  {id:51, name:'Prato Descartável Estampado',emoji:'🍽️',cat:'festas',
-   descUnit:'Prato estampado festivo — pacote 10un',     priceUnit:4.80,
-   descBox:'Caixa com 20 pacotes (200un)',                priceBox:76.80, qtyBox:20},
-
-  // Velas
-  {id:52, name:'Vela de Aniversário Colorida',emoji:'🕯️',cat:'festas',
-   descUnit:'Kit 10 velinhas coloridas — kit',           priceUnit:3.20,
-   descBox:'Caixa com 12 kits',                          priceBox:30.72, qtyBox:12},
-
-  {id:53, name:'Vela Número (0-9)',       emoji:'🕯️', cat:'festas',
-   descUnit:'Vela número avulsa — unidade',              priceUnit:4.00,
-   descBox:'Caixa com 10 unidades',                      priceBox:32.00, qtyBox:10},
-
-  {id:54, name:'Vela Sparkle Dourada',    emoji:'✨', cat:'festas',
-   descUnit:'Vela sparkle brilhante — unidade',          priceUnit:6.40,
-   descBox:'Caixa com 10 unidades',                      priceBox:51.20, qtyBox:10},
-
-  {id:55, name:'Vela Tricks (não apaga)', emoji:'🔥', cat:'festas', badge:'Surpresa',
-   descUnit:'Vela mágica que não apaga — unidade',       priceUnit:4.80,
-   descBox:'Caixa com 10 unidades',                      priceBox:38.40, qtyBox:10},
-
-  // Decoração
-  {id:56, name:'Faixa Feliz Aniversário', emoji:'🎊', cat:'festas',
-   descUnit:'Faixa decorativa plástica — unidade',       priceUnit:8.00,
-   descBox:'Pacote com 5 unidades',                      priceBox:32.00, qtyBox:5},
-
-  {id:57, name:'Chapéu de Festa Conical', emoji:'🎩', cat:'festas',
-   descUnit:'Chapéu de festa colorido — unidade',        priceUnit:2.40,
-   descBox:'Pacote com 10 unidades',                     priceBox:19.20, qtyBox:10},
-
-  {id:58, name:'Guardanapo Estampado',    emoji:'🎀', cat:'festas',
-   descUnit:'Guardanapo festivo — pacote 20un',          priceUnit:4.00,
-   descBox:'Caixa com 10 pacotes (200un)',                priceBox:32.00, qtyBox:10},
-
-  // ══════════════════════════════════════════════════════════════
-  // SALGADINHOS
-  // ══════════════════════════════════════════════════════════════
-
-
-  {id:66, name:'Ruffles Original',        emoji:'🥔',cat:'salgadinhos',
-   descUnit:'Ruffles original 57g — unidade',            priceUnit:5.60,
-   descBox:'Caixa com 15 unidades',                      priceBox:67.20, qtyBox:15},
-
-  {id:67, name:'Ruffles Cebola',          emoji:'🧅',cat:'salgadinhos',
-   descUnit:'Ruffles cheddar & cebola 57g — unidade',    priceUnit:5.60,
-   descBox:'Caixa com 15 unidades',                      priceBox:67.20, qtyBox:15},
-
-  {id:68, name:'Ruffles Churrasco',       emoji:'🔥',cat:'salgadinhos',
-   descUnit:'Ruffles churrasco 57g — unidade',           priceUnit:5.60,
-   descBox:'Caixa com 15 unidades',                      priceBox:67.20, qtyBox:15},
-
-  {id:69, name:'Cheetos Anel Requeijão',  emoji:'🧡',cat:'salgadinhos',badge:'Favorito',
-   descUnit:'Cheetos anel requeijão 45g — unidade',      priceUnit:4.00,
-   descBox:'Caixa com 20 unidades',                      priceBox:64.00, qtyBox:20},
-
-  {id:70, name:'Cheetos Crunchy Queijo',  emoji:'🧡',cat:'salgadinhos',
-   descUnit:'Cheetos crunchy queijo 45g — unidade',      priceUnit:4.00,
-   descBox:'Caixa com 20 unidades',                      priceBox:64.00, qtyBox:20},
-
-  {id:71, name:'Cheetos Crunchy Flamin Hot',emoji:'🌶️',cat:'salgadinhos',badge:'Ardido',
-   descUnit:'Cheetos Flamin Hot 45g — unidade',          priceUnit:4.80,
-   descBox:'Caixa com 20 unidades',                      priceBox:76.80, qtyBox:20},
-
-  {id:72, name:'Doritos Nacho Cheese',    emoji:'🟡',cat:'salgadinhos',
-   descUnit:'Doritos nacho cheese 54g — unidade',        priceUnit:5.60,
-   descBox:'Caixa com 15 unidades',                      priceBox:67.20, qtyBox:15},
-
-  {id:73, name:'Doritos Churrasco',       emoji:'🔴',cat:'salgadinhos',
-   descUnit:'Doritos churrasco 54g — unidade',           priceUnit:5.60,
-   descBox:'Caixa com 15 unidades',                      priceBox:67.20, qtyBox:15},
-
-  {id:74, name:'Doritos Queijo Picante',  emoji:'🌶️',cat:'salgadinhos',
-   descUnit:'Doritos queijo picante 54g — unidade',      priceUnit:5.60,
-   descBox:'Caixa com 15 unidades',                      priceBox:67.20, qtyBox:15},
-
-  // — Forno de Minas / Jangada
-  {id:75, name:'Forno de Minas Palha Italiana',emoji:'🧀',cat:'salgadinhos',
-   descUnit:'Palha italiana queijo 50g — unidade',       priceUnit:4.80,
-   descBox:'Caixa com 18 unidades',                      priceBox:69.12, qtyBox:18},
-
-  // — Yoki (Forno & Fogão)
-  {id:76, name:'Lobito Original',         emoji:'🐺',cat:'salgadinhos',badge:'Clássico',
-   descUnit:'Lobito salgadinho trigo 25g — unidade',     priceUnit:2.00,
-   descBox:'Caixa com 30 unidades',                      priceBox:48.00, qtyBox:30},
-
-  {id:77, name:'Fofura Milho',            emoji:'🌽',cat:'salgadinhos',
-   descUnit:'Fofura salgadinho milho 30g — unidade',     priceUnit:2.00,
-   descBox:'Caixa com 30 unidades',                      priceBox:48.00, qtyBox:30},
-
-  {id:78, name:'Ebicem Camarão',          emoji:'🦐',cat:'salgadinhos',
-   descUnit:'Ebicem sabor camarão 25g — unidade',        priceUnit:2.40,
-   descBox:'Caixa com 25 unidades',                      priceBox:48.00, qtyBox:25},
-
-  {id:79, name:'Pipoca Yoki Salgada',     emoji:'🍿',cat:'salgadinhos',
-   descUnit:'Pipoca pronta salgada 50g — unidade',       priceUnit:2.80,
-   descBox:'Caixa com 20 unidades',                      priceBox:44.80, qtyBox:20},
-
-  {id:80, name:'Pipoca Yoki Manteiga',    emoji:'🍿',cat:'salgadinhos',
-   descUnit:'Pipoca pronta manteiga 50g — unidade',      priceUnit:2.80,
-   descBox:'Caixa com 20 unidades',                      priceBox:44.80, qtyBox:20},
-
-  {id:81, name:'Pipoca Yoki Queijo',      emoji:'🍿',cat:'salgadinhos',
-   descUnit:'Pipoca pronta queijo 50g — unidade',        priceUnit:2.80,
-   descBox:'Caixa com 20 unidades',                      priceBox:44.80, qtyBox:20},
-
-  {id:82, name:'Pipoca Microondas Yoki Manteiga',emoji:'🍿',cat:'salgadinhos',
-   descUnit:'Pipoca microondas manteiga 100g — pacote',  priceUnit:3.60,
-   descBox:'Caixa com 12 pacotes',                       priceBox:34.56, qtyBox:12},
-
-  {id:83, name:'Pipoca Microondas Yoki Ervas',emoji:'🍿',cat:'salgadinhos',
-   descUnit:'Pipoca microondas ervas 100g — pacote',     priceUnit:3.60,
-   descBox:'Caixa com 12 pacotes',                       priceBox:34.56, qtyBox:12},
-
-  // — Pepsico Mix
-  {id:84, name:'Baconzitos',              emoji:'🥓',cat:'salgadinhos',
-   descUnit:'Baconzitos snack bacon 67g — unidade',      priceUnit:4.80,
-   descBox:'Caixa com 15 unidades',                      priceBox:57.60, qtyBox:15},
-
-  {id:85, name:'Twistos Original',        emoji:'🌀',cat:'salgadinhos',
-   descUnit:'Twistos original 55g — unidade',            priceUnit:4.00,
-   descBox:'Caixa com 18 unidades',                      priceBox:57.60, qtyBox:18},
-
-  {id:86, name:'Twistos Queijo',          emoji:'🧀',cat:'salgadinhos',
-   descUnit:'Twistos queijo 55g — unidade',              priceUnit:4.00,
-   descBox:'Caixa com 18 unidades',                      priceBox:57.60, qtyBox:18},
-
-  // — Lucky / Marilan
-  {id:87, name:'Lucky Churrasco',         emoji:'🔥',cat:'salgadinhos',
-   descUnit:'Lucky churrasco 60g — unidade',             priceUnit:3.20,
-   descBox:'Caixa com 20 unidades',                      priceBox:51.20, qtyBox:20},
-
-  {id:88, name:'Lucky Queijo',            emoji:'🧀',cat:'salgadinhos',
-   descUnit:'Lucky queijo 60g — unidade',                priceUnit:3.20,
-   descBox:'Caixa com 20 unidades',                      priceBox:51.20, qtyBox:20},
-
-  // — Pringles
-  {id:89, name:'Pringles Original',       emoji:'🥫',cat:'salgadinhos',badge:'Premium',
-   descUnit:'Pringles original 114g — lata',             priceUnit:14.40,
-   descBox:'Caixa com 12 latas',                         priceBox:138.24,qtyBox:12},
-
-  {id:90, name:'Pringles Creme & Cebola', emoji:'🥫',cat:'salgadinhos',
-   descUnit:'Pringles cream & onion 114g — lata',        priceUnit:14.40,
-   descBox:'Caixa com 12 latas',                         priceBox:138.24,qtyBox:12},
-
-  {id:91, name:'Pringles Pizza',          emoji:'🍕',cat:'salgadinhos',
-   descUnit:'Pringles pizza 114g — lata',                priceUnit:14.40,
-   descBox:'Caixa com 12 latas',                         priceBox:138.24,qtyBox:12},
-
-  {id:92, name:'Pringles BBQ',            emoji:'🔥',cat:'salgadinhos',
-   descUnit:'Pringles BBQ 114g — lata',                  priceUnit:14.40,
-   descBox:'Caixa com 12 latas',                         priceBox:138.24,qtyBox:12},
+  {id:151, name:'Macarrão',              emoji:'🍝', cat:'mercado',
+   descUnit:'Macarrão espaguete 500g — pacote',            priceUnit:3.90,
+   descBox:'Caixa com 12 pacotes',                         priceBox:37.44, qtyBox:12},
+
+  {id:152, name:'Óleo de Soja',          emoji:'🫙', cat:'mercado',
+   descUnit:'Óleo de soja 900ml — garrafa',                priceUnit:8.90,
+   descBox:'Fardo com 6 garrafas',                         priceBox:42.72, qtyBox:6},
+
+  {id:153, name:'Vinagre',               emoji:'🍶', cat:'mercado',
+   descUnit:'Vinagre de álcool 750ml — garrafa',           priceUnit:3.20,
+   descBox:'Caixa com 12 garrafas',                        priceBox:30.72, qtyBox:12},
+
+  {id:154, name:'Sal',                   emoji:'🧂', cat:'mercado',
+   descUnit:'Sal refinado iodado 1kg — pacote',            priceUnit:2.40,
+   descBox:'Fardo com 12 pacotes',                         priceBox:23.04, qtyBox:12},
+
+  {id:155, name:'Tempero Completo',      emoji:'🌿', cat:'mercado',
+   descUnit:'Tempero completo Sazon 60g — pacote',         priceUnit:4.80,
+   descBox:'Caixa com 12 pacotes',                         priceBox:46.08, qtyBox:12},
+
+  {id:156, name:'Lata de Milho',         emoji:'🌽', cat:'mercado',
+   descUnit:'Milho verde em lata 200g — unidade',          priceUnit:3.90,
+   descBox:'Caixa com 12 unidades',                        priceBox:37.44, qtyBox:12},
+
+  {id:157, name:'Creme de Leite',        emoji:'🥛', cat:'mercado',
+   descUnit:'Creme de leite 200g — caixinha',              priceUnit:4.50,
+   descBox:'Caixa com 12 unidades',                        priceBox:43.20, qtyBox:12},
+
+  {id:158, name:'Leite Condensado',      emoji:'🍮', cat:'mercado',
+   descUnit:'Leite condensado 395g — caixinha',            priceUnit:5.90,
+   descBox:'Caixa com 12 unidades',                        priceBox:56.64, qtyBox:12},
+
+  {id:159, name:'Ketchup',               emoji:'🍅', cat:'mercado',
+   descUnit:'Ketchup tradicional 397g — squeeze',          priceUnit:7.90,
+   descBox:'Caixa com 12 unidades',                        priceBox:75.84, qtyBox:12},
+
+  {id:160, name:'Mostarda',              emoji:'💛', cat:'mercado',
+   descUnit:'Mostarda tradicional 260g — squeeze',         priceUnit:5.90,
+   descBox:'Caixa com 12 unidades',                        priceBox:56.64, qtyBox:12},
 
   // ══════════════════════════════════════════════════════════════
   // BEBIDAS
@@ -641,92 +331,20 @@ function applyFilters(){
 }
 
 // ── URLs DAS IMAGENS DOS PRODUTOS ────────────────────────────
-// Cole a URL da imagem entre as aspas de cada produto.
-// Exemplo:  19: 'https://site.com/kitkat.jpg',
-// Deixe '' para manter o fundo branco enquanto a foto nao estiver pronta.
 
 const IMG = {
-  // DOCES
-  1:   'images/produtos/1.jpg',   // Sonho de Valsa
-  2:   'images/produtos/2.jpg',   // Ouro Branco
-  3:   'images/produtos/3.jpg',   // Pirulito POP
-  4:   'images/produtos/4.jpg',   // Pirulito Coracao
-  5:   'images/produtos/5.jpg',   // Bala de Goma Sortida
-  6:   'images/produtos/6.jpg',   // Bala 7 Belo
-  7:   'images/produtos/7.jpg',   // Bala Iogurte 100
-  8:   'images/produtos/8.jpg',   // Mentos Frutas
-  9:   'images/produtos/9.jpg',   // Mentos Menta
-  10:  'images/produtos/10.jpg',  // Mentos Morango
-  11:  'images/produtos/11.jpg',  // Mentos Tutti-Frutti
-  13:  'images/produtos/13.jpg',  // Mentos Watermelon
-  14:  'images/produtos/14.jpg',  // Bala Florestal
-  15:  'images/produtos/15.jpg',  // Butter Toffees Original
-  16:  'images/produtos/16.jpg',  // Butter Toffees Menta
-  17:  'images/produtos/17.jpg',  // Butter Toffees Chocolate
-  18:  'images/produtos/18.jpg',  // Moranguete
-  19:  'images/produtos/19.jpg',  // Kit Kat Original
-  20:  'images/produtos/20.jpg',  // Kit Kat Dark
-  21:  'images/produtos/21.jpg',  // Kit Kat Branco
-  22:  'images/produtos/22.jpg',  // Bis Lacta Chocolate
-  23:  'images/produtos/23.jpg',  // Bis Lacta Branco
-  24:  'images/produtos/24.jpg',  // Bis Lacta Dark
-  25:  'images/produtos/25.jpg',  // Caixa Lacta Sortida
-  26:  'images/produtos/26.jpg',  // Caixa Garoto Sortida
-  27:  'images/produtos/27.jpg',  // Caixa Nestle Sortida
-  28:  'images/produtos/28.jpg',  // Caixa Kopenhagen
-  30:  'images/produtos/30.jpg',  // Outros Doces
 
-  // FESTAS
-  31:  'images/produtos/31.jpg',  // Balao Latex 9pol Colorido
-  32:  'images/produtos/32.jpg',  // Balao Latex 11pol Grande
-  33:  'images/produtos/33.jpg',  // Balao Metalizado Redondo
-  34:  'images/produtos/34.jpg',  // Balao Metalizado Coracao
-  35:  'images/produtos/35.jpg',  // Balao Metalizado Estrela
-  36:  'images/produtos/36.jpg',  // Balao Tematico Aniversario
-  37:  'images/produtos/37.jpg',  // Confete Colorido
-  38:  'images/produtos/38.jpg',  // Serpentina Colorida
-  39:  'images/produtos/39.jpg',  // Pistola de Confete
-  47:  'images/produtos/47.jpg',  // Copo Plastico 180ml
-  48:  'images/produtos/48.jpg',  // Copo Plastico 200ml Transparente
-  49:  'images/produtos/49.jpg',  // Copo de Papel Estampado
-  50:  'images/produtos/50.jpg',  // Prato Descartavel Branco
-  51:  'images/produtos/51.jpg',  // Prato Descartavel Estampado
-  52:  'images/produtos/52.jpg',  // Vela de Aniversario Colorida
-  53:  'images/produtos/53.jpg',  // Vela Numero (0-9)
-  54:  'images/produtos/54.jpg',  // Vela Sparkle Dourada
-  55:  'images/produtos/55.jpg',  // Vela Tricks (nao apaga)
-  56:  'images/produtos/56.jpg',  // Faixa Feliz Aniversario
-  57:  'images/produtos/57.jpg',  // Chapeu de Festa Conical
-  58:  'images/produtos/58.jpg',  // Guardanapo Estampado
-
-  // SALGADINHOS
-  66:  'images/produtos/66.jpg',  // Ruffles Original
-  67:  'images/produtos/67.jpg',  // Ruffles Cebola
-  68:  'images/produtos/68.jpg',  // Ruffles Churrasco
-  69:  'images/produtos/69.jpg',  // Cheetos Anel Requeijao
-  70:  'images/produtos/70.jpg',  // Cheetos Crunchy Queijo
-  71:  'images/produtos/71.jpg',  // Cheetos Crunchy Flamin Hot
-  72:  'images/produtos/72.jpg',  // Doritos Nacho Cheese
-  73:  'images/produtos/73.jpg',  // Doritos Churrasco
-  74:  'images/produtos/74.jpg',  // Doritos Queijo Picante
-  75:  'images/produtos/75.jpg',  // Forno de Minas Palha Italiana
-  76:  'images/produtos/76.jpg',  // Lobito Original
-  77:  'images/produtos/77.jpg',  // Fofura Milho
-  78:  'images/produtos/78.jpg',  // Ebicem Camarao
-  79:  'images/produtos/79.jpg',  // Pipoca Yoki Salgada
-  80:  'images/produtos/80.jpg',  // Pipoca Yoki Manteiga
-  81:  'images/produtos/81.jpg',  // Pipoca Yoki Queijo
-  82:  'images/produtos/82.jpg',  // Pipoca Microondas Yoki Manteiga
-  83:  'images/produtos/83.jpg',  // Pipoca Microondas Yoki Ervas
-  84:  'images/produtos/84.jpg',  // Baconzitos
-  85:  'images/produtos/85.jpg',  // Twistos Original
-  86:  'images/produtos/86.jpg',  // Twistos Queijo
-  87:  'images/produtos/87.jpg',  // Lucky Churrasco
-  88:  'images/produtos/88.jpg',  // Lucky Queijo
-  89:  'images/produtos/89.jpg',  // Pringles Original
-  90:  'images/produtos/90.jpg',  // Pringles Creme e Cebola
-  91:  'images/produtos/91.jpg',  // Pringles Pizza
-  92:  'images/produtos/92.jpg',  // Pringles BBQ
+  // MERCADO
+  151: 'images/produtos/151.jpg', // Macarrao
+  152: 'images/produtos/152.jpg', // Oleo de Soja
+  153: 'images/produtos/153.jpg', // Vinagre
+  154: 'images/produtos/154.jpg', // Sal
+  155: 'images/produtos/155.jpg', // Tempero Completo
+  156: 'images/produtos/156.jpg', // Lata de Milho
+  157: 'images/produtos/157.jpg', // Creme de Leite
+  158: 'images/produtos/158.jpg', // Leite Condensado
+  159: 'images/produtos/159.jpg', // Ketchup
+  160: 'images/produtos/160.jpg', // Mostarda
 
   // BEBIDAS
   93:  'images/produtos/93.jpg',  // Coca-Cola Original 350ml

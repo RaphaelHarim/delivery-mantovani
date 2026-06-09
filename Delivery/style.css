@@ -128,7 +128,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.92);backdrop-
 .add-btn.ok{background:#22C55E}
 
 /* bgs produto — fundo branco para exibir fotos */
-.pb-doces,.pb-bebidas,.pb-mercado,.pb-festas,.pb-salgados,.pb-limpeza{background:#fff}
+.pb-bebidas,.pb-mercado{background:#fff}
 
 /* ── PROMO BANNER ── */
 .promo-wrap{margin:40px 0}

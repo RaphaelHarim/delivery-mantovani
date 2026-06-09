@@ -51,6 +51,7 @@
     .pb-festas  {background:linear-gradient(145deg,#FFFBEB,#FEF9C3)}
     .pb-salgados{background:linear-gradient(145deg,#FFF5F0,#FFE4D6)}
     .pb-bebidas {background:linear-gradient(145deg,#EBF8FF,#DBEAFE)}
+    .pb-mercado {background:linear-gradient(145deg,#ECFDF5,#D1FAE5)}
 
     .pcard-img img{width:100%;height:100%;object-fit:contain;padding:8px;display:block}
     .pcard-img .efb{font-size:2.8rem;display:none;align-items:center;justify-content:center;width:100%;height:100%}
@@ -69,7 +70,7 @@
     .pcat{margin-top:4px;display:inline-flex;align-items:center;gap:4px;font-size:.62rem;font-weight:600;color:var(--sub)}
     .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
     .d-doces{background:#F472B6} .d-festas{background:#FBBF24}
-    .d-salgadinhos{background:#F97316} .d-bebidas{background:#60A5FA}
+    .d-salgadinhos{background:#F97316} .d-bebidas{background:#60A5FA} .d-mercado{background:#34D399}
 
     /* ── ACTION BAR ── */
     .abar{position:fixed;bottom:0;left:0;right:0;background:var(--blue);padding:16px 5%;display:flex;align-items:center;justify-content:space-between;gap:16px;transform:translateY(110%);transition:transform .32s cubic-bezier(.34,1.2,.64,1);z-index:200;box-shadow:0 -4px 28px rgba(0,0,0,.28);flex-wrap:wrap}
@@ -104,17 +105,15 @@
 <nav class="anav">
   <a href="../../index.html">← Voltar ao site</a>
   <h1>Gerenciar Fotos dos Produtos</h1>
-  <div class="badge"><b id="okCount">0</b> / 120 com foto</div>
+  <div class="badge"><b id="okCount">0</b> / 54 com foto</div>
 </nav>
 <div class="pbar-wrap"><div class="pbar-fill" id="pbarFill"></div></div>
 
 <!-- FILTROS -->
 <div class="filters">
   <button class="fpill active" data-cat="todos"        onclick="setCat(this)">🏪 Tudo</button>
-  <button class="fpill"        data-cat="doces"        onclick="setCat(this)">🍫 Doces</button>
-  <button class="fpill"        data-cat="festas"       onclick="setCat(this)">🎉 Festas</button>
-  <button class="fpill"        data-cat="salgadinhos"  onclick="setCat(this)">🥨 Salgadinhos</button>
   <button class="fpill"        data-cat="bebidas"      onclick="setCat(this)">🥤 Bebidas</button>
+  <button class="fpill"        data-cat="mercado"      onclick="setCat(this)">🛒 Mercado</button>
   <div class="fsep"></div>
   <button class="fpill ok-pill"   data-st="ok"      onclick="setSt(this)">✓ Com foto</button>
   <button class="fpill miss-pill" data-st="missing" onclick="setSt(this)">✕ Sem foto</button>
@@ -156,85 +155,17 @@
 <script>
 // ── DADOS DOS PRODUTOS ────────────────────────────────────────
 const PRODS = [
-  // DOCES
-  {id:1,  name:'Sonho de Valsa',              emoji:'💝', cat:'doces'},
-  {id:2,  name:'Ouro Branco',                 emoji:'🤍', cat:'doces'},
-  {id:3,  name:'Pirulito POP',                emoji:'🍭', cat:'doces'},
-  {id:4,  name:'Pirulito Coração',            emoji:'💗', cat:'doces'},
-  {id:5,  name:'Bala de Goma Sortida',        emoji:'🍬', cat:'doces'},
-  {id:6,  name:'Bala 7 Belo',                 emoji:'🟡', cat:'doces'},
-  {id:7,  name:'Bala Iogurte 100',            emoji:'🍬', cat:'doces'},
-  {id:8,  name:'Mentos Frutas',               emoji:'🌈', cat:'doces'},
-  {id:9,  name:'Mentos Menta',                emoji:'🟢', cat:'doces'},
-  {id:10, name:'Mentos Morango',              emoji:'🍓', cat:'doces'},
-  {id:11, name:'Mentos Tutti-Frutti',         emoji:'🌺', cat:'doces'},
-  {id:13, name:'Mentos Watermelon',           emoji:'🍉', cat:'doces'},
-  {id:14, name:'Bala Florestal',              emoji:'🌿', cat:'doces'},
-  {id:15, name:'Butter Toffees Original',     emoji:'🧈', cat:'doces'},
-  {id:16, name:'Butter Toffees Menta',        emoji:'🌀', cat:'doces'},
-  {id:17, name:'Butter Toffees Chocolate',    emoji:'🍫', cat:'doces'},
-  {id:18, name:'Moranguete',                  emoji:'🍓', cat:'doces'},
-  {id:19, name:'Kit Kat Original',            emoji:'🍫', cat:'doces'},
-  {id:20, name:'Kit Kat Dark',                emoji:'🟤', cat:'doces'},
-  {id:21, name:'Kit Kat Branco',              emoji:'🤍', cat:'doces'},
-  {id:22, name:'Bis Lacta Chocolate',         emoji:'🍪', cat:'doces'},
-  {id:23, name:'Bis Lacta Branco',            emoji:'🍪', cat:'doces'},
-  {id:24, name:'Bis Lacta Dark',              emoji:'🍪', cat:'doces'},
-  {id:25, name:'Caixa Lacta Sortida',         emoji:'🎁', cat:'doces'},
-  {id:26, name:'Caixa Garoto Sortida',        emoji:'🎁', cat:'doces'},
-  {id:27, name:'Caixa Nestlé Sortida',        emoji:'🎁', cat:'doces'},
-  {id:28, name:'Caixa Kopenhagen',            emoji:'🎁', cat:'doces'},
-  {id:30, name:'Outros Doces',                emoji:'📝', cat:'doces'},
-  // FESTAS
-  {id:31, name:'Balão Latex 9"',              emoji:'🎈', cat:'festas'},
-  {id:32, name:'Balão Latex 11"',             emoji:'🎈', cat:'festas'},
-  {id:33, name:'Balão Metalizado Redondo',    emoji:'🪩', cat:'festas'},
-  {id:34, name:'Balão Metalizado Coração',    emoji:'❤️', cat:'festas'},
-  {id:35, name:'Balão Metalizado Estrela',    emoji:'⭐', cat:'festas'},
-  {id:36, name:'Balão Temático Aniversário',  emoji:'🎂', cat:'festas'},
-  {id:37, name:'Confete Colorido',            emoji:'🎊', cat:'festas'},
-  {id:38, name:'Serpentina Colorida',         emoji:'🎊', cat:'festas'},
-  {id:39, name:'Pistola de Confete',          emoji:'🎉', cat:'festas'},
-  {id:47, name:'Copo Plástico 180ml',         emoji:'🥤', cat:'festas'},
-  {id:48, name:'Copo Plástico 200ml',         emoji:'🥤', cat:'festas'},
-  {id:49, name:'Copo de Papel Estampado',     emoji:'🎂', cat:'festas'},
-  {id:50, name:'Prato Descartável Branco',    emoji:'🍽️', cat:'festas'},
-  {id:51, name:'Prato Descartável Estampado', emoji:'🍽️', cat:'festas'},
-  {id:52, name:'Vela de Aniversário',         emoji:'🕯️', cat:'festas'},
-  {id:53, name:'Vela Número (0–9)',           emoji:'🕯️', cat:'festas'},
-  {id:54, name:'Vela Sparkle Dourada',        emoji:'✨', cat:'festas'},
-  {id:55, name:'Vela Tricks (não apaga)',     emoji:'🔥', cat:'festas'},
-  {id:56, name:'Faixa Feliz Aniversário',     emoji:'🎊', cat:'festas'},
-  {id:57, name:'Chapéu de Festa',             emoji:'🎩', cat:'festas'},
-  {id:58, name:'Guardanapo Estampado',        emoji:'🎀', cat:'festas'},
-  // SALGADINHOS
-  {id:66, name:'Ruffles Original',            emoji:'🥔', cat:'salgadinhos'},
-  {id:67, name:'Ruffles Cebola',              emoji:'🧅', cat:'salgadinhos'},
-  {id:68, name:'Ruffles Churrasco',           emoji:'🔥', cat:'salgadinhos'},
-  {id:69, name:'Cheetos Anel Requeijão',      emoji:'🧡', cat:'salgadinhos'},
-  {id:70, name:'Cheetos Crunchy Queijo',      emoji:'🧡', cat:'salgadinhos'},
-  {id:71, name:'Cheetos Flamin Hot',          emoji:'🌶️', cat:'salgadinhos'},
-  {id:72, name:'Doritos Nacho Cheese',        emoji:'🟡', cat:'salgadinhos'},
-  {id:73, name:'Doritos Churrasco',           emoji:'🔴', cat:'salgadinhos'},
-  {id:74, name:'Doritos Queijo Picante',      emoji:'🌶️', cat:'salgadinhos'},
-  {id:75, name:'Forno de Minas Palha Italiana',emoji:'🧀',cat:'salgadinhos'},
-  {id:76, name:'Lobito Original',             emoji:'🐺', cat:'salgadinhos'},
-  {id:77, name:'Fofura Milho',                emoji:'🌽', cat:'salgadinhos'},
-  {id:78, name:'Ebicem Camarão',              emoji:'🦐', cat:'salgadinhos'},
-  {id:79, name:'Pipoca Yoki Salgada',         emoji:'🍿', cat:'salgadinhos'},
-  {id:80, name:'Pipoca Yoki Manteiga',        emoji:'🍿', cat:'salgadinhos'},
-  {id:81, name:'Pipoca Yoki Queijo',          emoji:'🍿', cat:'salgadinhos'},
-  {id:82, name:'Pipoca Microondas Manteiga',  emoji:'🍿', cat:'salgadinhos'},
-  {id:83, name:'Pipoca Microondas Ervas',     emoji:'🍿', cat:'salgadinhos'},
-  {id:84, name:'Baconzitos',                  emoji:'🥓', cat:'salgadinhos'},
-  {id:85, name:'Twistos Original',            emoji:'🌀', cat:'salgadinhos'},
-  {id:86, name:'Twistos Queijo',              emoji:'🧀', cat:'salgadinhos'},
-  {id:87, name:'Lucky Churrasco',             emoji:'🔥', cat:'salgadinhos'},
-  {id:88, name:'Lucky Queijo',                emoji:'🧀', cat:'salgadinhos'},
-  {id:89, name:'Pringles Original',           emoji:'🥫', cat:'salgadinhos'},
-  {id:90, name:'Pringles Creme & Cebola',     emoji:'🥫', cat:'salgadinhos'},
-  {id:91, name:'Pringles Pizza',              emoji:'🍕', cat:'salgadinhos'},
-  {id:92, name:'Pringles BBQ',                emoji:'🔥', cat:'salgadinhos'},
+  // MERCADO
+  {id:151, name:'Macarrão',              emoji:'🍝', cat:'mercado'},
+  {id:152, name:'Óleo de Soja',          emoji:'🫙', cat:'mercado'},
+  {id:153, name:'Vinagre',               emoji:'🍶', cat:'mercado'},
+  {id:154, name:'Sal',                   emoji:'🧂', cat:'mercado'},
+  {id:155, name:'Tempero Completo',      emoji:'🌿', cat:'mercado'},
+  {id:156, name:'Lata de Milho',         emoji:'🌽', cat:'mercado'},
+  {id:157, name:'Creme de Leite',        emoji:'🥛', cat:'mercado'},
+  {id:158, name:'Leite Condensado',      emoji:'🍮', cat:'mercado'},
+  {id:159, name:'Ketchup',               emoji:'🍅', cat:'mercado'},
+  {id:160, name:'Mostarda',              emoji:'💛', cat:'mercado'},
   // BEBIDAS
   {id:93,  name:'Coca-Cola Original 350ml',   emoji:'🥤', cat:'bebidas'},
   {id:94,  name:'Coca-Cola Original 600ml',   emoji:'🥤', cat:'bebidas'},
@@ -282,9 +213,9 @@ const PRODS = [
   {id:136, name:'Toddynho 200ml',             emoji:'🍫', cat:'bebidas'},
 ];
 
-const PB  = {doces:'pb-doces',festas:'pb-festas',salgadinhos:'pb-salgados',bebidas:'pb-bebidas'};
-const DOT = {doces:'d-doces', festas:'d-festas', salgadinhos:'d-salgadinhos',bebidas:'d-bebidas'};
-const CAT = {doces:'Doce',    festas:'Festa',     salgadinhos:'Salgadinho',   bebidas:'Bebida'};
+const PB  = {bebidas:'pb-bebidas', mercado:'pb-mercado'};
+const DOT = {bebidas:'d-bebidas',  mercado:'d-mercado'};
+const CAT = {bebidas:'Bebida',     mercado:'Mercado'};
 
 // ── ESTADO ────────────────────────────────────────────────────
 let imgStatus   = {};   // id → true se tem foto
